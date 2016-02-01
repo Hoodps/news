@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<title>myzaker</title>
+	<script src="js/jquery-2.1.1.js"></script>
+	<style>
+		*{padding: 0;margin: 0}
+		body{margin: 0;-webkit-font-smoothing:antialiased;}
+		ul,li{list-style-type: none}
+		a{text-decoration: none;color:#000;}
+		a:visited{color:#888;}
+
+		#head_box{
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			background: #fff;
+			border-bottom: 1px solid #e0e0e0;
+		}
+		#head{
+			width: 100%;
+			opacity: 0.95;
+			background-color: #f84444;
+			height: 42px;
+			overflow: hidden;
+		}
+		.titlebar_left{
+			overflow: hidden;
+			text-decoration: none;
+			position: relative;
+			height: 2.1em;
+
+			background: url(images/tab_border.png) no-repeat right top;
+			background-size: 0.2em 0.2em;
+		}
+		.titlebar{
+			list-style-type: none;
+			margin: 0px;
+			display: block;
+			margin-left: 5px;
+			white-space: nowrap;
+			position: absolute;
+		}
+		.titlebar a{
+			line-height: 2em;
+			text-align: center;
+			padding:0 8px 0;
+			display: inline-block;
+			white-space: nowrap;
+		}
+		.titlebar a:visited{
+			color:#000;
+		}
+
+		.titlebar_right{
+			float: right;
+			height: 34px;
+		}
+
+		.titlebar_right a{
+			color: #f84444;
+			width: 2em;
+			height: 2.3em;
+			line-height: 2.3em;
+			text-align: center;
+			margin: 0 8px 0;
+			display: inline-block;
+			white-space: nowrap;
+		}
+		div.titlebar a.on:visited {
+		    color: #f84444;
+		}
+		.tb{
+			background: #fff;
+		}
+		#infinite_scroll{
+			padding:0px 15px;
+			overflow: hidden;
+		}
+
+		.cell{
+			border-bottom: 1px solid #eee;
+			padding: 14px 0;
+			display: -webkit-box;
+
+		    -webkit-box-orient: horizontal;
+		    -webkit-box-pack: inherit;
+		    -webkit-box-align: center;
+		}
+		.cell .cell_left{
+			width: 67%;
+		}
+		.title{
+			font-size: 1.1em;
+			line-height: 1.3em;
+			color:#262626;
+		}
+		.author{
+			line-height: 1.0em;
+			font-size: 0.6em;
+			color:#999;
+			margin-top:5px;
+		}
+		.date{
+			margin-left: 10px;
+		}
+		.cell .pic-cover{
+			width: 30%;
+			padding-bottom: 22.5%;
+			margin-left: 3%;
+		    background-size: cover;
+		    background-position: 50% 70%;
+		    background-repeat: no-repeat;
+		    border: 1px solid;
+		    border-color: rgba(232,232,232,.5);
+
+		}
+		p#back-to-top{
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: none;
+		}
+		p#back-to-top a{
+			text-align: center;
+			text-decoration: none;
+			color:#d1d1d1;
+			display: block;
+			width: 50px;
+		}
+		p#back-to-top a span{
+			background: url(images/top_3.png) no-repeat center center;
+			width: 50px;
+			height: 50px;
+			display: block;
+			border-radius: 1px;
+			background-size: 50px;
+			margin-bottom: 5px;
+		}
+		a.on{
+			border-bottom: 0.2em solid #f84444;
+			color: #f84444;
+		}
+	</style>
+</head>
+<body>
+	<p id="back-to-top">
+		<a href="#top">
+			<span></span>
+		</a>
+	</p>
+
+	<div id="head_box">
+		<div id="head">
+			<div style="float:left">
+				<div style="height:44px;padding-left:15px;display:table-cell;vertical-align:middle;">
+					<img src="images/ZAKER_logo.png" width="77" alt="">
+				</div>
+			</div>
+			<div style="float:right;width:90px">
+				<div style="height:44px;display:table-cell;vertical-align:middle;">
+					<img src="images/slogan_new.png" width="77" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="titlebar_right">
+			<a href="" title="">
+				<img src="images/add.png" width="12" alt="">
+			</a>
+		</div>
+		<div class="titlebar_left">
+			<div class="titlebar">
+				<a ret="660" href="#">热点</a>
+				<a ret="9" href="#">娱乐</a>
+				<a ret="7" href="#">汽车</a>
+				<a class="on" ret="8" href="#">体育</a>
+				<a ret="13" href="#">科技</a>
+				<a ret="10721" href="#">段子</a>
+				<a ret="1156" href="#">美女</a>
+				<a ret="1" href="#">国内</a>
+				<a ret="2" href="#">国际</a>
+				<a ret="3" href="#">军事</a>
+				<a ret="4" href="#">财经</a>
+				<a ret="5" href="#">互联网</a>
+				<a ret="11" href="#">教育</a></div>
+		</div>
+	</div>
+
+	<div class="tb" style="margin-top:78px">
+		<div id="infinite_scroll">
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/1.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/2.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/3.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/4.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/5.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/1.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/1.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+
+			<a href="#" title="">
+				<div class="cell">
+					<div class="cell_left">
+						<div class="middle">
+							<div class="title"> 小乳娇臀若火 她为何成淫荡族第 1 人</div>
+							<div class="author">
+								<span>3G门户.体育</span>
+								<span class="date">8小时前</span>
+							</div>
+						</div>
+					</div>
+					<div class="pic-cover" style="background-image:url(images/1.jpg)">
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</a>
+
+
+
+		</div>
+	</div>
+
+	<script>
+        $(document).ready(function(){
+        	$(window).scroll(function(){
+        		//console.log($(this).scrollTop());
+        		$(this).scrollTop() != 0 ? 
+        		$('#back-to-top').fadeIn() : $('#back-to-top').fadeOut();
+        	});
+
+        	$('#back-to-top').click(function(){
+        		$('body,html').animate({
+        			scrollTop:0
+        		},800);
+        	});
+        });
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

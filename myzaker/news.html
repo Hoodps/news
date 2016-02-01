@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>news</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background: #fff none repeat scroll 0 0;
+		    color: #3e3e3e;
+		    font-size: 17px;
+		    line-height: 1.5em;
+		    overflow: auto;
+		}
+		img {
+		    max-width: 100%;
+		}
+		#downTips{
+			position: fixed;
+			width: 100%;
+			z-index:99;
+			height: 42px;
+			overflow: hidden;
+			top:0;
+
+		}
+		.dl_btn{
+			float: left;
+		}
+		.dl_btn a,.dl_btn2 a{
+			margin: 13px 0 0 15px;
+			width: 56px;
+			background-image:url(images/head_new.png);
+			background-repeat: no-repeat;
+			background-size: 159px auto;
+			display: block;
+			height: 17px;
+		}
+		.dl_btn2{
+			float: right;
+
+		}
+		.dl_btn2 a{
+			background-position: 0 -17px;
+			margin: 13px 15px 0 0;
+			width: 159px;
+		}
+		#downTips_alpha{
+			background: #e53e3e none repeat scroll 0 0;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+		}
+
+		#news_template_03_title{
+			padding-bottom: 0.5em;
+		}
+		#news_template_03_titleContent{
+			font-size: 26px;
+			height: auto;
+			line-height: 130%;
+			padding-left: 3.5%;
+			padding-right: 3%;
+			padding-top: 1em;
+			text-align: left;
+		}	
+		#news_template_03_AuthorAndTime{
+			color: #828282;
+			font-size: 14px;
+			line-height: 130%;
+			padding-bottom: 10px;
+			padding-left: 3.5%;
+			padding-top:10px;
+			text-align: left;
+		}
+		#content{
+			counter-reset: section;
+			margin: 0 1em;
+			word-wrap:break-word;
+		}
+		p{
+			margin: 0;
+			padding: 0.4em 0;
+		}
+		.img_box{
+			margin-bottom: 0.9em;
+			min-height: 100px;
+			text-align: center;
+			width: 100%;
+		}
+		.content_img_div{
+			background: transparent url(images/content_loading.png) no-repeat scroll center center;
+		}
+		#article_bottom{
+			margin-top:15px;
+		}
+		.icon-font-origin-btn {
+		    color: #a8a8a8;
+		    font-size: 10px;
+		    margin-left: 15px;
+		   	border-radius: 3px;
+    		line-height: 15px;
+		}
+		.share-box{
+			margin: 1.5em auto;
+			position: relative;
+			text-align: center;
+		}
+		.share-box .div-like-align{
+			position: relative;
+			margin-right: 3rem;
+		}
+		.share-box>div {
+		    display: inline-block;
+		    height: 5rem;
+		    width: 5rem;
+		}
+		.share-box .div-like-align .div-like{
+			border: 1px solid rgba(160,160,160,.48);
+    		position: relative;	
+    	}
+    	.share-box .div-like-align>div, .share-box .share-wxfriend-align>div, .share-box .share-wxtimeline-align>div {
+		    border-radius: 50%;
+		    height: 100%;
+		    position: relative;
+		    width: 100%;
+		}
+    	.share-box .div-like-align .div-like .icon {
+		    height: 22px;
+		    left: 50%;
+		    margin: -1px 0 0 -1px;
+		    position: absolute;
+		    top: 50%;
+		    transform: translate(-50%,-50%);
+		    -webkit-transform: translate(-50%,-50%);
+		    width: 21px;
+		}
+		.share-box .div-like-align .div-like .icon-wx {
+		    background-position: -22px 0;
+		}
+		.texture {
+		    background-image: url(images/texture.png);
+		    background-repeat: no-repeat;
+		    background-size: 157px auto;
+		}
+		.common_top{
+			width: 100%;
+			color:#999;
+			margin: 0;
+			padding-left: 10px;
+			line-height: 2em;
+			font-size: 10px;
+			background-color: #eee;
+		}
+		.comment-input-box{
+
+			padding: 2rem 1.5rem;
+		}
+		.comment-input-box .comment-input-div{
+			border: 1px solid #71b7ff;
+			border-radius: 5px;
+			overflow: hidden;
+			width: 100%;
+		}
+		.comment-input-box .comment-input-div .comment-input {
+		    background: #fff none repeat scroll 0 0;
+		    border: medium none;
+		    color: #444;
+		    font-size: 14px;
+		    line-height: normal;
+		    padding: 1.4rem 1.3rem;
+		    width: 74%;
+		    word-break: break-all;
+		}
+
+		.left {
+		    float: left;
+		}
+		.comment-input-box .comment-input-div span {
+		    border-left: 1px solid #71b7ff;
+		    color: #ababab;
+		    line-height: 3.3rem;
+		    margin: .95rem 0;
+		    text-align: center;
+		    width: 20%;
+		}
+
+		.comment-input-box .comment-input-div .input-cb {
+		    padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="download_top_margin" style="height: 42px;"></div>
+	<div id="downTips">
+		<div class="dl_btn">
+			<a href="#" title=""></a>
+		</div>
+		<div class="dl_btn2">
+			<a href="#" title=""></a>
+		</div>
+		<div id="downTips_alpha"></div>
+	</div>
+	<div id="temple_title">
+		<div class="news_template_03_title">
+			<div id="news_template_03_titleContent"> 峨眉山灵猴受伤向路人求救 急寻专家</div>	
+			<div id="news_template_03_AuthorAndTime">
+				华西都是<span style="padding-left: 2%;">2小时前</span>
+			</div>	
+			
+		</div>
+	</div>
+	<div id="content_text">
+		<div id="content">
+			<p></p>
+			<div class="img_box" id="id_imagebox_0">
+				<div class="content_img_div">
+					<img src="images/new01.jpg" width="341" height="225.75" alt="">
+				</div>
+			</div>
+			峨眉山猴子脚受伤遇人便展示
+			<p></p>
+			<p># 峨眉山灵猴向路人求救 # 【灵猴已找到，急寻专家！！】华西都市报记者从 @峨眉山景区 获悉，景区金顶管理处今日上午发现受伤灵猴。它 12 岁左右，系野生成年猴，腿系有尼龙绳，伤口已化脓，野性十足，无法靠近。目前，金顶管理处正找专家帮忙，也请网友支招：金顶管理处电话 0833-5098074。</p>
+
+			<p><strong>此前报道</strong></p>
+			<p></p>
+
+			<div class="img_box" id="id_imagebox_1" style="" onclick=""><div class="content_img_div"><img class="opacity_0" id="img_1" height="254.75767195767196" width="341" src="images/new02.jpg" style="opacity: 1;"></div></div>
+
+			昨天下午，宜宾游客何先生在峨眉山上，发现一只猴子竟不怎么怕人。他观察发现，这只猴子的右后小腿上，竟然系着一根小指粗细的尼龙绳，" 深深地勒了进去，绳子两侧的皮肉高高鼓起，绳子周围的皮肉已经化脓，不时有鲜红的血水渗出来。"
+			<p></p>
+			<p>" 它应该是在向我们求救。" 何先生说， 猴子好像通人性，看大家在观察它，便拉着儿子的裤腿，可怜巴巴地仰望着。因为担心猴子伤到儿子，加上自己又没有工具，不具备帮助猴子的能力，何先生一行只好先行离去，" 它又跟着我们走了 10 多米，一直走到公路边上才停下。"</p>
+			<p>离开后，何先生发了微博，并 @了峨眉山景区，呼吁为这只猴子提供帮助。</p>
+
+			<p>" 我们没有见到过这只 猴子 ，一旦发现将会及时施救。" 峨眉山景区管委会金顶管理处负责人告诉记者。</p>
+			<p>何先生还提出怀疑，认为猴子脚上的尼龙绳很有可能是被人为记上。但景区相关负责人人为，这种可能性不是很大，不排除猴子之间打架或者玩耍时，无意间将尼龙绳套在脚上的可能。</p>
+
+			<div id="article_bottom">
+				<a style="text-decoration: none;border:0px;margin:auto; border-color: #FFFFFF;color:#000;padding:0px;display:block;" onclick="ggs_click();" href="#">
+					<div style="margin:auto;padding:0px;text-align:center;width:100%;">
+						<div style="position: relative; display: inline-block;">
+							<div style="position: relative;font-size: 10px;color: #ababab;text-align: center;height: 25px;">
+								<div style="position: relative;background-color: white;display: inline-block;padding: 0 10px;z-index: 10;height:20px;top:-5px">赞助商提供信息</div>
+								<div style="background-image:url(http://zkres3.myzaker.com/data/image/mark2/line20.png?v=0917);position: absolute;width: 100%;height: 20px; top: -2px; background-size: 100% 100%;"></div>
+							</div>
+							<img style="width:23px;height:13px;position: absolute;top:40px;right: 0px;" src="http://zkres3.myzaker.com/data/image/mark/ad_2x.png?v=2015061216">
+							<img style="border-radius:0px;margin:0px;padding:0;" src="images/ad.png"></div>
+						</div>
+					</a>
+
+		</div>
+
+		<p id="ID_disclaimer" style="text-align:center;color:#666;font-size:10px;">原网页已经由 ZAKER 转码以便在移动设备上查看<a class="icon-font-origin-btn" href="http://news.qq.com/a/20160131/014423.htm" style="border-bottom-style: none;">查看原文</a></p>
+	</div>
+	<div class="share-box">
+		<div class="div-like-align">
+			<div class="div-like">
+				<div class="icon icon-wx texture"></div>
+			</div>
+		</div>
+	</div>
+	<div class="common_top">评论</div>
+	<div class="comment-input-box">
+	    <div class="comment-input-div">
+	        <input type="text" class="comment-input left" id="comment-input-id" placeholder="我也说两句...">
+	        <span id="comment-input-btn" class="right">发送</span>
+	        <p class="cb input-cb"></p>
+	    </div>
+	</div>
+	<div class="c pr" onclick="showInput(this)">
+    <div class="tx">
+        <div class="box"><img class="" width="40" height="40" src="http://sns.myzaker.com/images/noavatar_middle.png" style="opacity: 1;"></div>
+        </div>
+        <div class="tx_r">
+            <div class="author">用户*2322</div>
+            <div class="clear"></div>
+            <div class="time">9小时前</div>
+            <div class="clear"></div>
+            <div class="con">救救它吧，众生皆平等</div>
+            <input type="hidden" name="cid" value="E3FA527B-2A50-1A30-409D-B2DD0A00CE5C">
+        </div>
+         
+        <a class="like_box icon-font" onclick="zan(this);stopBubble(event)">
+            <span class="like_num">184</span><span class="like">赞</span>
+        </a>
+        <div class="cb"></div>
+    </div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
