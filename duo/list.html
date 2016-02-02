@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    </style>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//w.duo.qq.com">
+    <link rel="dns-prefetch" href="//pingtcss.qq.com">
+    <title>din</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="page-wrapper show ng-scope">
+    <!-- 头部 start -->
+    <!-- ngIf: !hideHome --><header class="header ng-scope" ng-if="!hideHome">
+    <div class="left">
+        <a href="javascript:void(0);" ng-click="closeCalculator();"><i class="gui-i home"></i></a>
+    </div>
+    <h3 class="title">汇率助手</h3>
+    <div class="right">
+        <a href="" class="em" ng-click="showCurrency();">汇率</a>
+    </div>
+</header><!-- end ngIf: !hideHome -->
+    <!-- 头部 end -->
+    <!-- 主体 start -->
+    <div class="body pg-exchange-rate-compute" ng-class="{'show-keyboard': showNum, 'no-header':hideHome}">
+        <!-- 当键盘展开时加上 show-keyboard -->
+        <ul class="gui-exchange-list" ng-click="showKeyboard();">
+            <li class="active edit"><!-- 当前选中状态时加上 active，当前是编辑态时加上 edit -->
+                <div class="exchange-item">
+                    <h3>
+                        <i class="gui-flag cny"></i>
+                        <span class="title ng-binding">人民币</span>
+                        <span class="en ng-binding">CNY</span>
+                    </h3>
+                    <div class="num">
+                        <span class="ng-binding">100</span><i></i>
+                    </div>
+                </div>
+                <button class="btn-delete"><i class="gui-i trash"></i></button>
+            </li>
+        </ul>
+        <div class="all-exchange">
+            <!-- 汇率列表 start -->
+            <ul class="gui-exchange-list">
+                <!-- 未有选中态时加上 disabled -->
+                <!-- <li ng-repeat="rate in rates" ng-class="{active: rate.aka===currentRate.aka}" ng-click="setCurrentRate(rate)"> -->
+                <!-- ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag usd"></i>
+                            <span class="title ng-binding">美元</span>
+                            <span class="en ng-binding">USD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            15.19
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag eur"></i>
+                            <span class="title ng-binding">欧元</span>
+                            <span class="en ng-binding">EUR</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            13.92
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag jpy"></i>
+                            <span class="title ng-binding">日元</span>
+                            <span class="en ng-binding">JPY</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            1,834
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag hkd"></i>
+                            <span class="title ng-binding">港元</span>
+                            <span class="en ng-binding">HKD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            118.26
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag thb"></i>
+                            <span class="title ng-binding">泰国铢</span>
+                            <span class="en ng-binding">THB</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            543.31
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag krw"></i>
+                            <span class="title ng-binding">韩国元</span>
+                            <span class="en ng-binding">KRW</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            18,349.8
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag twd"></i>
+                            <span class="title ng-binding">新台币</span>
+                            <span class="en ng-binding">TWD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            508.73
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag aud"></i>
+                            <span class="title ng-binding">澳大利亚元</span>
+                            <span class="en ng-binding">AUD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            21
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag gbp"></i>
+                            <span class="title ng-binding">英镑</span>
+                            <span class="en ng-binding">GBP</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            10.54
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag myr"></i>
+                            <span class="title ng-binding">马来西亚林吉特</span>
+                            <span class="en ng-binding">MYR</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            64.11
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag sgd"></i>
+                            <span class="title ng-binding">新加坡元</span>
+                            <span class="en ng-binding">SGD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            21.64
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag rub"></i>
+                            <span class="title ng-binding">俄罗斯卢布</span>
+                            <span class="en ng-binding">RUB</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            1,206.37
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag cad"></i>
+                            <span class="title ng-binding">加拿大元</span>
+                            <span class="en ng-binding">CAD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            21.24
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag mop"></i>
+                            <span class="title ng-binding">澳门元</span>
+                            <span class="en ng-binding">MOP</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            121.61
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag nzd"></i>
+                            <span class="title ng-binding">新西兰元</span>
+                            <span class="en ng-binding">NZD</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            22.9
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates --><!-- ngIf: rate.aka!==currentRate.aka -->
+                <li ng-repeat="rate in rates" ng-if="rate.aka!==currentRate.aka" ng-click="setCurrentRate(rate)" class="ng-scope">
+                    <div class="exchange-item">
+                        <h3>
+                            <i class="gui-flag php"></i>
+                            <span class="title ng-binding">菲律宾比索</span>
+                            <span class="en ng-binding">PHP</span>
+                        </h3>
+                        <div class="num ng-binding">
+                            726.28
+                        </div>
+                    </div>
+                </li>
+                <!-- end ngIf: rate.aka!==currentRate.aka --><!-- end ngRepeat: rate in rates -->
+            </ul>
+            <!-- 汇率列表 end -->
+            <!-- 更新时间 start -->
+            <!-- ngIf: dataTime --><time class="gui-time ng-binding ng-scope" ng-if="dataTime">
+            汇率更新时间：2016-02-02 21:00:00
+            <span class="mark">数据仅供参考</span>
+        </time><!-- end ngIf: dataTime -->
+            <!-- 更新时间 end -->
+        </div>
+    </div>
+    <!-- 主体 end -->
+</div>
+</body>
+</html>

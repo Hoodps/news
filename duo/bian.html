@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    </style>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//w.duo.qq.com">
+    <link rel="dns-prefetch" href="//pingtcss.qq.com">
+    <title>me</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="page-wrapper show ng-scope">
+    <!-- 头部 start -->
+    <header class="header">
+        <div class="left">
+            <a href="javascript:void(0);" ng-click="closeShopping();"><i class="gui-i home"></i></a>
+        </div>
+        <h3 class="title">购物便签</h3>
+        <!-- <input autofocus id="newTodo1" type="text" placeholder="输入待处理事项"> -->
+    </header>
+    <!-- 头部 end -->
+    <!-- 主体 start -->
+    <div class="body pg-shopping-notes">
+        <!-- 每个页面对应一个 pg-xxx，用于处理该页面的样式 -->
+        <!-- tab start -->
+        <div class="gui-tab ctrl-center">
+            <div class="hd">
+                <ul class="tab-ctrl cf">
+                    <li ng-class="{current:currentTab==='todos'}" ng-click="setCurrentTab('todos')" class="current">
+                        <a href="javascript:void(0);" class="ng-binding">待处理 (2)</a>
+                    </li>
+                    <li ng-class="{current:currentTab==='done'}" ng-click="setCurrentTab('done')">
+                        <a href="javascript:void(0);" class="ng-binding">已完成 (2)</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- ngIf: currentTab==='todos' -->
+            <div class="bd ng-scope" ng-if="currentTab==='todos'">
+                <!-- 待购买清单 start -->
+                <ul class="shopping-list">
+                    <!-- ngRepeat: todoItem in todoItems -->
+                    <li ng-class="{active:editIntex===$index, delete: todoItem.deleted}" ng-repeat="todoItem in todoItems" hm-swipe-left="slideLeft(todoItem, $event)" hm-swipe-right="slideRight(todoItem, $event)" class="ng-scope" style="touch-action: pan-x pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><!-- 处于编辑态时加上 active -->
+                        <div class="shopping-item">
+                            <label>
+                                <input type="checkbox" ng-click="checkItem(todoItem, $event);">
+                            </label>
+                            <!-- <span class="text">{{todoItem.name}}</span> -->
+                            <input type="text" placeholder="请输入待购买物品，如牙膏" ng-model="todoItem.name" ng-change="updateTodo(todoItem);" ng-model-options="{updateOn: 'blur'}" class="ng-pristine ng-untouched ng-valid">
+                        </div>
+                        <button class="btn-delete" ng-click="deleteTodo(todoItem);"><i class="gui-i trash"></i></button>
+                    </li>
+                    <!-- end ngRepeat: todoItem in todoItems -->
+                    <li ng-class="{active:editIntex===$index, delete: todoItem.deleted}" ng-repeat="todoItem in todoItems" hm-swipe-left="slideLeft(todoItem, $event)" hm-swipe-right="slideRight(todoItem, $event)" class="ng-scope" style="touch-action: pan-x pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><!-- 处于编辑态时加上 active -->
+                        <div class="shopping-item">
+                            <label>
+                                <input type="checkbox" ng-click="checkItem(todoItem, $event);">
+                            </label>
+                            <!-- <span class="text">{{todoItem.name}}</span> -->
+                            <input type="text" placeholder="请输入待购买物品，如牙膏" ng-model="todoItem.name" ng-change="updateTodo(todoItem);" ng-model-options="{updateOn: 'blur'}" class="ng-pristine ng-untouched ng-valid">
+                        </div>
+                        <button class="btn-delete" ng-click="deleteTodo(todoItem);"><i class="gui-i trash"></i></button>
+                    </li>
+                    <!-- end ngRepeat: todoItem in todoItems -->
+                    <!-- <li ng-show="showOpt.ifNewTodo"> -->
+                    <li new-todo="showOpt.ifNewTodo" style="display: none;">
+                        <div class="shopping-item">
+                            <label>
+                                <input type="checkbox" disabled="">
+                            </label>
+                            <input type="text" placeholder="请输入待购买物品，如牙膏" ng-model="newTodo.name" ng-blur="addTodo(newTodo);" class="ng-valid ng-dirty ng-touched">
+                            <!-- <input custom-focus="showOpt.ifNewTodo" type="text" placeholder="输入待处理事项" autocomplete=false> -->
+                        </div>
+                    </li>
+                </ul>
+                <a href="" class="add-shopping-item" ng-click="showAddTodo();">
+                    <i class="gui-icon add-round"></i>新增
+                </a>
+                <!-- 待购买清单 end -->
+            </div>
+            <!-- end ngIf: currentTab==='todos' -->
+            <!-- ngIf: currentTab==='done' -->
+        </div>
+        <!-- tab end -->
+    </div>
+    <!-- 主体 end -->
+</div>
+</body>
+</html>

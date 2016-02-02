@@ -197,6 +197,78 @@
 		.comment-input-box .comment-input-div .input-cb {
 		    padding: 0;
 		}
+
+		.c{
+			border-bottom: 1px solid #eee;
+			padding: 15px 5px;
+		}
+		.pr{
+			position: relative;
+		}
+		.tx{
+			margin: 0 15px 0 10px;
+			position: absolute;
+		}
+		.box{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin: auto;
+			padding: 3px;
+		}
+		.box img{
+			border-radius: 50%;
+		}
+		.tx_r{
+			line-height: 1em;
+			margin: 0 15px 0 70px;
+			font-size: 14px;
+		}
+		.author{
+			color: #666;
+			float: left;
+			height: 1.56em;
+			line-height: 1.56em;
+		}
+		.clear{
+			clear: both;
+		}
+		.tx_r .time{
+			color: #999;
+			float: left;
+			line-height: 1.56em;
+		}
+		.con{
+			line-height: 1.5em;
+			margin-top: 0.2em;
+			word-break:break-word;
+			word-wrap:break-word;
+		}
+		.like_box{
+			color: #a8a8a8;
+			position: absolute;
+			right: 15px;
+			top: 15px;
+			width: 3.2rem;
+			text-align: center;
+		}
+		.icon-font{
+			border: 1px solid #e2e2e2;
+			text-decoration: none;
+			color: #a8a8a8;
+			font-size: 10px;
+			margin-left: 15px;
+			border-radius: 3px;
+			line-height: 15px;
+		}
+		.like_box .like_num{
+			font-size: 10px;
+			margin-right: 3px;
+		}
+		.like_box .like{
+			font-size: 10px;
+			color: #a8a8a8;
+		}
 	</style>
 </head>
 <body>
@@ -277,7 +349,7 @@
 	    </div>
 	</div>
 	<div class="c pr" onclick="showInput(this)">
-    <div class="tx">
+    	<div class="tx">
         <div class="box"><img class="" width="40" height="40" src="http://sns.myzaker.com/images/noavatar_middle.png" style="opacity: 1;"></div>
         </div>
         <div class="tx_r">
@@ -285,7 +357,7 @@
             <div class="clear"></div>
             <div class="time">9小时前</div>
             <div class="clear"></div>
-            <div class="con">救救它吧，众生皆平等</div>
+            <div class="con">本来是红米note出现的问题，在小编这里都安在了小米note的身上</div>
             <input type="hidden" name="cid" value="E3FA527B-2A50-1A30-409D-B2DD0A00CE5C">
         </div>
          
@@ -294,7 +366,76 @@
         </a>
         <div class="cb"></div>
     </div>
-	
+    <div class="c pr" onclick="showInput(this)">
+    <div class="tx">
+        <div class="box"><img class="" width="40" height="40" src="http://ucres.myzaker.com/img_upload/user_avatar/2015/364/727646_1445215047.jpg.210.jpg" style="opacity: 1;"></div>
+        </div>
+        <div class="tx_r">
+            <div class="author">楽壹叁</div>
+            <div class="clear"></div>
+            <div class="time">2小时前</div>
+            <div class="clear"></div>
+            <div class="con">黑科技只配索大法，小米还是算了吧。</div>
+            <input type="hidden" name="cid" value="7804EDD1-07CB-5018-F971-9A2C96FA054F">
+        </div>
+         
+        <a class="like_box icon-font" onclick="zan(this);stopBubble(event)">
+            <span class="like_num">9</span><span class="like">赞</span>
+        </a>
+        <div class="cb"></div>
+    </div>
+    <div class="c pr" onclick="showInput(this)">
+    <div class="tx">
+        <div class="box"><img class="" width="40" height="40" src="http://ucres.myzaker.com/img_upload/user_avatar/2015/364/727646_1445215047.jpg.210.jpg" style="opacity: 1;"></div>
+        </div>
+        <div class="tx_r">
+            <div class="author">楽壹叁</div>
+            <div class="clear"></div>
+            <div class="time">2小时前</div>
+            <div class="clear"></div>
+            <div class="con">黑科技只配索大法，小米还是算了吧。</div>
+            <input type="hidden" name="cid" value="7804EDD1-07CB-5018-F971-9A2C96FA054F">
+        </div>
+         
+        <a class="like_box icon-font" onclick="zan(this);stopBubble(event)">
+            <span class="like_num">9</span><span class="like">赞</span>
+        </a>
+        <div class="cb"></div>
+    </div>
+		
+	<script>
+
+		function detect_mobile_platform() {
+
+		    if (navigator.userAgent.match(/iPhone/i)) {
+		        return 'iPhone';
+		    } else if (navigator.userAgent.match(/iPod/i)) {
+		        return 'iPod';
+		    } else if (navigator.userAgent.match(/iPad/i)) {
+		        return 'iPad';
+		    } else if (navigator.userAgent.match(/Android/i)) {
+		        return 'Android';
+		    } else if (navigator.userAgent.match(/webOS/i)) {
+		        return 'webOS';
+		    } else if (navigator.userAgent.match(/Windows Phone/i)) {
+		        return 'WindowsPhone';
+		    } else {
+		        return 'Others'
+		    }
+
+		}
+		platform = detect_mobile_platform();
+		function mobilecheck() {
+		    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		        return true;
+		    }
+		}
+		function is_touch_device() {
+		    return 'ontouchstart' in window // works on most browsers
+		        || 'onmsgesturechange' in window; // works on ie10
+		};
+		console.log(is_touch_device());
+	</script>
 </body>
 </html>
 

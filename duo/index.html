@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//w.duo.qq.com">
+    <link rel="dns-prefetch" href="//pingtcss.qq.com">
+    <title>index</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="ng-scope">
+    <div id="datepicker_container" class="ng-scope">
+        <div id="atomuMonthPicker_popup_wrap" class="atomu-datepicker-wrap">
+            <div class="atomu-datepicker" id="atomuMonthPicker_popup_ctn" style="display:none;">
+                <div class="hd">
+                    <a id="atomuMonthPicker_prev" href="javascript:;" class="trigger prev"></a>
+                    <h3 id="atomuMonthPicker_current_year">2016年</h3>
+                    <a id="atomuMonthPicker_next" href="javascript:;" class="trigger next disabled"></a>
+                </div>
+                <table class="month">
+                    <tbody id="atomuMonthPicker_panel">
+                    <tr>
+                        <td id="atomuMonthPicker_2016-1" class="">
+                            <div class="num">
+                                1月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-2" class="single-selected">
+                            <div class="num">
+                                2月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-3" class="">
+                            <div class="num">
+                                3月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-4" class="">
+                            <div class="num">
+                                4月
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="atomuMonthPicker_2016-5" class="">
+                            <div class="num">
+                                5月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-6" class="">
+                            <div class="num">
+                                6月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-7" class="">
+                            <div class="num">
+                                7月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-8" class="">
+                            <div class="num">
+                                8月
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="atomuMonthPicker_2016-9" class="">
+                            <div class="num">
+                                9月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-10" class="">
+                            <div class="num">
+                                10月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-11" class="">
+                            <div class="num">
+                                11月
+                            </div>
+                        </td>
+                        <td id="atomuMonthPicker_2016-12" class="">
+                            <div class="num">
+                                12月
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="page-wrapper ng-scope">
+        <header class="header transparent">
+            <div class="left">
+                <a href="javascript:void(0)" class="link-calendar ng-binding" id="datepicker_trigger">
+                    <i class="gui-i calandar"></i>2016-02
+                </a>
+            </div>
+            <div class="title">我的账单</div>
+            <div class="right">
+                <a href="#">
+                    <i class="gui-i chart"></i>
+                </a>
+                <a href="#">
+                    <i class="gui-i more"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="body pg-index">
+            <section class="overview-box">
+                <div class="summary">
+                    <i class="avatar">
+                        <img src="images/0.jpeg" alt="">
+                    </i>
+                    <ul class="money">
+                        <li>
+                            <h3>支出</h3>
+                            <p><em class="ng-binding">113.5</em></p>
+                        </li>
+                        <li>
+                            <h3>收入</h3>
+                            <p><em ng-bind="summaryBillInfo.income" class="ng-binding">0</em>元</p>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="record-btns">
+                    <button class="voice-btn" ng-click="showVoiceInput();"><i class="gui-i voice"></i>语音记账</button>
+                    <button class="manual-btn" ng-click="showBillAdd();">手动记账</button>
+                </div>
+
+            </section>
+            <div class="tab-wrap" ng-hide="isHideSummaryList()">
+                <div class="gui-tab">
+                    <div class="hd">
+                        <ul class="tab-ctrl cf">
+                            <li ng-class="{current:index.showRecord}" ng-click="showRecord()" class="current"><a href="javascript:void(0);">本月流水</a></li>
+                            <li ng-class="{current:index.showCategory}" ng-click="showCategory();"><a href="javascript:void(0);">分类汇总</a></li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <!-- ngIf: index.showRecord --><div ng-if="index.showRecord" class="ng-scope">
+                        <!-- 本月流水 start -->
+                        <ul class="consume-flow">
+                            <!-- ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate --><time class="time ng-scope" ng-if="item.isShowDate"><span class="ng-binding">2月2日</span></time><!-- end ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">公交两元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">2.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">地铁6.65</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">6.6</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="晚餐" style="color:#f39800;" ng-bind-html="item.icon[global.style].code|toTrusted">6</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">晚餐</h3>
+                                        <p class="ng-binding">晚餐十五元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">15.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="午餐" style="color:#f39800;" ng-bind-html="item.icon[global.style].code|toTrusted">6</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">午餐</h3>
+                                        <p class="ng-binding">午餐9</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">9.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">市桥-华师地铁6.5元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">6.7</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">公交两块钱</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">2.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate --><time class="time ng-scope" ng-if="item.isShowDate"><span class="ng-binding">2月1日</span></time><!-- end ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">公交三元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">3.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="晚餐" style="color:#f39800;" ng-bind-html="item.icon[global.style].code|toTrusted">6</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">晚餐</h3>
+                                        <p class="ng-binding">晚餐十五元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">15.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="通讯费" style="color:#4aa5ea;" ng-bind-html="item.icon[global.style].code|toTrusted">0</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">通讯费</h3>
+                                        <p class="ng-binding">话费</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">30.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="午餐" style="color:#f39800;" ng-bind-html="item.icon[global.style].code|toTrusted">6</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">午餐</h3>
+                                        <p class="ng-binding">午餐七块</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">7.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">地铁七块</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">7.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="其它" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">交通费</h3>
+                                        <p class="ng-binding">嗯交车两块</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">2.0</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="早餐" style="color:#f39800;" ng-bind-html="item.icon[global.style].code|toTrusted">6</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">早餐</h3>
+                                        <p class="ng-binding">馒头一块五</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">1.5</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index --><li ng-repeat="item in listBillItems track by $index" ng-click="showBillEdit(item)" class="ng-scope">
+                            <!-- ngIf: item.isShowDate -->
+
+                            <a href="javascript:void(0);">
+
+                                <span class="flow-icon"><i class="gui-category-icon ng-binding" data-name="公共交通" style="color:#75c740;" ng-bind-html="item.icon[global.style].code|toTrusted">2</i></span>
+                                <div class="flow-ctn">
+                                    <div class="inner">
+                                        <h3 class="ng-binding">公共交通</h3>
+                                        <p class="ng-binding">华师一南站地铁6.65元</p>
+                                    </div>
+                                </div>
+                                <div class="price ng-binding">6.7</div>
+                            </a>
+                        </li><!-- end ngRepeat: item in listBillItems track by $index -->
+                        </ul>
+                        <!-- 本月流水 end -->
+
+                        <!-- 列表底部提示 start -->
+                        <!-- ngIf: listBillInfo.isLoading -->
+                        <!-- ngIf: listBillInfo.isLastPage --><div class="gui-list-end ng-scope" ng-if="listBillInfo.isLastPage">
+                        没有更多啦~
+                    </div><!-- end ngIf: listBillInfo.isLastPage -->
+                        <!-- 列表底部提示 end -->
+                    </div><!-- end ngIf: index.showRecord -->
+
+                        <!-- ngIf: index.showCategory -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
