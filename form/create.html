@@ -1,0 +1,1668 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8" />
+    <title>水滴微信平台</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="css/global.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="css/dpl.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="css/info.css?t=1455750855">
+    <link rel="stylesheet" type="text/css" href="css/weixin-set.css?t=1455750855">
+    <link rel="stylesheet" type="text/css" href="css/create.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css?t=1455750855"/>
+    <link rel="stylesheet" type="text/css" href="css/time.css?t=1455750855"/>
+    <link rel="stylesheet" type="text/css" href="css/form-reply-tips.css?t=1455750855">
+    <link rel="stylesheet" type="text/css" href="css/info.css?t=1455750855" />
+    <script src="js/sea.js?t=1455750855"></script>
+
+    <script>var _hook ={"root":"http:\/\/weixin.drip.im","image":"http:\/\/wx-static.drip.im\/img","resource":"http:\/\/7oxjp8.com2.z0.glb.clouddn.com","group":"member","page":"create","menu":"create","action":"form","weixinId":"gh_51428c71bee0","_token_":"46244610443e158b2c7e9234362a0dac","assistEnabled":false,"hasApi":false,"fromComponent":true,"canEditCopyright":false,"copyright":null}</script>
+    <script>var _helpid = "";</script>
+  </head>
+  <body>
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+    document.location.replace('/not-supported')
+    </script><![endif]-->
+        <!--[if lte IE 8]><script>document.createElement('header');</script><![endif]-->
+    <header id="header" class="member">
+      <div class="header-wrap fn-clear">
+        <a href="/member/dashboard"></a>
+        <div class="account-box fn-right" data-weixin-verified="-1">
+          <span class="email">791859814@qq.com            <div class="user-menu">
+              <ul>
+                <li><a href="http://weixin.drip.im/member/user/password-update">密码修改</a></li>
+                <li class="exit"><a href="http://weixin.drip.im/member/user/logout">退出登录</a></li>
+              </ul>
+              <span class="arrow"></span>
+            </div>
+          </span>
+          <!--<a class="setting" href="http://weixin.drip.im/member/info/base">
+            hoodps          </a>-->
+          <a href="http://weixin.drip.im/member/info/base" class="setting">
+            hoodps          </a>
+
+          
+          <a href="javascript:void(0);" data-label="notify" class="notify-trigger info-trigger" data-url="http://weixin.drip.im/member/dashboard/notify"></a>
+          <div class="notify-unread-tips hidden">
+            <p>您有<em class="count"></em>条重要通知，请及时查看并处理！</p>
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <div class="back-box">
+      <a id="back-list" href="/member/form/list"><img src="images/back-list.png">返回列表</a>
+      <a href="http://133490.weixin.drip.im/m/detail/l3gCt?special=133490" target="_blank" class="fn-right form-rule"><em></em>表单管理规则</a>
+    </div>
+    <div id="content" ng-app="form">
+  <script type="text/template" id="tab-nav-tpl">
+    <div class="tabs">
+      <ul class="fn-clear">
+        <!-- <li ng-repeat="pane in panes"
+            class="{{pane.mode}}"
+            ng-class="{selected: state.mode == pane.mode }"
+            ng-click="selectPane(pane)">{{pane.tabTitle}}</li> -->
+        <li class="createForm" ng-class="{selected: state.mode == 'createForm'}" ng-click="selectPane('createForm')">组件</li>
+        <li class="editField" ng-class="{selected: state.mode == 'editField'}" ng-click="selectPane('editField')">组件设置</li>
+        <li class="editForm" ng-class="{selected: state.mode == 'editForm'}" ng-click="selectPane('editForm')">表单设置</li>
+      </ul>
+    </div>
+    <div class="tab-content" ng-transclude></div>
+  </script>
+  <script type="text/template" id="tab-pane-tpl">
+    <div class="pane {{mode}}" ng-show="state.mode == mode" ng-transclude></div>
+  </script>
+  <div class="box-full {{showRightPane?'show-right-pane':''}}" show-right-pane ng-controller="DisplayFormController">
+    <div id="box-loading">
+      <img class="loading" src="images/loading-gray.gif">
+    </div>
+    <div class="box-bd">
+      <div class="settings">
+        <div tab-nav class="tab-nav" pane-position="left">
+          <tab-pane tab-title="组件" mode="createForm">
+            <div class="fields" id="field-box" >
+              <div class="field-groups">
+                <h4>常规组件</h4>
+                <div class="field-list">
+                  <ul class="fn-clear">
+                    <field type="textInput" name="单行文本框" class="text-input"></field>
+                    <field type="textArea" name="多行文本框" class="text-area"></field>
+                    <field type="numberInput" name="数字输入框" class="number-input"></field>
+                    <field type="select" name="下拉菜单" class="select"></field>
+                    <field type="radio" name="单选框" class="radio"></field>
+                    <field type="checkbox" name="多选框" class="checkbox"></field>
+                    <field type="img" name="图片单选" class="img"></field>
+                    <field type="imgList" name="图片多选" class="imgList"></field>
+                    <field type="date" name="日期" class="date"></field>
+                    <field type="time" name="时间" class="time"></field>
+                    <field type="score" name="评分" class="score"></field>
+                    <field type="file" name="上传文件" class="file"></field>
+                    <field type="richText" name="富文本" class="richText"></field>
+                    <field type="splitLine" name="分割线" class="splitLine"></field>
+                  </ul>
+                </div>
+              </div>
+              <div class="field-groups">
+                <h4>用户信息组件</h4>
+                <div class="field-list">
+                  <ul class="fn-clear">
+                    <field type="name" name="姓名" class="name"></field>
+                    <field type="phone" name="手机" class="phone"></field>
+                    <field type="address" name="地址" class="address"></field>
+                    <field type="email" name="邮箱" class="email"></field>
+                    <field type="birth" name="生日" class="birth"></field>
+                    <field type="location" name="地区" class="location"></field>
+                    <field type="qq" name="QQ" class="qq"></field>
+                    <field type="gender" name="性别" class="gender"></field>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </tab-pane>
+          <tab-pane ng-if="!showRightPane" tab-title="组件设置" mode="editField">
+            <div style="overflow-y: auto;overflow-x: hidden;">
+  <div id="field-editor-wrapper" ng-cloak>
+    <div class="setting-editor filed-setting" id="editField">
+      <field-editor ng-transclude>
+      </field-editor>
+    </div>
+  </div>
+</div>
+
+          </tab-pane>
+          <tab-pane ng-if="!showRightPane" tab-title="表单设置" mode="editForm" class="editForm" id="editForm">
+            <div class="setting-editor form-setting" ng-cloak>
+  <div class="setting-group">
+    <label class="first" change-show-mode><em class="switch"></em>填写完表单后提示页</label>
+    <div>
+      <div class="setting-sub-group">
+        <check-group class="check-group fn-clear {{state.form.successTip.notifyType}}"
+                     options='["提示信息", "text", "跳转到网页", "url"]'
+                     ng-model="state.form.successTip.notifyType"></check-group>
+      </div>
+      <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == 'text'">
+        展示提示文字
+        <div>
+          <textarea ng-model="state.form.successTip.text"
+                    class="checked-input"
+                    ng-required="state.form.successTip.notifyType == 'text'">{{state.form.successTip.text}}</textarea>
+          <p><input type="checkbox"
+                 ng-model="state.form.isShowData"
+                 ng-true-value="true"
+                 ng-false-value="false">显示统计结果（适用于投票表单）</p>
+        </div>
+      </div>
+      <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == 'url'">
+        <input type="text"
+               class="checked-input"
+               ng-model="state.form.successTip.url"
+               placeholder="请输入网址 http://"
+               ng-pattern = "/^[a-zA-z]+://[^\s]*/"
+               ng-required="state.form.successTip.notifyType == 'url'" />
+      </div>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>表单限制</label>
+    <div>
+      <ul class="setting-option">
+        <li>
+          <input type="checkbox"  set-user-limit ng-checked="state.form.limit.times != -1" limit="state.form.limit.times">设置单个微信用户可填写的次数
+          <div ng-if="state.form.limit.times != -1" class="user-limits" ng-init="state.form.limit.everyday=state.form.limit.everyday||false">
+            <select  ng-model="state.form.limit.everyday" ng-options="c as (c?'每天':'总共') for c in [false,true]">
+            </select>
+            <select  ng-model="state.form.limit.times" ng-options="c as (c + '次') for c in [1,2,3,4,5,6,7,8,9,10]">
+            </select>
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 ng-model="state.form.deadline.never"
+                 ng-true-value="false"
+                 ng-false-value="true">设置有效期
+          <div class="check-group subsetting fn-clear time-range" ng-hide="state.form.deadline.never">
+            <p>
+              开始时间：
+              <ng-date-time
+                default-time="true"
+                ng-model='state.form.deadline.startTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!state.form.deadline.never">
+              </ng-date-time>
+            </p>
+            <p>
+              结束时间：
+              <ng-date-time
+                ng-model='state.form.deadline.endTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!state.form.deadline.never">
+              </ng-date-time>
+            </p>
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 ng-model="state.form.total.limit"
+                 ng-true-value="true"
+                 ng-false-value="false">设置可填写的总数量
+          <div class="check-group subsetting form-total fn-clear" ng-show="state.form.total.limit">
+            <input type="text"
+               class="checked-input"
+               ng-model="state.form.total.number"
+               ng-pattern = "/^([1-9]\d*)$/"
+               placeholder="请输入数量"
+               ng-required="state.form.total.limit" />
+            <input type="checkbox"
+                 ng-model="state.form.total.everyday"
+                 ng-click = 'state.form.total.tip = (state.form.total.everyday?"您来晚啦，当前填写已经满额，明天再来吧。":"您来晚啦，当前填写已经满额。")'
+                 ng-true-value="true"
+                 ng-false-value="false">开启每天限制模式
+            <div class="total-limit-tip">
+              <p>超限后文案提示：</p>
+              <textarea
+                ng-model="state.form.total.tip"
+                ng-init='state.form.total.tip = state.form.total.tip || "您来晚啦，当前填写已经满额。"'>
+              </textarea>
+            </div>
+          </div>
+        </li>
+        <li class="not-only-weixin">
+          <input type="checkbox"
+                 ng-model="state.form.notOnlyWx"
+                 ng-true-value="true"
+                 ng-false-value="false">支持表单在非微信环境下填写
+          <p class="tip">非微信环境下无法控制单个用户的填写次数</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>反馈提醒</label>
+    <div>
+      <tracing-setting></tracing-setting>
+    </div>
+  </div>
+  <!-- <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>分享设置<em></em></label>
+    <div>
+      <div class="share">
+        <img src="http://wx-static.drip.im/img/shop/single/form/form-share.png">
+        <dl>
+          <dt>表单名称</dt>
+          <dd>这里默认是空的，自定义的才有</dd>
+        </dl>
+        <a href="javascript:void(0);" class="setting"><em></em>自定义</a>
+      </div>
+      <div class="share-setting">
+        <div class="modal">
+          <div class="header">
+            分享设置
+            <em class="close"></em>
+          </div>
+          <div class="body">
+            <fieldset>
+              <label>图文标题</label>
+              <div>
+                <input type="text">
+                <span>0/64</span>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="modal-bg"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>工单模式</label>
+    <div class="order-setting">
+      <div>
+        <input type="checkbox"
+          ng-model="state.form.order.record"
+          ng-true-value="true"
+          ng-false-value="false">可查询提交记录
+          <p>1.用户通过表单右上角入口进入查询。</br>2.用户通过链接查看。<a ng-if="state.form.id" class="copy-link" href="javascript:void(0);" copy-link data-clipboard-text="http://weixin.drip.im/form/record/{{state.form.id}}?special=216949"><em></em>复制链接</a><span ng-if="!state.form.id" class="copy-link"><em></em>保存表单后生成链接</span></p>
+      </div>
+      <div>
+        <input type="checkbox"
+          ng-model="state.form.order.open"
+          ng-true-value="true"
+          ng-false-value="false"
+          ng-change="changeOrderMode(state.form.order.open,state.form)">显示工单状态
+        <p>适用于申请、报名、预约等服务类表单，可在表单反馈中标记状态并同步给用户。<a href="#"></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>用户信息</label>
+    <div>
+      <div>
+        <h4>获取填写者微信信息</h4>
+        <toggle ng-model="state.form.readWeixinInfo"
+                ng-click="hideWxAuthTip = false"
+                ng-disabled="!state.hasApi">
+        </toggle>
+        <span class="switch">{{state.form.readWeixinInfo?'开启':'关闭'}}</span>
+        <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
+        <div class="wx-auth-tip-pop" ng-show="!state.fromComponent && state.form.readWeixinInfo && !hideWxAuthTip">
+          <div ng-cloak class="modal">
+            <div class="modal-header">请确认以下设置</div>
+            <div class="modal-body">
+              <p class="auth-tips-alert">请确认以下设置正确，否则表单将无法访问！</p>
+              <div class="auth-tip">
+                <span class="auth-tip-step">1</span>
+                <div class="auth-tip-content">
+                  <p class="auth-tip-header">确保已设置url和token并开启服务器配置</p>
+                  <div class="auth-tip-detail">
+                    <p><strong>URL:</strong>http://216949.weixin.drip.im</p>
+                    <p><strong>Token:</strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="auth-tip">
+                <span class="auth-tip-step">2</span>
+                <div class="auth-tip-content">
+                  <div>
+                    <p>登录公众号后台，修改“OAuth2.0网页授权"</p>
+                    <p>
+                      将授权回调页面域名设置成
+                      <span class="highlight">http://216949.weixin.drip.im</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="auth-tip-summary">
+                <p class="tip-summary-header">如何修改</p>
+                <p>登录<a target="_blank" href="https://mp.weixin.qq.com">微信公众后台</a> 〉点击左侧最下导航“开发者中心” 〉找到接口列表中“OAuth2.0网页授权”接口 〉点击右侧修改 〉将回调域名设置填入 </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="javascript:void(0);"
+                 class="ui-button-gray fn-right"
+                 ng-click="hideWxAuthTip=true;state.form.readWeixinInfo=false">取消</a>
+              <a href="javascript:void(0);"
+                 class="ui-button-gold fn-right"
+                 ng-click="hideWxAuthTip=true">我已确定设置</a>
+            </div>
+          </div>
+          <div ng-cloak class="modal-bg"></div>
+        </div>
+      </div>
+      <div>
+        <h4>给填写者打标签</h4>
+        <p class="option-description">标签可在客户管理搜索、精准营销。</p>
+        <p>
+          <toggle ng-disabled="!state.hasApi"
+                  ng-model="state.form.tagSyncEnable">
+          </toggle>
+          <span class="switch">{{state.form.tagSyncEnable?'开启':'关闭'}}</span>
+          <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
+        </p>
+        <div ng-show="state.form.tagSyncEnable" class="form-tag-sync-box">
+          <input type="text" placeholder="输入标签名称" class="checked-input" maxlength="10" ng-model="state.form.tag"  ng-required="state.form.tagSyncEnable">
+          <span class="input-count-tip">{{state.form.tag.length || 0}}/10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="setting-group" ng-controller="CopyrightCtrl">
+    <label class="" change-show-mode><em class="switch"></em>版权设置</label>
+    <div>
+      <div ng-hide="showCopyrightEdit" class="copyright-edit-line">
+        <div ng-show="state.copyright">
+          <span>&copy; {{state.copyright}} 版权所有</span>
+          <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>修改</span>
+        </div>
+        <div ng-show="!state.copyright">
+          <span>自定义版权后,前台将不显示技术支持</span>
+          <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>自定义</span>
+        </div>
+      </div>
+      <div ng-show="showCopyrightEdit" class="copyright-set-box">
+        <label>输入版权方名称,确定后对全局页面生效</label>
+        <p><input ng-model="copyrightCopy" type="text" maxlength="12"/>{{copyrightCopy.length || 0}}/12</p>
+        <p>预览 &copy; {{copyrightCopy}} 版权所有</p>
+        <p>
+          <a class="ui-button-gold-small" ng-click="saveCopyright();">确定</a>
+          <a class="ui-button-grey" ng-click="showCopyrightEdit=false">取消</a>
+        </p>
+
+      </div>
+      <div class="copyright-limit-pop" ng-show="showCopyrightLimitPop">
+        <div ng-cloak class="modal">
+          <div class="modal-header">升级提示
+            <a class="close" ng-click="showCopyrightLimitPop=false"><em></em></a></div>
+          <div class="modal-body">
+            <div id="func-forbidden-tips-box">
+              <em></em>
+              <h3>权限不足</h3>
+              <p>请升级会员等级来继续使用，体验更强大的功能权限。</p>
+            </div>
+          </div>
+          <div class="modal-footer"><a href="/price" target="_blank" class="ui-button-gold fn-right">立即升级</a></div>
+        </div>
+        <div ng-cloak class="modal-bg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </tab-pane>
+        </div>
+      </div>
+      <div class="display" id="form-preview">
+        <div class="display-wrap">
+          <div class="form-content">
+            <div class="form-title">
+              <div class="form-title-wrap" ng-class="{'hover' : state.mode == 'editForm'}">
+                <div class="form-edit" ng-cloak ng-show="state.mode == 'editForm'">
+                  <p>表单标题</p>
+                  <input type="text" input-hint="未命名表单" ng-model="state.form.title" class="form-title-input"/>
+                  <p>表单样式</p>
+                  <div class="multi-style-box">
+                    <ul class="style-list {{state.form.style.name || 'default'}}">
+                      <li class="default" style-select name="default"></li>
+                      <li class="style_1" style-select name="style_1"></li>
+                      <li class="style_2" style-select name="style_2"></li>
+                      <li class="style_3" style-select name="style_3"></li>
+                      <li class="style_4" style-select name="style_4"></li>
+                      <li class="style_5" style-select name="style_5"></li>
+                      <li class="style_6" style-select name="style_6"></li>
+                      <li class="style_7" style-select name="style_7"></li>
+                      <li class="style_8" style-select name="style_8"></li>
+                      <li class="style_9" style-select name="style_9"></li>
+                    </ul>
+                  </div>
+                  <p>表单说明</p>
+                  <ueditor ng-model="state.form.description" ng-attr-editor-id='form-description' placeholder="请填写描述"></ueditor>
+                </div>
+                <div ng-cloak ng-show="state.mode != 'editForm'">
+                  <div class="form-basic-info" ng-click="state.mode = 'editForm'">
+                    <h3 ng-cloak>{{state.form.title || '未命名表单'}}</h3>
+                    <div class="form-desc" ng-bind-html="state.form.description"></div>
+                  </div>
+                </div>
+                <em class="indiciator"></em>
+              </div>
+            </div>
+            <div class="form-body">
+              <div class="fields" sortable ng-model="state.form.fields">
+                <div ng-cloak data-field-id="{{field.fieldId}}"
+                     data-field-index="-1"
+                     class="field-occupy"
+                     ng-show="state| showOccupy: -1"></div>
+                <div ng-repeat='field in state.form.fields' sortable-item  ng-class="{'last-field': $last}">
+                  <div class="field-wrapper {{field.align}}"
+                       ng-click="selectField($event, field)"
+                       id="field_{{field.fieldId}}"
+                       ng-class="{'hover': state.editField == field && state.mode == 'editField'}">
+                    <field-item type="{{field.fieldType}}" ></field-item>
+                    <div class="field-sort" >
+                      <em sortable-item-handle></em>
+                    </div>
+                    <div class="field-control">
+                      <a class="copy" ng-click='copyField(field,$index);$event.stopPropagation();'>复制</a>
+                      <a class="delete" ng-click="deleteField(field,$index);$event.stopPropagation();">删除</a>
+                    </div>
+                    <em class="indiciator"></em>
+                  </div>
+                  <div ng-cloak data-field-id="{{field.fieldId}}"
+                       data-field-index="{{ $index }}"
+                       class="field-occupy"
+                       ng-show="state | showOccupy : $index"></div>
+                </div>
+              </div>
+              <div ng-cloak
+                   class="field-occupy"
+                   ng-show="state | showInitOccupy"></div>
+              <div class="move-tips" ng-hide="(state | hideTips) || (state.mode == 'editForm')">
+                <img src="images/move-tips.png">
+              </div>
+            </div>
+          </div>
+          <div class="form-footer" ng-controller="FormActionCtrl" id="form-footer">
+            <a href="javascript:void(0);" class="ui-button-gray" ng-click="addField()">添加组件</a>
+            <a href="javascript:void(0);" class="ui-button-gray" ng-click="preview()">预览</a>
+            <a href="javascript:void(0);" class="ui-button-gold" ng-click="saveForm()">保存表单</a>
+            <div class="success-popup" ng-show="showSuccessPopup">
+              <div ng-cloak class="modal">
+                <div class="modal-header">
+                  <img src="images/form-save-success.png">
+                  <div class="success-text">
+                    <p class="txt-lg">表单已成功保存</p>
+                    <p>您可以继续操作</p>
+                  </div>
+                </div>
+                <div class="modal-body">
+                  <div class="modal-option">
+                    <a class="form-action-lg" ng-click="showSuccessPopup = false"><em class="continue"></em>继续编辑</a>
+                    <a href="/member/form/list" class="form-action-lg" ng-click="showSuccessPopup = false"><em class="finish"></em>完成编辑，去表单列表</a>
+                    <div class="qrcode-box">
+                      <img ng-src="http://weixin.drip.im/form/qr_code?formId={{state.form.id}}&special=216949">
+                      微信扫一扫可以查看表单
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-cloak class="modal-bg"></div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="settings right-pane"  ng-if="showRightPane">
+        <div tab-nav class="tab-nav" pane-position="right">
+          <tab-pane tab-title="组件设置" mode="editField">
+            <div style="overflow-y: auto;overflow-x: hidden;">
+  <div id="field-editor-wrapper" ng-cloak>
+    <div class="setting-editor filed-setting" id="editField">
+      <field-editor ng-transclude>
+      </field-editor>
+    </div>
+  </div>
+</div>
+
+          </tab-pane>
+          <tab-pane tab-title="表单设置" mode="editForm" class="editForm" id="editForm">
+            <div class="setting-editor form-setting" ng-cloak>
+  <div class="setting-group">
+    <label class="first" change-show-mode><em class="switch"></em>填写完表单后提示页</label>
+    <div>
+      <div class="setting-sub-group">
+        <check-group class="check-group fn-clear {{state.form.successTip.notifyType}}"
+                     options='["提示信息", "text", "跳转到网页", "url"]'
+                     ng-model="state.form.successTip.notifyType"></check-group>
+      </div>
+      <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == 'text'">
+        展示提示文字
+        <div>
+          <textarea ng-model="state.form.successTip.text"
+                    class="checked-input"
+                    ng-required="state.form.successTip.notifyType == 'text'">{{state.form.successTip.text}}</textarea>
+          <p><input type="checkbox"
+                 ng-model="state.form.isShowData"
+                 ng-true-value="true"
+                 ng-false-value="false">显示统计结果（适用于投票表单）</p>
+        </div>
+      </div>
+      <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == 'url'">
+        <input type="text"
+               class="checked-input"
+               ng-model="state.form.successTip.url"
+               placeholder="请输入网址 http://"
+               ng-pattern = "/^[a-zA-z]+://[^\s]*/"
+               ng-required="state.form.successTip.notifyType == 'url'" />
+      </div>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>表单限制</label>
+    <div>
+      <ul class="setting-option">
+        <li>
+          <input type="checkbox"  set-user-limit ng-checked="state.form.limit.times != -1" limit="state.form.limit.times">设置单个微信用户可填写的次数
+          <div ng-if="state.form.limit.times != -1" class="user-limits" ng-init="state.form.limit.everyday=state.form.limit.everyday||false">
+            <select  ng-model="state.form.limit.everyday" ng-options="c as (c?'每天':'总共') for c in [false,true]">
+            </select>
+            <select  ng-model="state.form.limit.times" ng-options="c as (c + '次') for c in [1,2,3,4,5,6,7,8,9,10]">
+            </select>
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 ng-model="state.form.deadline.never"
+                 ng-true-value="false"
+                 ng-false-value="true">设置有效期
+          <div class="check-group subsetting fn-clear time-range" ng-hide="state.form.deadline.never">
+            <p>
+              开始时间：
+              <ng-date-time
+                default-time="true"
+                ng-model='state.form.deadline.startTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!state.form.deadline.never">
+              </ng-date-time>
+            </p>
+            <p>
+              结束时间：
+              <ng-date-time
+                ng-model='state.form.deadline.endTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!state.form.deadline.never">
+              </ng-date-time>
+            </p>
+          </div>
+        </li>
+        <li>
+          <input type="checkbox"
+                 ng-model="state.form.total.limit"
+                 ng-true-value="true"
+                 ng-false-value="false">设置可填写的总数量
+          <div class="check-group subsetting form-total fn-clear" ng-show="state.form.total.limit">
+            <input type="text"
+               class="checked-input"
+               ng-model="state.form.total.number"
+               ng-pattern = "/^([1-9]\d*)$/"
+               placeholder="请输入数量"
+               ng-required="state.form.total.limit" />
+            <input type="checkbox"
+                 ng-model="state.form.total.everyday"
+                 ng-click = 'state.form.total.tip = (state.form.total.everyday?"您来晚啦，当前填写已经满额，明天再来吧。":"您来晚啦，当前填写已经满额。")'
+                 ng-true-value="true"
+                 ng-false-value="false">开启每天限制模式
+            <div class="total-limit-tip">
+              <p>超限后文案提示：</p>
+              <textarea
+                ng-model="state.form.total.tip"
+                ng-init='state.form.total.tip = state.form.total.tip || "您来晚啦，当前填写已经满额。"'>
+              </textarea>
+            </div>
+          </div>
+        </li>
+        <li class="not-only-weixin">
+          <input type="checkbox"
+                 ng-model="state.form.notOnlyWx"
+                 ng-true-value="true"
+                 ng-false-value="false">支持表单在非微信环境下填写
+          <p class="tip">非微信环境下无法控制单个用户的填写次数</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>反馈提醒</label>
+    <div>
+      <tracing-setting></tracing-setting>
+    </div>
+  </div>
+  <!-- <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>分享设置<em></em></label>
+    <div>
+      <div class="share">
+        <img src="http://wx-static.drip.im/img/shop/single/form/form-share.png">
+        <dl>
+          <dt>表单名称</dt>
+          <dd>这里默认是空的，自定义的才有</dd>
+        </dl>
+        <a href="javascript:void(0);" class="setting"><em></em>自定义</a>
+      </div>
+      <div class="share-setting">
+        <div class="modal">
+          <div class="header">
+            分享设置
+            <em class="close"></em>
+          </div>
+          <div class="body">
+            <fieldset>
+              <label>图文标题</label>
+              <div>
+                <input type="text">
+                <span>0/64</span>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="modal-bg"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>工单模式</label>
+    <div class="order-setting">
+      <div>
+        <input type="checkbox"
+          ng-model="state.form.order.record"
+          ng-true-value="true"
+          ng-false-value="false">可查询提交记录
+          <p>1.用户通过表单右上角入口进入查询。</br>2.用户通过链接查看。<a ng-if="state.form.id" class="copy-link" href="javascript:void(0);" copy-link data-clipboard-text="http://weixin.drip.im/form/record/{{state.form.id}}?special=216949"><em></em>复制链接</a><span ng-if="!state.form.id" class="copy-link"><em></em>保存表单后生成链接</span></p>
+      </div>
+      <div>
+        <input type="checkbox"
+          ng-model="state.form.order.open"
+          ng-true-value="true"
+          ng-false-value="false"
+          ng-change="changeOrderMode(state.form.order.open,state.form)">显示工单状态
+        <p>适用于申请、报名、预约等服务类表单，可在表单反馈中标记状态并同步给用户。<a href="#"></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="setting-group">
+    <label change-show-mode><em class="switch"></em>用户信息</label>
+    <div>
+      <div>
+        <h4>获取填写者微信信息</h4>
+        <toggle ng-model="state.form.readWeixinInfo"
+                ng-click="hideWxAuthTip = false"
+                ng-disabled="!state.hasApi">
+        </toggle>
+        <span class="switch">{{state.form.readWeixinInfo?'开启':'关闭'}}</span>
+        <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
+        <div class="wx-auth-tip-pop" ng-show="!state.fromComponent && state.form.readWeixinInfo && !hideWxAuthTip">
+          <div ng-cloak class="modal">
+            <div class="modal-header">请确认以下设置</div>
+            <div class="modal-body">
+              <p class="auth-tips-alert">请确认以下设置正确，否则表单将无法访问！</p>
+              <div class="auth-tip">
+                <span class="auth-tip-step">1</span>
+                <div class="auth-tip-content">
+                  <p class="auth-tip-header">确保已设置url和token并开启服务器配置</p>
+                  <div class="auth-tip-detail">
+                    <p><strong>URL:</strong>http://216949.weixin.drip.im</p>
+                    <p><strong>Token:</strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="auth-tip">
+                <span class="auth-tip-step">2</span>
+                <div class="auth-tip-content">
+                  <div>
+                    <p>登录公众号后台，修改“OAuth2.0网页授权"</p>
+                    <p>
+                      将授权回调页面域名设置成
+                      <span class="highlight">http://216949.weixin.drip.im</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="auth-tip-summary">
+                <p class="tip-summary-header">如何修改</p>
+                <p>登录<a target="_blank" href="https://mp.weixin.qq.com">微信公众后台</a> 〉点击左侧最下导航“开发者中心” 〉找到接口列表中“OAuth2.0网页授权”接口 〉点击右侧修改 〉将回调域名设置填入 </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="javascript:void(0);"
+                 class="ui-button-gray fn-right"
+                 ng-click="hideWxAuthTip=true;state.form.readWeixinInfo=false">取消</a>
+              <a href="javascript:void(0);"
+                 class="ui-button-gold fn-right"
+                 ng-click="hideWxAuthTip=true">我已确定设置</a>
+            </div>
+          </div>
+          <div ng-cloak class="modal-bg"></div>
+        </div>
+      </div>
+      <div>
+        <h4>给填写者打标签</h4>
+        <p class="option-description">标签可在客户管理搜索、精准营销。</p>
+        <p>
+          <toggle ng-disabled="!state.hasApi"
+                  ng-model="state.form.tagSyncEnable">
+          </toggle>
+          <span class="switch">{{state.form.tagSyncEnable?'开启':'关闭'}}</span>
+          <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
+        </p>
+        <div ng-show="state.form.tagSyncEnable" class="form-tag-sync-box">
+          <input type="text" placeholder="输入标签名称" class="checked-input" maxlength="10" ng-model="state.form.tag"  ng-required="state.form.tagSyncEnable">
+          <span class="input-count-tip">{{state.form.tag.length || 0}}/10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="setting-group" ng-controller="CopyrightCtrl">
+    <label class="" change-show-mode><em class="switch"></em>版权设置</label>
+    <div>
+      <div ng-hide="showCopyrightEdit" class="copyright-edit-line">
+        <div ng-show="state.copyright">
+          <span>&copy; {{state.copyright}} 版权所有</span>
+          <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>修改</span>
+        </div>
+        <div ng-show="!state.copyright">
+          <span>自定义版权后,前台将不显示技术支持</span>
+          <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>自定义</span>
+        </div>
+      </div>
+      <div ng-show="showCopyrightEdit" class="copyright-set-box">
+        <label>输入版权方名称,确定后对全局页面生效</label>
+        <p><input ng-model="copyrightCopy" type="text" maxlength="12"/>{{copyrightCopy.length || 0}}/12</p>
+        <p>预览 &copy; {{copyrightCopy}} 版权所有</p>
+        <p>
+          <a class="ui-button-gold-small" ng-click="saveCopyright();">确定</a>
+          <a class="ui-button-grey" ng-click="showCopyrightEdit=false">取消</a>
+        </p>
+
+      </div>
+      <div class="copyright-limit-pop" ng-show="showCopyrightLimitPop">
+        <div ng-cloak class="modal">
+          <div class="modal-header">升级提示
+            <a class="close" ng-click="showCopyrightLimitPop=false"><em></em></a></div>
+          <div class="modal-body">
+            <div id="func-forbidden-tips-box">
+              <em></em>
+              <h3>权限不足</h3>
+              <p>请升级会员等级来继续使用，体验更强大的功能权限。</p>
+            </div>
+          </div>
+          <div class="modal-footer"><a href="/price" target="_blank" class="ui-button-gold fn-right">立即升级</a></div>
+        </div>
+        <div ng-cloak class="modal-bg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </tab-pane>
+        </div>
+      </div>
+      <div class="tip-popup" ng-show="delFieldPop" ng-cloak>
+        <div class="modal ui-win-pop">
+          <div class="pop-hd">
+            <h3>提示</h3>
+            <a href="javascript:void(0);" class="pop-close" ng-click="delFieldPop = false"><em></em></a>
+          </div>
+          <div class="pop-bd">
+            <div class="pop-bd-wrap">
+              <img src="images/delete-field-tip.png">
+              <div>
+                <h4>删除字段确认</h4>
+                <p>当前表单已有填写反馈，删除旧字段可能导致部分信息丢失，请谨慎操作。</p>
+                <p>
+                  <input type="checkbox" ng-model="confirmDelField">确定删除该字段
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pop-ft">
+            <div class="pop-ft-wrap">
+              <div class="pop-action">
+                <a href="javascript:void(0);" class="ui-button-gold act-yes {{confirmDelField?'':'button-disabled'}}" ng-click="confirmDeleteField()">确定</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-bg"></div>
+      </div>
+    </div>
+  </div>
+  <script id="tracing-setting-tpl" type="text/template">
+    <p>通过微信可以实时收到表单反馈的提醒，并可以随时处理。</p>
+    <toggle ng-model="form.tracing.enable" ng-click="openRightPop = false;setTempTracing(form.tracing.enable);checkFormReply();"></toggle> <span ng-show="form.tracing.enable">共{{managersCount}}人<a ng-click="openRightPop = true">设置</a></span>
+    <div class="form-reply-tips-pop" ng-hide="!showFormReplyTipsPop">
+  <div class="modal">
+    <div class="modal-header">提示
+      <a class="close" ng-click="showFormReplyTipsPop=false;onClose();"><em></em></a></div>
+    <div class="modal-body">
+      <div id="form-reply-tips">
+        <p>当前模块需调用模版消息，且行业必须为：<strong>IT科技/互联网|电子商务，IT科技/IT软件与服务</strong></p>
+        <p>检测到您当前的行业与要求不符，请确认是否更改行业？</p>
+        <div class="form-confirm">
+          <p>
+             <input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="1" ng-model="industrySwitchGrant" /> 我同意更改行业
+             <label>注意</label>
+             <strong>行业下使用的模版消息将失效，且在一个月内无法修改回原行业。</strong>
+           </p>
+           <p><input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="2" ng-model="industrySwitchGrant" /> 我不同意更改行业<span class="ui-weak">（水滴的部分功能将无法使用）<span></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="ui-button-gold fn-right" ng-class="{'button-disabled': !formReplyConfirmed}" ng-click="doFormReply()">确定</a>
+    </div>
+  </div>
+  <div ng-cloak class="modal-bg"></div>
+</div>
+
+    <div class="info-container pop-right-animation" ng-show="form.tracing.enable && openRightPop" >
+      <div class="info-wrap">
+        <div >
+          <div class="info-hd">
+            <h3>反馈提醒</h3>
+            <a class="close" ng-click="openRightPop = !onClose()"></a>
+          </div>
+          <div class="info-body">
+            <div class="info-body-wrap">
+              <div class="tracing-setting">
+                <label>设置接收反馈的管理员</label>
+                <div>
+                  <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="normal">常规</span>
+                  <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="conditional">按条件</span>
+                  <div class="blur-parent">
+                    <ul class="manager-list {{reloadings['normal']}}" ng-show="form.tracing.mode === 'normal'">
+                      <li class="header fn-clear">
+                        <span class="fn-left">微信管理员</span>
+                        <span class="add-admin fn-right">
+                          <a href="http://weixin.drip.im/member/helper/list" ng-click="reloadings['normal'] = true" target="_blank">
+                            + 添加管理员
+                            <span>点击将跳转到「水滴小助手」页面，添加管理员后回到该页面继续设置。</span>
+                          </a>
+                        </span>
+                      </li>
+                      <li class="no-managers" ng-if="!managers || !managers.length">
+                        暂无管理员，请点击右上角来添加
+                      </li>
+                      <li class="manager-item" ng-repeat="manager in managers">
+                        <span class="fn-left">
+                          <img src="{{manager.headimgurl}}" width="24px" height="24px" />
+                          <span class="nickname">{{manager.nickname}}</span>
+                        </span>
+                        <span class="fn-right">
+                          <input type="checkbox" ng-model="form.tracing.normal.setting[manager.openid]">接收表单提醒
+                        </span>
+                      </li>
+                    </ul>
+                    <div class="blur-cover" ng-if="reloadings['normal']">
+                      <div class="cover"></div>
+                      <a class="ui-button-gold reload-manager-button"
+                         ng-click="reloadManagers(false, reloadings, 'normal')">我已添加管理员
+                      </a>
+                    </div>
+                  </div>
+                  <div class="conditional-setting-box" ng-if="form.tracing.mode === 'conditional'">
+                    <div class="selects" ng-if="(form.fields | filter: isConditionalField).length > 0">
+                      <label>请选择表单中的一个单选元素</label>
+                      <select ng-model="form.tracing.conditional.fieldId"
+                              ng-options="f.fieldId as f.label for f in form.fields | filter: isConditionalField"
+                              ng-required="form.tracing.mode === 'conditional'">
+                        <option value="">请选择</option>
+                      </select>
+                    </div>
+                    <div class="options" ng-if="(form.fields | filter: isConditionalField).length > 0">
+                      <ul>
+                        <li ng-repeat="opt in optionsOf(form.tracing.conditional.fieldId)"  ng-value="{{opt.value}}">
+                          <div><span>如果用户选择:</span>
+                          {{opt.label}}
+                          </div>
+                          <div><span>收到通知的是:</span>
+                            <span class="selected-manager" ng-hide="isOptionManagerListOpen(opt)" ng-repeat="m in (checkedManagers(form.tracing.conditional.setting['fieldId' + form.tracing.conditional.fieldId]['optionValue' + opt.value]))">{{m.nickname}}</span>
+                            <a class="switch" ng-click="showOptionManagerList(opt)" ng-show="!isOptionManagerListOpen(opt)" ng-disabled="hasOptionManagerList">设置</a>
+                            <div class="blur-parent">
+                              <ul class="manager-list {{reloadings[opt.value]}}" ng-show="isOptionManagerListOpen(opt)" >
+                                <li class="header fn-clear">
+                                  <span class="fn-left">微信管理员</span>
+                                  <span class="fn-right">
+                                    <a href="http://weixin.drip.im/member/helper/list" ng-click="reloadings[opt.value] = true"target="_blank">
+                                      + 添加管理员
+                                      <span>点击将跳转到「水滴小助手」页面，添加管理员后回到该页面继续设置。</span>
+                                    </a>
+                                  </span>
+                                </li>
+                                <li class="no-managers" ng-if="!managers || !managers.length">
+                                  暂无管理员，请点击右上角来添加
+                                </li>
+                                <li class="manager-item fn-clear" ng-repeat="manager in managers">
+                                  <span class="fn-left">
+                                    <img src="{{manager.headimgurl}}" width="24px" height="24px" />
+                                    <span class="nickname">{{manager.nickname}}</span>
+                                  </span>
+                                  <span class="fn-right">
+                                    <input type="checkbox"
+                                           ng-model="conditionalSetting['fieldId' + form.tracing.conditional.fieldId]['optionValue' + opt.value][manager.openid]">接收表单提醒
+                                  </span>
+                                </li>
+                                <li class="manager-item actions">
+                                  <a class="ui-button-gold-small" ng-click="confirmConditionalTracing()">确定</a>
+                                  <a class="ui-button-gray-small" ng-click="cancelConditionalTracing()">取消</a>
+                                </li>
+                              </ul>
+                              <div class="blur-cover" ng-if="reloadings[opt.value]">
+                                <div class="cover"></div>
+                                <a class="ui-button-gold reload-manager-button"
+                                   ng-click="reloadManagers(false, reloadings, opt)">我已添加管理员</a>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tips-box" ng-if="(form.fields | filter: isConditionalField).length <= 0">
+                      表单中没有单选组件（图片单选除外），无法设置。
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="action">
+                <a href="javascript:void(0);" class="ui-button-gold save" ng-click="saveTracing()">保存</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="info-cover"></div>
+    </div>
+  </script>
+  <script type="text/template" id="text-input-tpl">
+  <div class="field-group" >
+    <label>{{field.label || '未命名标题'}}</label>
+    <input type="text" placeholder="{{field.placeholder}}"/>
+  </div>
+</script>
+
+<script type="text/template" id="text-area-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <textarea type="text"  placeholder="{{field.placeholder}}" rows='3'></textarea>
+  </div>
+</script>
+
+<script type="text/template" id="select-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <select placeholder="{{field.placeholder}}">
+      <option ng-if="field.placeholder">{{field.placeholder}}</option>
+      <option ng-repeat="opt in field.fieldOptions">{{opt.label}}</option>
+    </select>
+  </div>
+</script>
+
+<script type="text/template" id="number-input-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" placeholder="{{field.placeholder}}" ng-pattern="/\d+/"/>
+  </div>
+</script>
+
+<script type="text/template" id="checkbox-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <ul>
+      <li ng-repeat="opt in field.fieldOptions">
+        <input type="checkbox">{{opt.label || '选项'}}
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="date-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <select pick-a-date="date" class="date-select" placeholder="{{field.placeholder}}"><option>年</option></select>
+    <select pick-a-date="date" class="date-select" placeholder="{{field.placeholder}}"><option>月</option></select>
+    <select pick-a-date="date" class="date-select" placeholder="{{field.placeholder}}"><option>日</option></select>
+  </div>
+</script>
+
+<script type="text/template" id="time-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <select pick-a-date="date" class="date-select" placeholder="{{field.placeholder}}"><option>小时</option></select>
+    :
+    <select pick-a-date="date" class="date-select" placeholder="{{field.placeholder}}"><option>分钟</option></select>
+  </div>
+</script>
+
+<script type="text/template" id="score-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <div class="star-group">★★★★★</div>
+  </div>
+</script>
+
+<script type="text/template" id="file-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <div class="file-upload">
+      <p>点击上传</p>
+      <span>最大不超过5MB</span>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="img-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <ul class="img-list">
+      <li ng-repeat="opt in field.fieldOptions">
+        <div class="opt-img-wrap">
+          <img ng-src="{{opt.img}}?imageMogr/v2/thumbnail/!100x100r/crop/100x100" width="100px" height="100px"/>
+          <div class="wrap">
+            <input type="radio" name="{{field.fieldId}}" />
+            <span class="opt-label">{{opt.label || "选项"}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="img-list-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <ul class="img-list">
+      <li ng-repeat="opt in field.fieldOptions">
+        <div class="opt-img-wrap">
+          <img ng-src="{{opt.img}}?imageMogr/v2/thumbnail/!100x100r/crop/100x100" width="100px" height="100px"/>
+          <div class="wrap">
+            <input type="checkbox" name="{{field.fieldId}}" />
+            <span class="opt-label">{{opt.label || "选项"}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="radio-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <ul>
+      <li ng-repeat="opt in field.fieldOptions">
+        <div>
+          <input type="radio" name="{{field.fieldId}}" value="{{opt.value}}"/> {{opt.label || "选项"}}
+          <input type="text" ng-if="opt.value == -1" />
+        </div>
+      </li>
+    </ul>
+  </div>
+</script>
+<script type="text/template" id="rich-text-tpl">
+  <div class="field-group">
+    <div class="rich-text-content" ng-if="field.richContent" ng-bind-html="field.richContent"></div>
+    <div class="rich-text-content tip" ng-if="!field.richContent">请设置内容</div>
+  </div>
+</script>
+
+<script type="text/template" id="split-line-tpl">
+  <div class="field-group">
+    <div class="split-line"><span>{{field.label}}</span></div>
+  </div>
+</script>
+
+<!-- 用户信息组件 -->
+<script type="text/template" id="name-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" />
+  </div>
+</script>
+<script type="text/template" id="phone-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" />
+  </div>
+</script>
+<script type="text/template" id="address-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <div>
+      <select ng-hide="field.hide.country"><option value="">中国</option></select>
+      <div class="location-selects">
+        <div ng-if="!field.hide.province"><select><option value="">省</option></select></div>
+        <div ng-if="!field.hide.city"><select><option value="">市</option></select></div>
+        <div ng-if="!field.hide.county"><select><option value="">区/县</option></select></div>
+      </div>
+    </div>
+    <input ng-hide="field.hide.detail" type="text" />
+  </div>
+</script>
+<script type="text/template" id="email-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" />
+  </div>
+</script>
+<script type="text/template" id="birth-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" />
+  </div>
+</script>
+<script type="text/template" id="location-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <div>
+      <div class="location-selects">
+        <div><select><option value="">市</option></select></div>
+        <div><select><option value="">区</option></select></div>
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/template" id="qq-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="text" />
+  </div>
+</script>
+<script type="text/template" id="gender-tpl">
+  <div class="field-group">
+    <label>{{field.label||'未命名标题'}}</label>
+    <input type="radio" name="gender" value="1" />
+    男
+    <input type="radio" name="gender" value="2" />
+    女
+  </div>
+</script>
+
+<!------------------------ 组件设置 ---------------------->
+
+<script type="text/template" id="no-field-editor-tpl">
+  <div class='no-field setting-group'>
+    <label class="first">未选择任何组件</label>
+  </div>
+</script>
+
+<script type="text/template" id="text-input-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <placeholder-setting></placeholder-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+      <min-validator></min-validator>
+    </validator-setting>
+  </div>
+</script>
+<script type="text/template" id="text-area-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <placeholder-setting></placeholder-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+      <min-validator></min-validator>
+    </validator-setting>
+  </div>
+</script>
+
+<script type="text/template" id="select-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <option-setting label="下拉选项"></option-setting>
+    <placeholder-setting></placeholder-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+    </validator-setting>
+    <tag-setting></tag-setting>
+  </div>
+</script>
+
+<script type="text/template" id="img-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <pattern-setting label="图片大小"></pattern-setting>
+    <img-option-setting label="图片选项"></img-option-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+    </validator-setting>
+  </div>
+</script>
+<script type="text/template" id="img-list-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <pattern-setting label="图片大小"></pattern-setting>
+    <img-option-setting label="图片选项"></img-option-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+      <range-validator></range-validator>
+    </validator-setting>
+  </div>
+</script>
+<script type="text/template" id="number-input-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+    </validator-setting>
+  </div>
+</script>
+<script type="text/template" id="checkbox-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <option-setting label="多项选择" enable-other-option="true"></option-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+      <range-validator></range-validator>
+    </validator-setting>
+  </div>
+</script>
+<script type="text/template" id="radio-editor-tpl">
+  <div>
+    <label-setting></label-setting>
+    <option-setting label="单项选择" enable-other-option='true'></option-setting>
+    <validator-setting>
+      <required-validator></required-validator>
+    </validator-setting>
+    <tag-setting></tag-setting>
+  </div>
+</script>
+
+<script type="text/template" id="date-editor-tpl">
+  <label-setting></label-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+
+<script type="text/template" id="time-editor-tpl">
+  <label-setting></label-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+
+<script type="text/template" id="score-editor-tpl">
+  <label-setting></label-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+
+<script type="text/template" id="file-editor-tpl">
+  <label-setting></label-setting>
+  <upload-limit></upload-limit>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="rich-text-editor-tpl">
+  <rich-text-content-setting></rich-text-content-setting>
+</script>
+<script type="text/template" id="split-line-editor-tpl">
+  <label-setting></label-setting>
+  <align-setting></align-setting>
+</script>
+<!-- 用户信息组件设置 -->
+<script type="text/template" id="name-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+
+<script type="text/template" id="phone-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+    <length-validator></length-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="address-editor-tpl">
+  <location-setting></location-setting>
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="email-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="birth-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="location-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="qq-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+<script type="text/template" id="gender-editor-tpl">
+  <sync-setting></sync-setting>
+  <validator-setting>
+    <required-validator></required-validator>
+  </validator-setting>
+</script>
+
+
+
+<!-- 组件设置项 -->
+<script type="text/template" id="label-setting-tpl">
+  <div class="setting-group">
+    <label class="first" ng-if="field.fieldType != 'splitLine'">标题</label>
+    <label class="first" ng-if="field.fieldType == 'splitLine'">分割线说明</label>
+    <div>
+      <input type="text" ng-model="field.label" ng-if="field.fieldType != 'splitLine'" input-hint="未命名标题"/>
+      <input type="text" ng-model="field.label" ng-if="field.fieldType == 'splitLine'" placeholder="选填"/>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="rich-text-content-setting-tpl">
+  <div class="setting-group">
+    <label class="first">富文本内容</label>
+    <div>
+      <ueditor ng-model="field.richContent" ng-attr-editor-id='rich-text-{{field.fieldId}}'></ueditor>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="align-setting-tpl">
+  <div class="setting-group">
+    <label>排列方向</label>
+    <div>
+      <input type="radio" ng-model="field.align" name="alignRadio" value="center">居中
+      <input type="radio" ng-model="field.align" name="alignRadio" value="left">居左
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="upload-limit-tpl">
+  <div class="setting-group">
+    <label>上传限制</label>
+    <div>
+      <input type="radio" ng-model="field.fieldValidator.limit" ng-value="true" name="limitRadio"/>一个
+      <input type="radio" class="limit-radio" ng-model="field.fieldValidator.limit" ng-value="false" name="limitRadio"/>多个
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="placeholder-setting-tpl">
+  <div class="setting-group">
+    <label>填写提示或说明</label>
+    <div>
+      <textarea type="text" ng-model="field.placeholder"></textarea>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="option-setting-tpl">
+  <div class="setting-group">
+    <label>{{label}}</label>
+    <div>
+      <ul>
+        <li ng-repeat="opt in field.fieldOptions">
+          <input type="text"
+                 input-hint='选项'
+                 ng-if="opt.value != -1"
+                 ng-required="true"
+                 ng-model="opt.label"
+                 ng-class="{'placeholder': opt.label == '选项'}"
+                 class="option"/>
+          <input type="text"
+                 ng-if="opt.value == -1"
+                 disabled="disabled" class="other-option" value="{{opt.label}}" />
+          <em ng-click="addOption(opt)" ng-if="opt.value != -1" class="option-action option-add">+</em>
+          <em ng-click="deleteOption(opt)" ng-if="field.fieldOptions.length > 2" class="option-action option-del">-</em>
+        </li>
+        <li><a href="javascript:void(0)" ng-show="!alreadyHaveOther" ng-click="appendOtherOption()" ng-if="enableOtherOption">增加其他选项</a></li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="img-option-setting-tpl">
+  <div class="setting-group">
+    <label>{{label}}</label>
+    <div>
+      <ul>
+        <li class="img-option" ng-repeat="(index,opt) in field.fieldOptions">
+          <a class="pic-uploader {{opt.img?'':set}} imgOption-{{index}}" data-index="{{index}}" href="javascript:void(0);">
+            <img ng-if="opt.img" ng-src="{{opt.img}}?imageMogr/v2/thumbnail/!50x50r/crop/50x50"></img>
+          </a>
+          <div>
+            <div>
+              <input type="text"
+                     ng-model="opt.label"
+                     class="img-input"
+                     ng-class="{'placeholder': opt.label == '选项'}"
+                     ng-focus="removePlaceHolder(opt)"
+                     ng-blur="restorePlaceHodler(opt)"
+                     value="{{opt.label}}"/>
+              <em ng-click="addOption(opt)" ng-if="opt.value != -1" class="option-action option-add">+</em>
+              <em ng-click="deleteOption(opt)" ng-if="field.fieldOptions.length > 1" class="option-action option-del">-</em>
+            </div>
+            <div ng-show="field.fieldPattern.size == 'large'" class="img-desc">
+              <input type="checkbox" ng-model="opt.desc.status">说明
+              <textArea ng-show="opt.desc.status" ng-model="opt.desc.text"></textArea>
+            </div>
+
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="sync-setting-tpl">
+  <div class="setting-group" ng-show="state.hasApi">
+    <label>同步到客户库</label>
+    <div>
+      <input type="checkbox" ng-model="field.sync.enable" ng-change='defaultShow()'/>同步
+      <div ng-show='field.sync.enable' class="sync-setting">
+        如果客户库已经有该信息，那么是否显示？
+        <p><input type='radio' ng-model='field.sync.show' ng-value='true' />显示并读取</p>
+        <p><input type='radio' ng-model='field.sync.show' ng-value='false' />不显示</p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="tag-setting-tpl">
+  <div class="setting-group">
+    <label>同步成标签<em></em></label>
+    <div>
+      <p class="setting-tip">将用户选择的内容同步成标签，在客户管理可以搜索、精准营销。</p>
+      <input type="checkbox" ng-disabled="!state.hasApi" ng-model="field.tagSyncEnable" />开启 <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="pattern-setting-tpl">
+  <div class="setting-group">
+    <label>{{label}}</label>
+    <div>
+      <check-group ng-init="field.fieldPattern.size = field.fieldPattern.size||'large'" class="check-group fn-clear {{field.fieldPattern.size}}"
+                   options='["大图", "large", "小图", "normal"]'
+                   ng-model="field.fieldPattern.size">
+      </check-group>
+      <div class="pattern-size" ng-show="field.fieldPattern.size == 'large'"  ng-init="field.fieldPattern.shape = field.fieldPattern.shape||'rectangle'">
+        <span class="rectangle">
+          <input type='radio' ng-model="field.fieldPattern.shape" ng-value="'rectangle'"><em></em>横版图片
+        </span>
+        <span class="vertical">
+          <input type='radio' ng-model="field.fieldPattern.shape" ng-value="'vertical'"><em></em>竖版图片
+        </span>
+        <span class="square">
+          <input type='radio' ng-model="field.fieldPattern.shape" ng-value="'square'"><em></em>方形图片
+        </span>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="validator-setting-tpl">
+  <div class="setting-group">
+    <label>验证</label>
+    <div>
+      <ul ng-transclude></ul>
+    </div>
+  </div>
+</script>
+<script type="text/template" id="required-validator-tpl">
+  <li class="required">
+    <input type="checkbox" ng-model="required" ng-change="setIfChanged()" />必填
+  </li>
+</script>
+<script type="text/template" id="min-validator-tpl">
+  <li>
+    <input type="checkbox" ng-change="setIfChanged()" ng-model="checked"/>最少填写
+    <input type="text"
+           class="min-length"
+           ng-change="setIfChanged()"
+           ng-model="length" ng-pattern="/^\d+$/"
+           ng-required="checked"/>
+    个字符
+  </li>
+</script>
+<script type="text/template" id="length-validator-tpl">
+  <li>
+    <input type="checkbox" ng-change="setIfChanged()" ng-model="checked"/>位数校验
+    <input type="text"
+           class="min-length"
+           ng-change="setIfChanged()"
+           ng-model="mustLength" ng-pattern="/^\d+$/"
+           ng-required="checked"/>
+    个数字
+  </li>
+</script>
+
+<script type="text/template" id="range-validator-tpl">
+  <li>
+    <input type="checkbox" ng-model="showMinSelect" ng-checked="showMinSelect" ng-change="validator.minSelect = showMinSelect && validator.minSelect || undefined">
+    <span ng-show="!showMinSelect">最少选择项数</span>
+    <span ng-show="showMinSelect">最少选择</span>
+    <span ng-show="showMinSelect">
+      <select  ng-model="validator.minSelect" ng-options="c as (c + '项') for c in [] | range:min:(validator.maxSelect||max)">
+        <option value="">项数</option>
+      </select>
+    </span>
+  </li>
+  <li>
+    <input type="checkbox" ng-model="showMaxSelect" ng-checked="showMaxSelect" ng-change="validator.maxSelect = showMaxSelect ? validator.maxSelect : undefined">
+    <span ng-show="!showMaxSelect">最多选择项数</span>
+    <span ng-show="showMaxSelect">最多选择</span>
+    <span ng-show="showMaxSelect">
+      <select ng-model="validator.maxSelect" ng-options="c as (c + '项') for c in [] | range:(validator.minSelect||min):max">
+        <option value="">项数</option>
+      </select>
+    </span>
+  </li>
+</script>
+
+<script type="text/template" id="location-setting-tpl">
+  <div class="setting-group">
+    <label>显示字段</label>
+    <div class="location-setting">
+      <p>
+        <input type="checkbox" ng-model="field.hide.country" ng-change="initValueWhildHide(field,'中国')" ng-default="true" ng-true-value="false" ng-false-value="true">国家
+        <input type="checkbox" ng-click="hideLocation(field,'province')" ng-model="field.hide.province" ng-default="false" ng-true-value="false" ng-false-value="true">省
+        <input type="checkbox" ng-click="hideLocation(field,'city')" ng-model="field.hide.city" ng-default="false" ng-true-value="false" ng-false-value="true">市
+        <input type="checkbox"  ng-click="hideLocation(field,'county')" ng-model="field.hide.county" ng-default="false" ng-true-value="false" ng-false-value="true">区/县
+        <input type="checkbox" ng-model="field.hide.detail" ng-default="false" ng-true-value="false" ng-false-value="true">详细地址
+      </p>
+      <p>默认值</p>
+      <ul>
+        <li ng-hide="field.hide.country">
+          <select ng-model="field.default.country" ng-change="initLocation(field,'country')" ng-default="中国" ng-options="k as k for (k,v) in locations"></select>
+        </li>
+        <li ng-hide="field.hide.province">
+          <select ng-model="field.default.province" ng-change="initLocation(field,'province')" ng-options="k as k for (k,v) in locations[field.default.country]" ><option value="">省</option></select>
+        </li>
+        <li ng-hide="field.hide.city">
+          <select ng-model="field.default.city" ng-change="initLocation(field,'city')" ng-options="k as k for (k,v) in locations[field.default.country][field.default.province]"><option value="">市</option></select>
+        </li>
+        <li ng-hide="field.hide.county">
+          <select ng-model="field.default.county" ng-options="v as v for (k,v) in locations[field.default.country][field.default.province][field.default.city]"><option value="">区/县</option></select>
+        </li>
+        <li ng-hide="field.hide.detail">
+          <input type="text" ng-model="field.default.detail" placeholder="详细地址"/>
+        </li>
+      </ul>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="file-upload-tpl">
+  <div class="uploader"
+       onclick="angular.element(this).scope().triggerUpload(this)"
+       onchange="angular.element(this).scope().upload(this)">
+    <input type="file" style="display:none" />
+    <em class="upload-img"></em>
+  </div>
+</script>
+
+<script type="text/template" id="check-group-tpl">
+  <a ng-repeat="option in options"
+     ng-class="{on : 'on'}"
+     ng-click="setOption(option.value)">{{option.label}}</a>
+</script>
+<script type="text/template" id="toggle-tpl">
+  <span class="trace-trigger ui-switch" ng-class="{true:'on', false: ''}[on]">
+    <span class="plug"></span>
+  </span>
+</script>
+
+  <script src="js/location_v2.js?t=1455750855"></script>
+  <script src="js/ueditor.config.js?t=1455750855"></script>
+  <script src="js/ueditor.all.min.js?t=1455750855"></script>
+  <script src="js/jquery-1.9.0.js?t=1455750855"></script>
+  <script src="js/ZeroClipboard.min.js?t=1455750855"></script>
+  <script src="js/angular.min.js?v=1.3.16"></script>
+  <script src="js/angular-sanitize.min.js?v=1.3.16"></script>
+  <script src="js/angular-animate.min.js?v=1.3.16"></script>
+  <script src="js/ng-datetime.js?t=20140108_1"></script>
+  <script src="js/ng-sortable.min.js?t=1455750855"></script>
+  <script src="js/uploader.js?t=1455750855"></script>
+  <script src="js/create.js?t=1455750855"></script>
+  <script src="js/fields.js?t=1455750855"></script>
+  <script>
+    seajs.use("js/app.js?t=1455750855",function(app){
+      app.init('member/global');
+    });
+  </script>
+</div>
+
+    <div id="info-container">
+	<div class="info-loading">
+		<img src="http://wx-static.drip.im/img/member/single/loading-white.gif" /> 加载中
+	</div>
+	<div class="info-wrap"></div>
+</div>
+          </body>
+  
+  </html>
