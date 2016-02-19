@@ -1,0 +1,23 @@
+.tkc-list:after,.tkc-list li:after,.tk-cate .tkc-lismore dd:after{ display: block; clear: both; height: 1px; margin-top: -1px; content: ''; }
+.tkc-list{ margin-top:15px}
+.tkc-list .tkl-nav{ border-bottom:1px solid #ededed; border-top:1px solid #ededed; margin-top:-1px}
+.tkc-list .tkl-nav a{height:48px; line-height:48px; overflow:hidden; background:#f8f8f8; padding:0 15px 0 40px;  display: block;font-size:1.7rem;position:relative; color:#34344c; font-weight:normal;}
+.tkc-list .tkl-nav a:before{content: '';display: block;width:22px;height:22px;position: absolute;top:12px;left:15px; background: url(../images/nav-icon.png) no-repeat;  background-size:67px auto; }
+.tkc-list .tkl-nav a:after,.tkvideo-cha dt a:after{content: '';display: block;width:24px;height:24px;position: absolute;top:12px; right:4%; background: url(../images/nav-icon.png) no-repeat;background-size:67px auto;}
+.tk-cate,.tk-index{ position:relative;}
+.tkc-list .tkl-navmore a:after{ background-position:0 -23px;}
+.tkc-list .tkl-nav .tkl-hot:before{ background-position:0 -271px;}
+.tkc-list .tkl-nav .tkl-jz:before{ background-position:0 -46px;}
+.tkc-list .tkl-nav .tkl-kj:before{ background-position:0 -66px;}
+.tkc-list .tkl-nav .tkl-zy:before{ background-position:0 -88px;}
+.tkc-list .tkl-nav .tkl-wy:before{ background-position:0 -108px;}
+.tkc-list .tkl-nav .tkl-jr:before{ background-position:0 -126px;}
+.tkc-list .tkl-nav .tkl-gwy:before{ background-position:0 -148px;}
+.tkc-list .tkl-nav .tkl-yy:before{ background-position:0 -170px;}
+.tkc-list .tkl-nav .tkl-xl:before{ background-position:0 -190px;}
+.tkc-list .tkl-nav .tkl-it:before{ background-position:0 -209px;}
+.tkc-list .tkl-nav .tkl-other:before{ background-position:0 -240px;}
+.tk-cate .tkc-lismore{overflow:hidden;}
+.tk-cate .tkc-lismore dd { border-bottom:1px solid #efefef;}
+.tk-cate .tkc-lismore dd a,.index-list .inli-ztms li a{display: inline-block;width:49%;padding: 12px 0; float:left;font-size:1.5rem;color:#5b5961;text-align: center; border-right:1px solid #efefef; margin-left:-1px;}
+.tk-cate .tkc-lismore dd a{ width:50%;}

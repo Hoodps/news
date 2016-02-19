@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="考试题库,章节练习,错题重做,模拟试题,历年真题,考试大纲,考点,知识点,辅导教材,233网校章节题库" />
+    <meta name="description" content="考试章节练习,依照最新考试教材的章节知识划分试题,批量练习试题,按题型年份复习试题,考试提分必备神器。" />
+    <!-- apple强制全屏，显示在状态栏下方 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <!-- 禁用电话号码 -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>计算机二级-模拟考试章节练习历年真题-233网校</title>
+    
+
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/head.css" rel="stylesheet" type="text/css" />
+    <link href="css/ui-dialog.css" rel="stylesheet" type="text/css" />
+    <link href="css/tkpublic.css" rel="stylesheet" type="text/css" />
+    <link href="css/tkstyle.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="js/sea.js"></script>
+    <script src="//img2.233.com/??x/lib/jquery/jquery-2.1.1.min.js,x/sea-modules/extend/template/3.0.0/template.js,m/com/js/toucher.js,m/com/js/mobile.base.js,x/lib/cookie/jquery.cookie.js,m/tiku/v1/js/utils.js?v=20160111001" charset="utf-8"></script>
+    <script src="js/core.js?v=20160111001" id="coreNode" type="text/javascript"></script>
+    <script type="text/javascript">
+    // 全局参数
+    var baseAjaxPath = '/', // ajax请求--路径头
+        baseHtmlPath = '/', // html链接--路径头
+        baseJsPath =  "js/";
+
+    // 弹窗样式--（已合并在common.min.css中，cssUri:""避免重复下载）
+    window["artDialogConfig"] = {
+        cssUri: ''
+    };
+
+    // 在线seajs路径引用需追加时间戳，避免server缓存对版本的影响
+    seajs.config({
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=20160111001']
+        ],
+        alias: {
+            'publicJs': baseJsPath + 'public/public'
+        }
+    });
+
+    //seajs.use('publicJs', function (publicJs) {
+    //});
+
+    </script>
+
+    
+<script>
+      var page_Login = true,
+          page_bindEmail = false,
+          page_bindPhone = false,
+          page_domain = 'http://m.wx.233.com';
+</script>
+<script src="js/accountBind.js"  type="text/javascript"></script> 
+<script src="js/DefaultArea.js?v=2015121701"></script>
+
+
+</head>
+
+<body class='show-appdown'>
+    <!--微信分享图片-->
+    <div style="display:none;">
+        <img src="images/weixin-share.jpg" />
+    </div>
+    <script type="text/javascript">
+        /* subListAnime下拉弹窗动画封装 */
+        !function (t, i) { "function" == typeof define && define.amd ? define(i) : "object" == typeof exports ? module.exports = i() : t.subListAnime = i(t) }(this, function () { function t(t) { this.initObj = t, this.$topMask = t.$topMask, this.$subList = t.$subList, this.moduleId = t.moduleId, this.noScroll = "boolean" == typeof t.noScroll ? t.noScroll : !0, this.isShow = !1, this.$body = $("body"); var i = this; this.$topMask.on("click", function () { var t = $(this).attr("data-moduleid"); return t === i.moduleId && i.hideSubList(), !1 }) } return t.prototype.showSubList = function () { this.$topMask.show(), this.$subList.slideDown("fast"), this.$topMask.attr("data-moduleid", this.moduleId), this.isShow = !0, this.noScroll && this.$body.css({ overflow: "hidden", "overflow-y": "hidden" }), this.initObj.onShow && this.initObj.onShow() }, t.prototype.isShowSubList = function () { return this.$subList.finish(), this.isShow }, t.prototype.hideSubList = function (t) { this.$topMask.hide(), t ? this.$subList.stop().hide() : this.$subList.slideUp("fast"), this.$topMask.removeAttr("data-moduleid"), this.isShow = !1, this.noScroll && this.$body.css({ overflow: "auto", "overflow-y": "auto" }), this.initObj.onHide && this.initObj.onHide() }, t });
+    </script>
+    
+    <!-- 通用头部-->
+
+ 
+
+<header id="bodyHeader" class="subtopic-head">
+
+      <a href="/" class="back"><i></i></a>
+<a id='btn__examlist' class='cont' href='javascript:;'>计算机二级<i class='arrow-down'></i></a>       <a href="javascript:void(0)" id="btn__user" class="land-user"><img src="http://tp2.sinaimg.cn/2702350037/180/5692250775/1" onerror="this.src='http://img.233.com/wx/img/uc/Avatar.png'"></a>
+</header>
+
+<!--考试列表弹出层-->
+<div id="bg__examlist" class="mlogin-mask dropdown-mask top-mask" style="display:none"></div>
+<section id="m__examlist" class='dropdown-con ' style="display: none">
+      <section class="tkdown-list tkindex-list tkindo-list"><hgroup class="ind-tit">已选考试 <button class="inbut-edit" id="btnEdit">编辑</button></hgroup><nav><ul><li class=" on liEdit82"> <a href="/tiku/home/exam/82" data-id="82">计算机二级<i style="display:none"></i></a></li><li class="tdown-more"> <a href="/tiku/home/examclassify">更多考试</a></li></ul><div class="tdown-decorate"></div></nva></section>
+</section>
+
+<!--全局用户引导弹层-->
+<div id="bg__usermenu" class="mlogin-mask dropdown-mask top-mask" style="z-index:9900;display:none"></div>
+<div id="m__usermenu" class="public-drop-down" style="z-index: 9900; display: none">
+      <a class="user-info" href="/account/home/index">
+            <img src="http://tp2.sinaimg.cn/2702350037/180/5692250775/1" onerror="this.src='http://img.233.com/wx/img/uc/Avatar.png'" />
+            <div class="rt">
+                  <p class="name">
+                        <span>sinawb_dir97y1</span>
+                  </p>
+                  <p class="integration">积分：14</p>
+            </div>
+            <i class="ico"></i>
+      </a>
+
+      <div class="hd">
+            <i class="arrow-right"></i><span>做题模式</span>
+      </div>
+      <ul class="bd">
+            <a href="/tiku/chapter/index/240">章节练习</a>
+            <a href="/tiku/exam/index/240">模拟试题</a>
+            <a href="/tiku/exam/index/240-2">历年真题</a>
+            <a href="/tiku/daily/index/240">每日一练</a>
+            <a href="/tiku/exam/video/240">学员专区</a>
+      </ul>
+      <div class="hd">
+            <i class="arrow-right"></i><span>我的记录</span>
+      </div>
+      <div class="bd">
+            <a href="/tiku/history/index/240"><i></i>练习记录</a>
+            <a href="/tiku/err/index/240"><i></i>我的错题</a>
+            <a href="/tiku/favorites/index/240"><i></i>我的收藏</a>
+            <a href="/tiku/note/index/240"><i></i>我的笔记</a>
+      </div>
+    
+      <div class="ft">
+            <a href="/course/home/allclass"><i class="course"></i>课程</a>
+            <a href="/tiku/home/classify/240"><i class="exam"></i>题库</a>
+            <a href="/news"><i class="mess"></i>资讯</a>
+            <a href="http://www.233.com/shouji233/"><i class="app"></i>app</a>
+      </div>
+</div>
+<script type="text/javascript">
+      /* subListAnime下拉弹窗动画封装 */
+      !function(t,i){"function"==typeof define&&define.amd?define(i):"object"==typeof exports?module.exports=i():t.subListAnime=i(t)}(this,function(){function t(t){this.initObj=t,this.$topMask=t.$topMask,this.$subList=t.$subList,this.moduleId=t.moduleId,this.noScroll="boolean"==typeof t.noScroll?t.noScroll:!0,this.isShow=!1,this.$body=$("body");var i=this;this.$topMask.on("click",function(){var t=$(this).attr("data-moduleid");return t===i.moduleId&&i.hideSubList(),!1})}return t.prototype.showSubList=function(){this.$topMask.show(),this.$subList.slideDown("fast"),this.$topMask.attr("data-moduleid",this.moduleId),this.isShow=!0,this.noScroll&&this.$body.css({overflow:"hidden","overflow-y":"hidden"}),this.initObj.onShow&&this.initObj.onShow()},t.prototype.isShowSubList=function(){return this.$subList.finish(),this.isShow},t.prototype.hideSubList=function(t){this.$topMask.hide(),t?this.$subList.stop().hide():this.$subList.slideUp("fast"),this.$topMask.removeAttr("data-moduleid"),this.isShow=!1,this.noScroll&&this.$body.css({overflow:"auto","overflow-y":"auto"}),this.initObj.onHide&&this.initObj.onHide()},t});
+</script>
+<script>
+    $(function () {
+        var elm = $('body'),
+            hasUserMenu = true, // 用户图标
+            hasExamList = true,  // 顶部考试分类
+            secExamList = false;  // 二级考试分类
+            if(hasUserMenu){
+                  var userMenuAnime = new window.subListAnime({
+                        $topMask: $("#bg__usermenu"),
+                        $subList: $("#m__usermenu"),
+                        moduleId: 'userMenu',
+                        onShow: function(){
+                              $('body').scrollTop(0);
+                        }
+                  });
+                  // 点击-呼出用户引导弹出层
+                  elm.on("click", "#btn__user", function (e) {
+                        if (userMenuAnime.isShowSubList()) {
+                              userMenuAnime.hideSubList();
+                        } else {
+                              var $mask = $('.mlogin-mask:visible');
+                              if ($mask.length) { $mask.click(); }
+                              userMenuAnime.showSubList();
+                        }
+                        return false;
+                  });
+            }
+            if(hasExamList){
+                  var scrollTop = secExamList ? $('#bodyHeader').innerHeight() : 0,
+                      noScroll = secExamList ? false : true;
+                  var examListAnime = new window.subListAnime({
+                        $topMask: $("#bg__examlist"),
+                        $subList: $("#m__examlist"),
+                        moduleId: 'examList',
+                        noScroll: noScroll,
+                        onShow: function(){
+                              $('body').scrollTop(scrollTop);
+                        }
+                  });
+                  // 点击-呼出考试列表弹出层
+                  elm.on("click", "#btn__examlist", function (e) {
+                        if (examListAnime.isShowSubList()) {
+                              examListAnime.hideSubList();
+                        } else {
+                              var $mask = $('.mlogin-mask:visible');
+                              if ($mask.length) { $mask.click(); }
+                              examListAnime.showSubList();
+                        }
+                        return false;
+                  });
+            }
+            // 点击-头部导航栏
+          elm.on("click", "#bodyHeader,#secHeader", function(e) {
+                  var $mask = $('.mlogin-mask:visible');
+                  if ($mask.length) {
+                      $mask.click();
+                  }
+              })
+              .on('click', '#btnEdit', function() {
+                  var self = $(this);
+                  if (self.hasClass('on')) {
+                      self.removeClass('on');
+                      $(".tkdown-list ul li a i").hide();
+                      self.html('编辑');
+                      $('#m__examlist').hide();
+                      $('#bg__examlist').removeAttr("data-moduleid").hide();
+                      $(".tkdown-list ul li a").each(function(i, n) {
+                          $(this).attr("href", $(this).attr('data-href'));
+                          $(this).removeAttr('data-href');
+                      });
+                  } else {
+                      self.addClass('on');
+                      $(".tkdown-list ul li a i").show();
+                      $(".tkdown-list ul li a").each(function(i, n) {
+                          $(this).attr("data-href", $(this).attr('href'));
+                          $(this).attr("href", "javascript:void(0)");
+                      });
+                      self.html('完成');
+                  }
+              })
+              .on('click', '.tkdown-list ul li a i', function() {
+              var thisId = parseInt($(this).parent('a').attr('data-id'));
+                  $.ajax({
+                      url: '/tiku/home/deleteLable' ,
+                      data: { id: thisId },
+                      type: 'post',
+                      cache: false,
+                      dataType: 'json',
+                      success: function (data) {
+                          if (data.s === 10006 && data.msg === "true") {
+                              $('.liEdit' + thisId).remove();
+                          }
+                      },
+                      error: function() {}
+                  });
+          });
+
+      });
+</script>            <!-- APP下载 -->
+<section id="m__appdown" class="tk-consult" style="display: none">
+    <a class="load addDown" href="http://www.233.com/shouji233"><span>免费下载</span></a>
+    <div class="appdown">
+        客户端
+        <p> 网上刷题更方便 </p>
+    </div>
+    <div class="closed" ></div>
+</section>
+<script>
+    $(function () {
+        var key = 'm_app_ad';      
+        var isShow = ($.cookie(key) || '1') === '1';
+        if (isShow) {
+            $('#m__appdown').show();
+            $('#m__appdown .closed,.addDown').on('click', function () {
+                $('#m__appdown').hide();
+                $('body').removeClass('show-appdown');
+                $.cookie(key, '2', {
+                    path:'/'
+                });
+            });
+        }
+    });
+</script>
+    <!-- 内容区域-->
+    
+
+
+<style>
+    .tkdown-list .this a, .submenu .this a {
+        background: #f6f6f6;
+        color: #fb634b;
+        border-right: none;
+    }
+</style>
+    <hgroup id="secHeader" class="second-header ps-relative" style="z-index: 9000;">
+            <div class="text">
+                <div id="btn__classlist" class="nav-item" onclick="">
+                    <span class="txt">C语言</span><i class="arrow-down"></i>
+                </div>
+            </div>
+    </hgroup>
+
+<!-- 科目下拉层 -->
+<div id="bg__classlist" class="mlogin-mask dropdown-mask top-mask" style="display:none"></div>
+<section id="m__classlist" class='dropdown-con dropdown-con-sec' style="display: none">
+    <nav class="tkdown-list tkth-list ">
+        <div class="">
+            <ul>
+                        <li class="nothis "> <a href="/tiku/home/classify/1015?childId=0" data-id="1015"><span>MySQL数据程序设计</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/1016?childId=0" data-id="1016"><span>Web程序设计</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/1017?childId=0" data-id="1017"><span>MS Office高级应用</span></a> </li>
+                        <li class="nothis this"> <a href="/tiku/home/classify/240?childId=0" data-id="240"><span>C语言</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/246?childId=0" data-id="246"><span>C++</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/247?childId=0" data-id="247"><span>Java</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/248?childId=0" data-id="248"><span>VB</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/256?childId=0" data-id="256"><span>VF</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/266?childId=0" data-id="266"><span>Access</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/537?childId=0" data-id="537"><span>公共基础知识</span></a> </li>
+                        <li class="nothis "> <a href="/tiku/home/classify/826?childId=0" data-id="826"><span>Delphi </span></a> </li>
+            </ul>
+        </div>
+        <div class="tdown-decorate clear"></div>
+    </nav>
+</section>
+<!-- end -->
+
+<script>
+    $(function () {
+        var elm = $('body'),
+            hasClassListT = false;
+        var scrollTop = hasClassListT ? 0 : $('#bodyHeader').innerHeight(),
+            noScroll = false;
+        var classListAnime = new window.subListAnime({
+            $topMask: $("#bg__classlist"),
+            $subList: $("#m__classlist"),
+            moduleId: 'classList',
+            noScroll: noScroll,
+            onShow: function () {
+                $('body').scrollTop(scrollTop);
+                $('#m__historytype .submenu > ul').hide();
+            }
+        });
+        var historyTypeAnime = new window.subListAnime({
+            $topMask: $("#bg__classlist"),
+            $subList: $("#m__historytype"),
+            moduleId: 'historyType',
+            noScroll: noScroll,
+            onShow: function () {
+                $('body').scrollTop(scrollTop);
+            }
+        });
+        // 点击-呼出用户引导弹出层
+        elm.on("click", "#btn__classlist", function (e) {
+            if (classListAnime.isShowSubList()) {
+                $(this).removeClass('check');
+                classListAnime.hideSubList();
+            } else {
+                var $mask = $('.mlogin-mask:visible');
+                if ($mask.length) { $mask.click(); }
+                $(this).addClass('check').siblings().removeClass("check");
+                classListAnime.showSubList();
+            }
+            return false;
+        })
+        .on("click","#btn__historytype",function(e) {
+            if (historyTypeAnime.isShowSubList()) {
+                $(this).removeClass('check');
+                historyTypeAnime.hideSubList();
+            } else {
+                var $mask = $('.mlogin-mask:visible');
+                if ($mask.length) { $mask.click(); }
+                $(this).addClass('check').siblings().removeClass("check");
+                historyTypeAnime.showSubList();
+            }
+            return false;   
+        })
+        .on("click", "#m__classlist .hassub a", function (e) {
+            var classId = $(this).data('id');
+            $('#m__classlist #class-'+classId).show().siblings('ul').hide();
+            return false;
+        });
+    });
+</script>
+
+<section class="tk-index">
+        <section class="index-tkcon" id="rightRate">
+            <p>正确率</p>
+            <div class="tk-accur">35.9<span>%</span></div>
+            <ul>
+                <li class="ac-right"> 23 题</li>
+                <li class="ac-wrong"> 41 题</li>
+            </ul>
+            <i class="inx-btn pre-btn" style="display: none;"></i> <i class="inx-btn next-btn"></i>
+        </section>
+        <section class="index-tkcon" id="scoreRate" style="display: none;">
+            <p>近5次，预测分</p>
+            <div class="tk-accur">8<span>分</span></div>
+            <ul class="score">
+                <li> 最高分 8</li>
+                <li class="ac-zdf"> 最低分 8</li>
+            </ul>
+            <i class="inx-btn pre-btn"></i> <i class="inx-btn next-btn" style="display: none"></i>
+        </section>
+    
+    <section class="index-list clear">
+        <div class="in-tktit">
+            <h3>做题模式</h3>
+        </div>
+        <ul class="inli-ztms">
+            <li> <a href="/tiku/exam/index/240">模拟考试</a> </li>
+            <li class="in-zj"> <a href="/tiku/chapter/index/240">章节练习<i></i></a> </li>
+            <li class="in-mr"> <a href="/tiku/daily/index/240">每日一练</a> </li>
+            <li class="in-ln"> <a href="/tiku/exam/index/240-2">历年真题</a> </li>
+            <li class="in-xy"> <a href="/tiku/exam/video/240">学员专区</a> </li>
+        </ul>
+        <div class="in-tktit int-nobor clear">
+            <h3>练习记录</h3>
+        </div>
+        <ul class="inli-ztms">
+            <li class="in-pjl"> <a href="/tiku/history/index/240">练习记录</a> </li>
+            <li class="in-pct"> <a href="/tiku/err/index/240">我的错题<i></i></a> </li>
+            <li class="in-psc"> <a href="/tiku/favorites/index/240">我的收藏</a> </li>
+            <li class="in-pji"> <a href="/tiku/note/index/240">我的笔记</a> </li>
+        </ul>
+    </section>
+</section>
+
+<script>
+    define('init', ['utils'], function(require, exports, module) {
+        var $ = jQuery;
+        var elm = $('body');
+        
+        exports.start = function() {
+            $(function () {
+                $(".next-btn").bind("click", function () {
+                    $('#rightRate').hide();
+                    $('#scoreRate').fadeIn();
+                });
+
+                $(".pre-btn").bind("click", function () {
+                    $('#rightRate').fadeIn();
+                    $('#scoreRate').hide();
+                });
+            });
+        };
+    });
+
+    seajs.use('init', function (init) {
+        init.start();
+    });
+
+   
+</script>
+
+</body>
+</html>

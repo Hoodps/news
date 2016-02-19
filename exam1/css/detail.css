@@ -1096,7 +1096,7 @@ input[type=text].invalid{
   top: 0.4rem;
   width: 3.2rem;
   height: 3.2rem;
-  background-image: url(../images/loading-bar.png);
+  background-image: url(../../../img/shop/single/exam/loading-bar.png);
   background-size: 100%;
   -webkit-animation: rotate 1s linear 0s infinite;
 }

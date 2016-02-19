@@ -1,0 +1,29 @@
+/**
+ * Created by 文景 on 15-10-30.
+ * 功能：
+ *     1.涵盖页面整体布局的样式；
+ *     2.方便页面模块化书写，避免模块迁移时样式错乱；
+ *     3.方便响应式扩展
+ * 注：
+ *     1..lyt-nav和.lyt-secmenu均内嵌在.lyt-container中，非fixed定位
+ *     2.层级关系：dialog/guide > usermenu/examlist/classlist/header > secheader > mlogin-mask
+ *         阴影：mask1:100, mask2:200, mask3:300, dialog: 1025;
+ *         正文：content:50, secmenu:150, header:250, guide:350, footer:180, subquestion:60, answercard: 280;
+ */
+
+/*公共边框样式*/
+.foot-exam{margin-bottom: 56px;}
+
+/*页面整体布局*/
+.lyt-container{width: 100%;height: auto;position: relative;z-index: 50;top: 0;left: 0;overflow: hidden;}
+/*试题模块*/
+.lyt-question{width: 100%;height: auto;overflow: hidden;}
+.lyt-question > ul{width: 200%;height: 100%;}
+.lyt-question > ul > li{width: 50%;height: auto;float: left;overflow:hidden;}
+/*子题模块*/
+.lyt-subContent{width: 100%;height: auto;position: fixed;left: 0;bottom: 56px;z-index: 60;}
+.lyt-subQuestion{width: 100%;height: 240px;overflow: hidden;overflow-y:auto;}
+.lyt-subQuestion > ul{width: 200%;height: 100%;overflow: hidden;}
+.lyt-subQuestion > ul > li{width: 50%;height: 100%;float: left;overflow: hidden;}
+/*答题卡*/
+.lyt-answercard{width: 100%;height: 100%;position: fixed;z-index: 10000;top: 0;left: 0;overflow: hidden;}

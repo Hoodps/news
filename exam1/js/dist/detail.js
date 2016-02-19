@@ -31,8 +31,8 @@ define(function(require, exports){
     }
     juicerInit();
     scrollInit();
-    //cover.init();
-    //clock.init();
+    cover.init();
+
     ques.init();
 
     loading.init();
@@ -51,7 +51,7 @@ define(function(require, exports){
     }else if(exam.type == "exam"){
       pop.tip();
     }
-    //if(exam.userInfo.need && !cacheExam.userinfo) userinfo.init();
+    if(exam.userInfo.need && !cacheExam.userinfo) userinfo.init();
     
   };
   var clock = {
@@ -394,22 +394,18 @@ define(function(require, exports){
         var src = $(img).data("src");
         if(src) img.src = src;
       });
-      console.log(images);
-      clearInterval(loadingInt);
-      $("#loading-percent").html("100%");
-      loading.remove();
-
-      // if(images.length <= 0) return;
-      // images[0].onload = function(){
-      //   clearInterval(loadingInt);
-      //   $("#loading-percent").html("100%");
-      //   loading.remove();
-      // };
-      // images[0].onerror = function(){
-      //   //alert(1111);
-      //   alert("加载失败，重新刷新页面");
-      //   window.location.reload();
-      // };
+      //console.log(images);
+      if(images.length <= 0) return;
+      images[0].onload = function(){
+        clearInterval(loadingInt);
+        $("#loading-percent").html("100%");
+        loading.remove();
+      };
+      images[0].onerror = function(){
+        //alert(1111);
+        alert("加载失败，重新刷新页面");
+        window.location.reload();
+      };
       // clearInterval(loadingInt);
       // loading.remove();
     },
@@ -425,7 +421,7 @@ define(function(require, exports){
     init:function(){
       this.render();
       this.openTouch();
-      //$("#exam-cover").remove();
+      // $("#exam-cover").remove();
     },
     render:function(){
       var cover = juicer($("#exam-cover-tpl").html());
@@ -837,25 +833,24 @@ define(function(require, exports){
       ques.result.score = score;
       ques.result.time = time;
       // console.log(ques.result);
-      //pop.loading("提交中");
+      pop.loading("提交中");
       var url = "/exam/fill?special="+_hook.domain;
       // pop.endLoad();
       // localStorage.clear();
       // result.renderExam(ques.result);
       // console.log(ques.result);
-      result.renderExam(ques.result);
-      // $.post(url,JSON.stringify(ques.result)).done(function(r){
-      //   pop.endLoad();
-      //   localStorage.clear();
-      //   if(r.status == "success"){
-      //     result.renderExam(ques.result);
-      //   }else{
-      //     pop.alert(r.result);
-      //   }
-      // }).fail(function(error){
-      //   pop.endLoad();
-      //   //alert("系统错误，请重试");
-      // });
+      $.post(url,JSON.stringify(ques.result)).done(function(r){
+        pop.endLoad();
+        localStorage.clear();
+        if(r.status == "success"){
+          result.renderExam(ques.result);
+        }else{
+          pop.alert(r.result);
+        }
+      }).fail(function(error){
+        pop.endLoad();
+        //alert("系统错误，请重试");
+      });
     },
     checkQues:function(fullQuestions){
       $(".questions .question:not(.end)").each(function(){

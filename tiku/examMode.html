@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" />
+    <meta name="description" />
+    <!-- apple强制全屏，显示在状态栏下方 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <!-- 禁用电话号码 -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>233网校手机版题库，2015年3月二级C语言新增无纸化真考题库试卷(3),考试作答页面</title>
+    
+
+        <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/head.css" rel="stylesheet" type="text/css" />
+    <link href="css/ui-dialog.css" rel="stylesheet" type="text/css" />
+    <link href="css/tkpublic.css" rel="stylesheet" type="text/css" />
+    <link href="css/tkstyle.css" rel="stylesheet" type="text/css" />
+    <script src="//img2.233.com/??x/lib/jquery/jquery-2.1.1.min.js,x/sea-modules/extend/template/3.0.0/template.js,m/com/js/toucher.js,m/com/js/mobile.base.js,x/lib/cookie/jquery.cookie.js,m/tiku/v1/js/utils.js?v=20160111001" charset="utf-8"></script>
+    <script src="http://img2.233.com/x/core.js?v=20160111001" id="coreNode" type="text/javascript"></script>
+    <script type="text/javascript">
+    // 全局参数
+    var baseAjaxPath = '/', // ajax请求--路径头
+        baseHtmlPath = '/', // html链接--路径头
+        baseJsPath =  "//img2.233.com/m/1.1/tiku/js/";
+
+    // 弹窗样式--（已合并在common.min.css中，cssUri:""避免重复下载）
+    window["artDialogConfig"] = {
+        cssUri: ''
+    };
+
+    // 在线seajs路径引用需追加时间戳，避免server缓存对版本的影响
+    seajs.config({
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=20160111001']
+        ],
+        alias: {
+            'publicJs': baseJsPath + 'public/public'
+        }
+    });
+
+    //seajs.use('publicJs', function (publicJs) {
+    //});
+
+    </script>
+
+    
+<script>
+      var page_Login = true,
+          page_bindEmail = false,
+          page_bindPhone = false,
+          page_domain = 'http://m.wx.233.com';
+</script>
+<script src="http://img2.233.com/m/account/v2/js/accountBind.js"  type="text/javascript"></script>
+
+</head>
+
+<body class=''>
+    <!--微信分享图片-->
+    <div style="display:none;">
+        <img src="//img2.233.com/m/1.1/tiku/images/weixin-share.jpg" />
+    </div>
+    <script type="text/javascript">
+        /* subListAnime下拉弹窗动画封装 */
+        !function (t, i) { "function" == typeof define && define.amd ? define(i) : "object" == typeof exports ? module.exports = i() : t.subListAnime = i(t) }(this, function () { function t(t) { this.initObj = t, this.$topMask = t.$topMask, this.$subList = t.$subList, this.moduleId = t.moduleId, this.noScroll = "boolean" == typeof t.noScroll ? t.noScroll : !0, this.isShow = !1, this.$body = $("body"); var i = this; this.$topMask.on("click", function () { var t = $(this).attr("data-moduleid"); return t === i.moduleId && i.hideSubList(), !1 }) } return t.prototype.showSubList = function () { this.$topMask.show(), this.$subList.slideDown("fast"), this.$topMask.attr("data-moduleid", this.moduleId), this.isShow = !0, this.noScroll && this.$body.css({ overflow: "hidden", "overflow-y": "hidden" }), this.initObj.onShow && this.initObj.onShow() }, t.prototype.isShowSubList = function () { return this.$subList.finish(), this.isShow }, t.prototype.hideSubList = function (t) { this.$topMask.hide(), t ? this.$subList.stop().hide() : this.$subList.slideUp("fast"), this.$topMask.removeAttr("data-moduleid"), this.isShow = !1, this.noScroll && this.$body.css({ overflow: "auto", "overflow-y": "auto" }), this.initObj.onHide && this.initObj.onHide() }, t });
+    </script>
+    
+    <!-- 通用头部-->
+<input type="hidden" value=""/>
+    
+    <!-- 内容区域-->
+    
+
+
+<link href="//img2.233.com/m/1.1/??tiku/css/layout.css,tiku/css/night.css?v=20160111001" rel="stylesheet" type="text/css" />
+
+<script>
+    
+    var page_paperId    = 340516, // 试卷Id、章节Id
+        page_fromType   = 1, //考试类型 1 模考 2 章节练习 3 每日一练 7 顺序练习
+        page_pageType   = 'exercise', // 页面类型 do考试模式 exercise练习模式 view题目解析
+        page_examType   = '', //题型
+
+        page_examTime   = 7200, //考试时间  输出的是秒数
+        page_userTime   = 6, //考试用时 输出的是秒数
+        page_examTotal  = page_fromType===8 ? 0 : 0, //题目总数
+        page_examTitle  = '2015年3月二级C语言新增无纸化真考题库试卷(3)', //章节练习标题
+        page_classId    = '0',      //科目ID（eg.建设工程）
+        page_userName   = 'sinawb_dir97y1',    //当前登录用户名
+        page_loginUrl   = 'http://passport.233.com/m/login?redirectURL=http%3a%2f%2fm.wx.233.com%2ftiku%2fexam%2fdo%3fid%3d340516%26examMode%3dtest';
+
+    page_userTime >= page_examTime && (page_userTime=0);
+    // 全局配置参数
+    var page_questGetMode   = page_fromType===10 ? 'noteGet':'allGet', // 试题获取方式 -- ruleId通过大题获取 allGet全部获取 pageGet分页获取
+        page_autoAnalysis   = page_pageType==='exercise' ? true : false, // 是否自动解析错题
+        page_needExamTimer  = page_pageType==='do' ? true : false, // 是否需要考试计时器
+        page_needCacheData  = false, // 是否需要缓存数据 - init.js中初始化
+        page_needPaging     = true, // 是否需要翻页-当前已全部使用翻页
+        page_renderAnalysis = page_pageType==='do' ? false : true, // 是否默认生成答案解析
+        page_showAnalysis   = false, // 是否默认显示解析
+        page_autoNextQuestion = true, // 是否默认切换下一题
+        page_paperState     = 'doing', // 记录试卷状态，onbeforeunload做判断
+        page_showLog        = false; // 是否打印log
+
+    seajs.config({
+        alias: {
+            'init': 'examroom/init',
+            'hearing': 'examroom/hearing',
+            'plus': 'examroom/plus',
+
+            'examActionMgr': 'examroom/examActionMgr',
+            'examDataMgr': 'examroom/examDataMgr',
+            'examSetting': 'examroom/examSetting',
+            'examAnswerCard': 'examroom/examAnswerCard',
+            'examQuestion': 'examroom/examQuestion',
+
+            'question.answer': 'examroom/question.answer',
+            'question.get': 'examroom/question.get',
+            'question.manager': 'examroom/question.manager',
+            'question.answerCard': 'examroom/question.answercard',
+
+            'jplayer': '//img2.233.com/x/lib/jplayer/2.6.0/jquery.jplayer.js',
+
+            'user_note': 'examroom/user_note'
+        },
+        paths: {
+            'examroom': baseJsPath + 'examRoom'
+        }
+    });
+    seajs.use('init',function(){
+        seajs.use('user_note');
+    });
+</script>
+<header id="examHeader" class="subtopic-head fixed-hd" style="z-index:800;">
+    <a href="javascript:void(0)" class="back"><i></i></a>
+        <a href="javascript:void(0)" class="answer-card"><i></i></a>
+        <a href="javascript:void(0)" class="set"><i></i></a>
+</header>
+<div class="hd-occupy"></div>
+<article id="examContainer" class='lyt-container foot-exam'>
+
+    <section id="questionModule" class="lyt-question tk-subject">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+
+</article>
+    <!-- 底部按钮栏 -->
+    <footer id="examFooter" class="footer tk-subfoot" style="z-index:400;">
+        <div class="submit-back">
+            <input type="submit" class="back-btn prev-btn" value="上一题">
+        </div>
+
+        <ul class="ft-menu" style="overflow:hidden;">
+                <li class="analysis"><a href="javascript:void(0)">答案</a></li>
+                <li class="collect"><a href="javascript:void(0)">收藏</a></li>
+        </ul>
+        <div class="m-tlogin submit-btn">
+            <input type="submit" class="login-btn next-btn" value="下一题">
+        </div>
+    </footer>
+<!-- 加载图标 -->
+<div id="m__loading" class="no-data loading">
+    <img src="//img2.233.com/m/1.1/tiku/images/jz.gif">
+    <p>加载中……</p>
+</div>
+
+<!--====== End of Default Shows ======-->
+<section id="subQuestionModule" class="lyt-subContent" style="z-index:300;display:none;">
+    <section class="material-dracon" style="position:static;">
+        <section class="material-drag">
+            <div class="drag drag-click" title="拖移条"></div>
+            <hgroup class="tk-subar tkmate-subar">
+                <div class="tkbar-center">
+                    <h3></h3>
+                    <span><em></em></span>
+                </div>
+            </hgroup>
+            <section id="subQuestionBlock" class="lyt-subQuestion tk-subject clear">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </section>
+        </section>
+    </section>
+</section>
+<!-- 答题卡 -->
+
+
+
+<!--答题卡区域-->
+    <section id="answerCard" class="lyt-answercard dt-card" style="z-index:900;display: none;">
+        <div class="mlogin-mask" onclick="" style="z-index:900;display:none;"></div>
+        <section class="tkcard-list tkzj-chioce hand-in">
+            <section class="tdcard-off" onclick="" title="收回"> </section>
+            <div class="paper-card">
+                    <hgroup class="ind-tit clear" data-title="选择题" data-num="40" data-rulesid="1697553">选择题</hgroup>
+                    <section class="tk-subject tk-subcard f-mt20">
+                        <dl class="tk-sxz ">
+                                    <dd><a href="javascript:;" data-order="1" data-examid="3298623" data-rulesid="1697553">1</a></dd>
+                                    <dd><a href="javascript:;" data-order="2" data-examid="3298563" data-rulesid="1697553">2</a></dd>
+                                    <dd><a href="javascript:;" data-order="3" data-examid="3298594" data-rulesid="1697553">3</a></dd>
+                                    <dd><a href="javascript:;" data-order="4" data-examid="3298549" data-rulesid="1697553">4</a></dd>
+                                    <dd><a href="javascript:;" data-order="5" data-examid="3298514" data-rulesid="1697553">5</a></dd>
+                                    <dd><a href="javascript:;" data-order="6" data-examid="3298601" data-rulesid="1697553">6</a></dd>
+                                    <dd><a href="javascript:;" data-order="7" data-examid="3298606" data-rulesid="1697553">7</a></dd>
+                                    <dd><a href="javascript:;" data-order="8" data-examid="3298631" data-rulesid="1697553">8</a></dd>
+                                    <dd><a href="javascript:;" data-order="9" data-examid="3298614" data-rulesid="1697553">9</a></dd>
+                                    <dd><a href="javascript:;" data-order="10" data-examid="3298625" data-rulesid="1697553">10</a></dd>
+                                    <dd><a href="javascript:;" data-order="11" data-examid="3298589" data-rulesid="1697553">11</a></dd>
+                                    <dd><a href="javascript:;" data-order="12" data-examid="3298543" data-rulesid="1697553">12</a></dd>
+                                    <dd><a href="javascript:;" data-order="13" data-examid="3298556" data-rulesid="1697553">13</a></dd>
+                                    <dd><a href="javascript:;" data-order="14" data-examid="3298554" data-rulesid="1697553">14</a></dd>
+                                    <dd><a href="javascript:;" data-order="15" data-examid="3298582" data-rulesid="1697553">15</a></dd>
+                                    <dd><a href="javascript:;" data-order="16" data-examid="3298535" data-rulesid="1697553">16</a></dd>
+                                    <dd><a href="javascript:;" data-order="17" data-examid="3298583" data-rulesid="1697553">17</a></dd>
+                                    <dd><a href="javascript:;" data-order="18" data-examid="3298513" data-rulesid="1697553">18</a></dd>
+                                    <dd><a href="javascript:;" data-order="19" data-examid="3298541" data-rulesid="1697553">19</a></dd>
+                                    <dd><a href="javascript:;" data-order="20" data-examid="3298538" data-rulesid="1697553">20</a></dd>
+                                    <dd><a href="javascript:;" data-order="21" data-examid="3298597" data-rulesid="1697553">21</a></dd>
+                                    <dd><a href="javascript:;" data-order="22" data-examid="3298544" data-rulesid="1697553">22</a></dd>
+                                    <dd><a href="javascript:;" data-order="23" data-examid="3298602" data-rulesid="1697553">23</a></dd>
+                                    <dd><a href="javascript:;" data-order="24" data-examid="3298579" data-rulesid="1697553">24</a></dd>
+                                    <dd><a href="javascript:;" data-order="25" data-examid="3298573" data-rulesid="1697553">25</a></dd>
+                                    <dd><a href="javascript:;" data-order="26" data-examid="3298564" data-rulesid="1697553">26</a></dd>
+                                    <dd><a href="javascript:;" data-order="27" data-examid="3298571" data-rulesid="1697553">27</a></dd>
+                                    <dd><a href="javascript:;" data-order="28" data-examid="3298626" data-rulesid="1697553">28</a></dd>
+                                    <dd><a href="javascript:;" data-order="29" data-examid="3298574" data-rulesid="1697553">29</a></dd>
+                                    <dd><a href="javascript:;" data-order="30" data-examid="3298530" data-rulesid="1697553">30</a></dd>
+                                    <dd><a href="javascript:;" data-order="31" data-examid="3298580" data-rulesid="1697553">31</a></dd>
+                                    <dd><a href="javascript:;" data-order="32" data-examid="3298603" data-rulesid="1697553">32</a></dd>
+                                    <dd><a href="javascript:;" data-order="33" data-examid="3298566" data-rulesid="1697553">33</a></dd>
+                                    <dd><a href="javascript:;" data-order="34" data-examid="3298540" data-rulesid="1697553">34</a></dd>
+                                    <dd><a href="javascript:;" data-order="35" data-examid="3298531" data-rulesid="1697553">35</a></dd>
+                                    <dd><a href="javascript:;" data-order="36" data-examid="3298511" data-rulesid="1697553">36</a></dd>
+                                    <dd><a href="javascript:;" data-order="37" data-examid="3298520" data-rulesid="1697553">37</a></dd>
+                                    <dd><a href="javascript:;" data-order="38" data-examid="3298701" data-rulesid="1697553">38</a></dd>
+                                    <dd><a href="javascript:;" data-order="39" data-examid="3298632" data-rulesid="1697553">39</a></dd>
+                                    <dd><a href="javascript:;" data-order="40" data-examid="3298617" data-rulesid="1697553">40</a></dd>
+                        </dl>
+                    </section>
+                    <hgroup class="ind-tit clear" data-title="程序填空题" data-num="1" data-rulesid="1697554">程序填空题</hgroup>
+                    <section class="tk-subject tk-subcard f-mt20">
+                        <dl class="tk-sxz ">
+                                    <dd><a href="javascript:;" data-order="41" data-examid="3298591" data-rulesid="1697554">41</a></dd>
+                        </dl>
+                    </section>
+                    <hgroup class="ind-tit clear" data-title="程序改错题" data-num="1" data-rulesid="1697555">程序改错题</hgroup>
+                    <section class="tk-subject tk-subcard f-mt20">
+                        <dl class="tk-sxz ">
+                                    <dd><a href="javascript:;" data-order="42" data-examid="3298695" data-rulesid="1697555">42</a></dd>
+                        </dl>
+                    </section>
+                    <hgroup class="ind-tit clear" data-title="程序设计题" data-num="1" data-rulesid="1697556">程序设计题</hgroup>
+                    <section class="tk-subject tk-subcard f-mt20">
+                        <dl class="tk-sxz tk-spd">
+                                    <dd><a href="javascript:;" data-order="43" data-examid="3298593" data-rulesid="1697556">43</a></dd>
+                        </dl>
+                    </section>
+            </div>
+        </section>
+            <section class="card-color">
+                <ul>
+                    <li class="yd"><i></i>已答</li>
+                    <li class="wd"><i></i>未答</li>
+                </ul>
+            </section>
+            <section class="card-pacon">
+                <div class="card-jiao">
+                    <button class="btn__submit">交卷并查看结果</button>
+                </div>
+            </section>
+    </section>
+
+<!-- 设置菜单 -->
+<div id="bg__setting" class="mlogin-mask dropdown-mask top-mask" style="z-index:500;display:none;"></div>
+<div id="m__setting" class="set-drop-down" style="position:fixed;z-index:500;display:none;">
+    <ul>
+        <li>
+            <span class="left">字体</span>
+            <div class="right choice-btn">
+                <a href="javascript:void(0)" class="btn__big">大</a>
+                <a href="javascript:void(0)" class="btn__middle">中</a>
+                <a href="javascript:void(0)" class="btn__small">小</a>
+            </div>
+        </li>
+        <li><span class="left">自动显示答案</span><div class="right switch"><a href="javascript:void(0)" class="btn__allshow"><i></i></a></div></li>
+        <li><span class="left">答错显示答案</span><div class="right switch"><a href="javascript:void(0)" class="btn__errshow"><i></i></a></div></li>
+        <li><span class="left">自动下一题</span><div class="right switch"><a href="javascript:void(0)" class="btn__allnext"><i></i></a></div></li>
+        <li>
+            <span class="left">模式选择</span>
+            <div class="right choice-btn">
+                <a href="javascript:void(0)" class="btn__night">夜间</a>
+                <a href="javascript:void(0)" class="btn__light checked">日间</a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- 公用模版和弹窗 -->
+<!--模板数据-->
+<script type="text/html" id="tpl-question">
+<$  list.forEach(function(question,i){    $>
+    <$  if(question.emptyDiv){  $>
+            <li style="width: <$=liWidth$>px;height:200px;"></li>
+    <$  }else if(question.subQuestion && question.subQuestion.length){  $>
+            <li style="width: <$=liWidth$>px;">
+                <section class="m-question"
+                    style="min-height:<$=getMinHeight()$>px;">
+            <$  include('tpl-question-link',{
+                    "item": question,
+                    "renderAnalysis": renderAnalysis,
+                    "bottomHeight": bottomHeight
+                });  $>
+                </section>
+            </li>
+    <$  }else{  $>
+            <li style="width: <$=liWidth$>px;position:relative;">
+                <section class="m-question <$=question.disabled || showAnalysis?'disabled':''$> <$=question.multiple?'double-seb':''$>"
+                    data-examid="<$=question.examId$>"
+                    data-examtype="<$=question.examType$>"
+                    data-rulesid="<$=question.rulesId$>"
+                    data-answer="<$=question.answer$>"
+                    data-useranswer="<$=question.userAnswer$>"
+                    <$=(question.examType===5?'data-clickrecord="-1vs-1"':'')$>
+                    data-orderid="<$=question.orderId$>"
+                    style="min-height:<$=getMinHeight(subQuestion)$>px;" >
+            <$  if(!subQuestion && renderCount){  $>
+                    <hgroup class="second-header">
+                        <div class="text"><span class="txt"><$=getQuestType(question.examType)$></span><span class="number"><em><$=question.orderId$></em>/<$=totalCount$></span></div>
+                    </hgroup>
+            <$  }  $>
+        <$  switch(question.examType){
+                case 0: // 小语种单选
+                case 1: // 单选题
+                case 2: // 多选题
+                case 3: // 不定项选择题
+                case 4: // 判断题
+                    include('tpl-question-default',{
+                        "item"  :question,
+                        "showAnswer": question.disabled || showAnalysis,
+                        showType: !renderCount
+                    });
+                    break;
+                case 5: // 报关题
+                    include('tpl-question-baoguan',{
+                        "item"  :question,
+                        "showAnswer": question.disabled || showAnalysis,
+                        showType: !renderCount
+                    });
+                    break;
+                case 6: // 填空题
+                case 7: // 简答题
+                    include('tpl-question-jianda',{
+                        "item"  :question,
+                        "showAnswer": question.disabled || showAnalysis,
+                        showType: !renderCount
+                    });
+                    break;
+                case 8: // 论述题
+                    break;
+            }  $>
+        <$  if(renderAnalysis){ // 答案解析
+                include('tpl-question-analysis',{
+                    "item"  :question,
+                    "videoWidth": liWidth,
+                    "showAnalysis"  :question.showAnalysis || showAnalysis
+                });
+            }  $>
+            </div></li>
+    <$  }   $>
+<$  }); $>
+</script>
+
+<!--模板数据：材料题-->
+<script type="text/html" id="tpl-question-link">
+<$  if(item.examType===100){  $> 
+    <section>
+        <div class="material">
+            <div class="material-title"><!-- 听力 play 开始  pause 暂停-->
+                <$=item.content$>
+            </div>
+        </div>
+    </section>
+<$  }else{  $>
+    <section>
+        <dl class="singl-seb simate-seb">
+            <dt>
+                <p><$=item.ContentTitle$></p>
+                <em>[<$=getQuestType(item.examType)$>]</em>
+                <$=item.content$>
+            </dt>
+        </dl>
+    </section>
+<$  }  $>
+    <div class="bottom-div" style="width:100%;height:<$=bottomHeight$>px;"></div>
+</script>
+
+<!-- 模板数据：普通试题(单选、多选、判断) -->
+<script type="text/html" id="tpl-question-default">
+    <section>
+        <dl class="tx-con <$=item.multiple?'double-seb':''$>" >
+            <dt>
+            <$  if(showType){  $>
+                <em>[<$=getQuestType(item.examType)$>]</em>
+            <$  }  $>
+            <$  if(item.superContent){  $>
+                <$=item.superContent$><br>
+            <$  }  $>
+                <$=item.content$>
+            </dt>
+    <$  if(!item.isImageOptions){    $>
+        <$  item.myOptionList.forEach(function(option,idx){   $>
+            <dd class="m-question-option <$=option.stateClass$>" data-value="<$=option.value$>">
+                <a href="javascript:void(0)"><span><i></i></span>
+                    <p><em><$=option.label$>.</em><$=option.content$></p>
+                </a>
+            </dd>
+        <$  }); $>
+    <$  }   $>
+        </dl>
+    <$  if(item.isImageOptions){    $>
+        <dl class="tx-con tk-sxz tk-sxz-img exam <$=item.multiple?'':'tk-one'$>">
+        <$  item.myOptionList.forEach(function(option,idx){   $>
+                <dd class="m-question-option <$=option.stateClass$>" data-value="<$=option.value$>">
+                    <a href="javascript:void(0)"><i></i><$=option.label$></a>
+                </dd>
+        <$  }); $>
+            </dl>
+    <$  }  $>
+    </section>
+</script>
+
+<!-- 模板数据：报关试题 -->
+<script type="text/html" id="tpl-question-baoguan">
+    <section>
+        <dl class="tx-con tk-sxlist" >
+            <dt>
+            <$  if(showType){  $>
+                <em>[<$=getQuestType(item.examType)$>]</em>
+            <$  }  $>
+                <$=item.content$>
+            </dt>
+        <div class="tm-codecon">
+            <ul class="tm-code">
+                <li><a href="javascript:void(0)" value="00">0</a></li>
+                <li><a href="javascript:void(0)" value="01">1</a></li>
+                <li><a href="javascript:void(0)" value="02">2</a></li>
+                <li><a href="javascript:void(0)" value="03">3</a></li>
+                <li><a href="javascript:void(0)" value="04">4</a></li>
+                <li><a href="javascript:void(0)" value="05">5</a></li>
+                <li><a href="javascript:void(0)" value="06">6</a></li>
+                <li><a href="javascript:void(0)" value="07">7</a></li>
+                <li><a href="javascript:void(0)" value="08">8</a></li>
+                <li><a href="javascript:void(0)" value="09">9</a></li>
+                <li><a href="javascript:void(0)" value="10">0</a></li>
+                <li><a href="javascript:void(0)" value="11">1</a></li>
+                <li><a href="javascript:void(0)" value="12">2</a></li>
+                <li><a href="javascript:void(0)" value="13">3</a></li>
+                <li><a href="javascript:void(0)" value="14">4</a></li>
+                <li><a href="javascript:void(0)" value="15">5</a></li>
+                <li><a href="javascript:void(0)" value="16">6</a></li>
+                <li><a href="javascript:void(0)" value="17">7</a></li>
+                <li><a href="javascript:void(0)" value="18">8</a></li>
+                <li><a href="javascript:void(0)" value="19">9</a></li>
+            </ul>
+        </div>
+        </dl>
+    </section>
+</script>
+
+<!-- 模板数据：解答题 -->
+<script type="text/html" id="tpl-question-jianda">
+    <section>
+        <dl class="singl-seb" >
+            <dt><em>[<$=getQuestType(item.examType)$>]</em><$=item.content$></dt>
+        <$  if (showAnswer) {  $>
+            <dd class="e__answer jd-answer">
+                <div class="complete">
+                    <div class="tel">我的答案</div>
+                    <div class="e__answertext"><$=filterAnswer(item.userAnswer)$></div>
+                </div>
+            </dd>
+        <$  } else if (item.userAnswer) {  $>
+            <dd class="e__answer jd-answer" style="display:none;">
+                <textarea class="textarea" placeholder="请输入您的答案"></textarea>
+                <div class="tk-sub-tp" style="display:none;"><span>还可以输入<em>250</em>字</span> <a href="javascript:void(0)" class="tk-tp-btn">确定</a></div>
+            </dd>
+            <dd class="e__myanswer jd-answer">
+                <div class="complete">
+                    <div class="tel">我的答案</div>
+                    <div class="e__answertext"><$=filterAnswer(item.userAnswer)$></div>
+                </div>
+                <div class="tk-sub-tp"><a href="javascript:void(0)" class="tk-tp-btn">修改</a></div>
+            </dd>
+        <$  } else {  $>
+            <dd class="e__answer jd-answer">
+                <textarea class="textarea" placeholder="请输入您的答案"></textarea>
+                <div class="tk-sub-tp" style="display:none;"><span>还可以输入<em>250</em>字</span> <a href="javascript:void(0)" class="tk-tp-btn">确定</a></div>
+            </dd>
+            <dd class="e__myanswer jd-answer" style="display:none;">
+                <div class="complete">
+                    <div class="tel">我的答案</div>
+                    <div class="e__answertext"><$=filterAnswer(item.userAnswer)$></div>
+                </div>
+                <div class="tk-sub-tp"><a href="javascript:void(0)" class="tk-tp-btn">修改</a></div>
+            </dd>
+        <$  }  $>
+        </dl>
+    </section>
+</script>
+
+<!-- 模板数据：答案解析 -->
+<script type="text/html" id="tpl-question-analysis">
+    <section class="m-analysis sub-informa" style="padding-bottom:0;display:<$=showAnalysis?'block':'none'$>;">
+        <section class="info-consult">
+            <div class="tk-intit">参考解析</div>
+            <div class="tk-inlist">
+                <ul>
+                    <li>
+                        <div class="ans-ck">
+                            <span>参考答案：</span>
+                            <div class="pic-an"><$=getQuestAnswer(item.answer,item.examType)$></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ans-ck youans">
+                            <span>您的答案：</span>
+                            <div class="pic-an"><$=getUserAnswer(item.userAnswer,item.examType)$></div>
+                        </div>
+                    </li>
+                    <li class="star-level clear">
+                        <span>试题难度：</span>
+                        <div class="progress"><em style="width:<$=(item.deNums*20)$>%;"></em></div>
+                    </li>
+                    <li class="count clear">
+                        <span>统&nbsp;&nbsp;&nbsp;&nbsp;计：</span>共<em><$=item.expanddoExamNum$></em>人答过，平均正确率<em class="precent"><$=item.expandPercent$></em>
+                    </li>
+                    <li>
+                        <span>参考解析：</span>
+                        <div class="pra"><$=item.analysis$></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 笔记区域 -->
+        <section class="e__noteModule" 
+            data-examId="<$=item.examId$>" >
+            <section class="tk-jxlist f-mt20">
+                <div class="tk-intit">我的笔记</div>
+                <div id="addNoteContent" class="e__noteinput tk-subtext" data-examid="<$=item.examId$>">
+                    <textarea class="textarea" placeholder="添加笔记"></textarea>
+                    <div class="tk-sub-tp" style="display:none;">
+                        <span>还可以输入<em>235</em>字</span> <a href="javascript:void(0)" class="btn__submit tk-tp-btn">发布</a>
+                    </div>
+                </div>
+                <!-- 我的笔记列表 -->
+                <section class="e__myNoteList" data-count="<$=(item.myDiscussCount===0?0:-1)$>"></section>
+                <!-- 隐藏按钮-获取我的笔记 -->
+                <div class="btn__getMyNote" style="display:none;" onclick=""></div>
+            </section>
+            <section class="tk-jxlist f-pt20">
+                <div class="tk-intit">考友笔记</div>
+                <!-- 考友笔记列表 -->
+                <section class="e__allNoteList" data-count="<$=item.discussCount$>"></section>
+            </section>
+            <div class="heel-stick-more clearfix">
+                <a href="javascript:void(0)" class="btn__getMoreNote">查看考友笔记解析 (<$=item.discussCount$>) </a>
+            </div>
+        </section><!-- END: 笔记区域 -->
+    </section>
+</script><!-- 模板数据：弹窗-loading -->
+<script type="text/html" id="tpl-dialog-loading">
+    <div class="ui-dialog-loading">
+        <img src="//img2.233.com/m/vip/img/loader.gif">
+        <p><$=(content?content:"加载中……")$></p>
+    </div>
+</script>
+
+<!-- 模板数据：弹窗-交卷确认 -->
+<script type="text/html" id="tpl-paper-submit">
+    <div class="tk-upwind">
+<$  if(noDoneCount > 0){  $>
+        <p>您还有<em><$=noDoneCount$></em>道题未做</p>
+<$  }else{  $>
+        <p>您已完成全部试题</p>
+<$  }  $>
+<$  if(leftMinutes != -1 && timeDown){  $>
+        <p>还剩<em><$=leftMinutes$></em>分钟</p>
+<$  }else if(leftMinutes != -1){  $>
+        <p>用时<em><$=leftMinutes$></em>分钟</p>
+<$  }  $>
+        <p>是否确定交卷？</p>
+    </div>
+</script>
+
+<!-- 模板数据：弹窗-下次继续 -->
+<script type="text/html" id="tpl-paper-continue">
+    <div class="tk-upwind">
+<$  if(noDoneCount > 0){  $>
+        <p>您还有<em><$=noDoneCount$></em>道题未做</p>
+<$  }else{  $>
+        <p>您已完成全部试题</p>
+<$  }  $>
+<$  if(leftMinutes != -1 && timeDown){  $>
+        <p>还剩<em><$=leftMinutes$></em>分钟</p>
+<$  }else if(leftMinutes != -1){  $>
+        <p>用时<em><$=leftMinutes$></em>分钟</p>
+<$  }  $>
+        <p>是否确定下次再做？</p>
+    </div>
+</script>
+
+<!-- 模板数据：弹窗-暂停 -->
+<script type="text/html" id="tpl-dialog-pause">
+    <div class="tk-upwind">
+        <p class="wait">休息一下</p>
+        <p>您还有<em><$=noDoneCount$></em>道题未做</p>
+<$  if(leftMinutes != -1 && timeDown){  $>
+        <p>还剩<em><$=leftMinutes$></em>分钟</p>
+<$  }else if(leftMinutes != -1){  $>
+        <p>用时<em><$=leftMinutes$></em>分钟</p>
+<$  }  $>
+    </div>
+</script>
+<!-- 模板数据：笔记列表 -->
+<script type="text/html" id="tpl-note-list">
+  <$  noteList.forEach(function(noteInfo, idx){  $>
+    <$  include('tpl-note-item',{
+            noteInfo: noteInfo,
+            noteType: noteType,
+            delFlog: delFlag
+        });  $>
+  <$  });  $>
+</script>
+
+<!-- 模板数据：笔记信息 -->
+<script type="text/html" id="tpl-note-item">
+  <div class="e__note heel-stick-mid <$=noteType==='myNote'?'heel-stick-mef':''$> clearfix"
+    data-examId="<$=noteInfo.examId$>"
+    data-noteId="<$=noteInfo.userNoteId$>"
+    data-userName="<$=noteInfo.userName$>"
+    data-diggUp="<$=noteInfo.diggUpCount$>" >
+    <div class="heel-stick-mid-content">
+      <div class="heel-top">
+        <font class="bulecolor"><a target="_blank" href="javascript:void(0)"><$=noteInfo.userName||""$></a></font>
+        <p>
+          <em class="time-right"><$=noteInfo.addTime$></em>
+          <font class="grey-color"><$=noteInfo.location$></font>
+        </p>
+      </div>
+      <div class="e__notestr heel-bot">
+        <p><$=noteInfo.replyContent$></p>
+      </div>
+      <a target="_blank" href="javascript:void(0)" class="left-img"><img src="<$=noteInfo.userAvatar$>" onerror="this.src='http://img.233.com/wx/img/uc/Avatar.png'"></a>
+    </div>
+
+    <!--回复-->
+<$  if(noteInfo.replyUserNoteList && noteInfo.replyUserNoteList.length){  $>
+    <div class="e__replylist heel-stick-mid-content heel-stick-hui">
+        <i></i>
+  <$  noteInfo.replyUserNoteList.forEach(function(replyInfo){  $>
+    <$  include('tpl-note-huifu',{
+            "replyInfo": replyInfo
+        });  $>
+  <$  });  $>
+    </div>
+<$  }else{  $>
+    <div class="e__replylist heel-stick-mid-content heel-stick-hui" style="display:none;">
+    </div>
+<$  }  $>
+    <div class="ico-area">
+    <$  if(delFlag || noteInfo.isOneself){  $>
+        <a href="javascript:void(0)" class="btn__del ico-area-huif fl-del">删除</a>
+    <$  }  $> 
+        <a href="javascript:void(0)" class="btn__zan ico-zan">
+            <em class="agree-ico <$=(noteInfo.isDiggUp?'click-agr':'')$>" title="赞"><b style="display:none" class="bonus-points">+1</b></em>
+            <span><$=noteInfo.diggUpCount$></span>
+        </a> 
+        <a href="javascript:void(0)" class="btn__huifu ico-area-huif">回复</a>
+    </div>
+      
+    <div class="e__replyinput tk-subtext tk-subtext-huifu" style="display:none;">
+        <i></i>
+        <textarea class="textarea" placeholder="添加回复"></textarea>
+        <div class="tk-sub-tp"> <a href="javascript:void(0)" class="btn__submit tk-tp-btn">发布</a></div>
+    </div>
+  </div>
+</script>
+
+<!-- 模板数据：回复笔记 -->
+<script type="text/html" id="tpl-note-huifu">
+    <div class="heel-top">
+        <div class="bulecolor">
+            <a target="_blank" href="javascript:void(0)"><$=replyInfo.userName$></a>回复<a target="_blank" href="javascript:void(0)"><$=replyInfo.replyUserName$></a>: <$=replyInfo.replyContent$>
+        </div>
+    </div>
+</script>
+
+<!-- 模板数据：举报笔记 -->
+<script type="text/html" id="tpl-note-jubao">
+    <div id="dialog-note-jb" class="pop-error ">
+        <textarea placeholder="请填写举报原因" name="question-error-content"></textarea>
+    </div>
+</script>
+
+    <!-- 统计-->
+            <img src="http://c.cnzz.com/wapstat.php?siteid=4556415&r=http%3a%2f%2fm.wx.233.com%2ftiku%2fexam%2fexaminfo%3fid%3d340516&rnd=1056124695" class="cnzz" style="display:none;" />
+        <img src="http://c.cnzz.com/wapstat.php?siteid=3583776&r=http%3a%2f%2fm.wx.233.com%2ftiku%2fexam%2fexaminfo%3fid%3d340516&rnd=1056124695" class="cnzz" style="display:none;" />
+
+
+</body>
+</html>
+

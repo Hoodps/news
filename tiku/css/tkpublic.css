@@ -1,0 +1,37 @@
+/*做题页面底部*/
+.tk-headertop{position: fixed;z-index:9999;top:0;left: 0px;}
+.m-tktit{ font-size:1.8rem;}
+.m-tktit a{font-size:1.8rem; color:#fff; position:relative; margin-left:-11px; padding:8px 22px 8px 0;}
+.m-tktit a:after{content: ''; display: block; width:15px;height:10px; position:absolute; right:0; top:15px;  background:url(../images/login.png) no-repeat -75px -219px; background-size:103px 280px;}
+.m-time{ font-size:1.6rem;}
+.m-time{ background:url(../images/ans_icon.png) no-repeat center 10px; background-size: 39px 830px; }
+.m-tlogin .login-btn,.submit-back .back-btn{ width:60px; height:45px; display:block; position:absolute; right:0; top:0; text-align:left;text-indent: -999px; overflow: hidden; background: url(../images/ks_icon.png) no-repeat 18px 9px; background-size: 924px 34px;}
+.submit-back .back-btn{position:absolute; left:0; top:0; background: url(../images/ks_icon.png) no-repeat -35px 9px; background-size: 924px 34px;}
+.submit-btn .share-more{ background-position: -480px 10px;}
+.submit-btn .stopp-btn{background-position: -525px 10px; margin-right:40px;}
+.submit-btn .star-btn{background-position: -573px 10px; margin-right:40px;}
+.submit-back .suboff{background-position: -698px 10px;}
+.submit-btn .dele-btn{background:url(../images/lisen_icon.png) no-repeat -106px 10px; background-size:150px 28px; }
+/*end*/
+
+
+.footer,.tk-begin a{ width:100%; height:48px; line-height:48px; text-align:center;background:#e73600; color:#fff; position:fixed; left:0; bottom:0; z-index:999;}
+.tk-subfoot{height:55px; line-height:55px;background:#f1f1f1; border-top:1px solid #dbdbdb;}
+.tk-subfoot .prev-btn{ width:65px;height:55px; background-position: -632px 17px;}
+.tk-subfoot .next-btn{width:65px; height:55px; position: absolute; top: 0; right:0; display:block; background-position: -284px 17px;}
+.ft-menu{ width:145px; height:55px; margin:0 auto;}
+.ft-menu li{ float:left; position:relative;}
+.ft-menu a{ padding:1px 15px; line-height:80px;font-size:1.4rem; color:#2c3e54; display:block;}
+.ft-menu a:before{ content: ''; display: block; width:24px;height:24px;  background: url(../images/ks_icon.png) no-repeat -198px 0; background-size: 924px 34px;position:absolute; left:19px; top:8px;}
+.ft-menu .collect{ float:right;}
+.ft-menu .ft-card a:before{ left:24px;}
+.ft-menu .collect a:before{ background-position:-227px 1px;}
+.ft-menu .collect a.this{ color:#e73600;}
+.ft-menu .collect a.this:before{ background-position:-902px 1px;}
+.ft-menu .ks-answer a:before{ background-position:-168px 0; position:absolute; left:24px; top:8px;}
+.ft-menu .ks-paper a:before{ background-position:-138px 1px;}
+.footer-del{ height:75px; background:#f8f8f8; border-top:1px solid #dbdbdb; box-shadow:8px 2px 8px #aaa;}
+.btn-del{ height:50px; line-height:50px; width:90%; margin:8px 5%; background:#e73600; border-radius:5px; color:#fff; font-size:1.8rem; border:none;font-family:'Microsoft Yahei' 'arial';}
+.footer-video{ height:80px; background:#f8f8f8;}
+.footer-video .btn-del{ margin-top:11px;}
+.ft-menu .this:before{ left:27px;}

@@ -1,0 +1,25 @@
+/**
+ * 弹窗样式
+ * Created by 文景 on 15-10-22.
+ */
+
+/* 弹窗布局 */
+.ui-dialog{ position:fixed; left:0; bottom:28%; z-index:999; width:90%; margin:0 5%; border-bottom:1px solid #e3e3e3; background:#fff; border-radius:5px; overflow:hidden; text-align:center; font-size:1.7rem; line-height:24px;}
+.ui-dialog .ui-dialog-grid{ width:100%; margin:0 auto;}
+.ui-dialog .ui-dialog-body{ height:100px; padding: 30px 15px; border-radius: 3px;  text-align:center; font-size: 1.6rem; }
+.ui-dialog .ui-dialog-content{ width:100%; display:block;}
+.ui-dialog .ui-dialog-footer{ border-top:1px solid #e3e3e3; }
+/* 弹窗内容 */
+.ui-dialog .tk-upwind .wait{ font-size:2rem; color:#3ea92a;}
+.ui-dialog .tk-upwind p em{ color:#fe6703;font-style:normal;}
+/* 底部按钮 */
+.ui-dialog .ui-dialog-button button { float:left;  width:46%; padding: 10px 30px; margin:10px 0; margin-left:2.5%;border:none;  background:#7a7a7a; border-radius: 5px; text-align:center; font-size:1.6rem; color: #fff;cursor:pointer;}
+.ui-dialog .ui-dialog-button button.ui-dialog-autofocus{ background:#f6760b;}
+.ui-dialog.ui-dialog-greenbtton .ui-dialog-button button{ background:#5ebc1d; }
+.ui-dialog.ui-dialog-onebutton .ui-dialog-button  button{ width:95%;}
+/* loading弹窗 */
+.ui-dialog.js-global-loading{ background: none;border: none;}
+.ui-dialog.js-global-loading .ui-dialog-body{ background:none;}
+.ui-dialog .ui-dialog-loading{ display:block;position: absolute;top:30%;left:50%; width:90px; height:90px; padding:10px 10px 0 10px; margin:0 auto;margin-left:-45px; background:#fff; border-radius:8px; box-shadow:0 3px 5px #ddd; color:#fff; }
+.ui-dialog .ui-dialog-loading p{ font-size:1.4rem; color:#999; line-height:35px;}
+.ui-dialog .ui-dialog-loading img{ width:28px; height:auto;}
