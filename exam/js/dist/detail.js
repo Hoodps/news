@@ -32,13 +32,14 @@ define(function(require, exports){
     juicerInit();
     scrollInit();
     //cover.init();
-    //clock.init();
+    
     ques.init();
 
     loading.init();
 
     result.control();
     localStorage.init();
+    clock.init();
     if(cacheExam){
       ques.renderByCache(cacheExam);
     }else if(userLastResult){
@@ -59,7 +60,9 @@ define(function(require, exports){
       clearInterval(clock.secondInt);
       this.mCount = 0;
       this.sCount = 0;
-      this.startTime = cacheExam?cacheExam.time:new Date().getTime();
+      //console.log(cacheExam);
+      //this.startTime = cacheExam?cacheExam.time:new Date().getTime();
+      this.startTime = new Date().getTime();
       localStorage.update("time");
       if(exam.fill.time.limit){
         clock.countDown();
@@ -394,7 +397,7 @@ define(function(require, exports){
         var src = $(img).data("src");
         if(src) img.src = src;
       });
-      console.log(images);
+      //console.log(images);
       clearInterval(loadingInt);
       $("#loading-percent").html("100%");
       loading.remove();
@@ -603,6 +606,7 @@ define(function(require, exports){
       this.cache.userinfo = userinfo.get();
     },
     updateTime:function(){
+      //console.log(clock);
       this.cache.time = clock.startTime;
     }
   };

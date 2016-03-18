@@ -1,0 +1,694 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>兼职
+    </title>
+    <link rel="stylesheet" href="css/pub.css">
+</head>
+<body class="b-companyInfo"
+>
+<div class="header">
+    <div class="w">
+        <div class="jz-logo"><a href="http://vip.doumi.com" title="斗米兼职"></a></div>
+        <div class="b-version">商家版</div>
+        <div class="header-r clearfix">
+                <span class="fl phone-qrcode" id="h_phone-qrcode">
+                    <span><a href="#" class="myPhone">手机斗米</a> <i class="ar"></i></span>
+                    <div id="h_qrcode" class="show-phone-qrcode" style="display: none;">
+                        <i class="arrow"></i>
+                        <dl>
+                            <dt class="fl jz-d-qrcode-pic"></dt>
+                            <dd>关注斗米兼职微信号<br>招聘 管理 结算更方便</dd>
+                        </dl>
+                    </div>
+                </span>
+            <i class="fl l mr20"></i>
+            <span class="fl fc-4b mr20">广州麦尔丹市场信息咨询有限公司</span>
+            <i class="fl l"></i>
+            <span class="fl cpy-enter"><a href="/employer/user/logout">退出</a></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="ads w mt10">
+    <img src="" width="100%">
+</div>
+<div class="w mt10 clearfix">
+    <div class="aside">
+        <div class="pub-area">
+            <a href="http://vip.doumi.com/employer/post/pub" class="pub-btn">发布职位</a>
+        </div>
+        <div class="b-menu">
+            <dl>
+                <dt><a href="http://vip.doumi.com" ><i class="menu-ico1"></i>首页</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/post/bj_list?pageType=all" >
+                    <i class="menu-ico2"></i>职位管理(3)</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=noAudit" >待审核(3)</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=ing" >进行中</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=end" >已结束</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/company/edit" ><i class="menu-ico3"></i>公司信息</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/wallet/index" ><i class="menu-ico4"></i>我的钱包</a></dt>
+            </dl>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="bgf" style="padding:10px 20px 80px">
+            <form id="form_id" action="" method="post" name="">
+                <div class="jz-info mt10">
+                    <div class="jz-t">
+                        <h2>基本信息</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>展现城市</dt>
+                            <dd>
+                                <div class="fl">
+                                    <div class="form-select-wrap fl">
+                                        <select class="w180" name="province_id" id="province_id" autocomplete="off">
+                                            <option value="">省份</option>
+                                            <option value="1" >北京</option>
+                                            <option value="2" >上海</option>
+                                            <option value="3" >天津</option>
+                                            <option value="4" >重庆</option>
+                                            <option value="5"  selected >广东</option>
+                                            <option value="6" >四川</option>
+                                            <option value="7" >浙江</option>
+                                            <option value="8" >贵州</option>
+                                            <option value="9" >辽宁</option>
+                                            <option value="10" >江苏</option>
+                                            <option value="11" >福建</option>
+                                            <option value="12" >河北</option>
+                                            <option value="13" >河南</option>
+                                            <option value="14" >吉林</option>
+                                            <option value="15" >黑龙江</option>
+                                            <option value="16" >山东</option>
+                                            <option value="17" >安徽</option>
+                                            <option value="18" >广西</option>
+                                            <option value="19" >海南</option>
+                                            <option value="20" >内蒙古</option>
+                                            <option value="21" >山西</option>
+                                            <option value="22" >宁夏</option>
+                                            <option value="23" >甘肃</option>
+                                            <option value="24" >陕西</option>
+                                            <option value="25" >青海</option>
+                                            <option value="26" >湖北</option>
+                                            <option value="27" >湖南</option>
+                                            <option value="28" >江西</option>
+                                            <option value="29" >云南</option>
+                                            <option value="30" >新疆</option>
+                                            <option value="31" >西藏</option>
+                                            <option value="33" >香港</option>
+                                            <option value="35" >澳门</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="fl ml-10">
+                                    <div class="form-select-wrap fl">
+                                        <select class="w180" name="city_id" id="city_id" autocomplete="off">
+                                            <option value="">城市</option>
+                                            <option value="16"  selected >广州</option>
+                                            <option value="17" >深圳</option>
+                                            <option value="24" >东莞</option>
+                                            <option value="18" >珠海</option>
+                                            <option value="19" >汕头</option>
+                                            <option value="20" >佛山</option>
+                                            <option value="21" >江门</option>
+                                            <option value="25" >中山</option>
+                                            <option value="23" >惠州</option>
+                                            <option value="22" >茂名</option>
+                                            <option value="263" >韶关</option>
+                                            <option value="264" >湛江</option>
+                                            <option value="265" >肇庆</option>
+                                            <option value="266" >梅州</option>
+                                            <option value="267" >汕尾</option>
+                                            <option value="268" >河源</option>
+                                            <option value="269" >阳江</option>
+                                            <option value="270" >清远</option>
+                                            <option value="271" >潮州</option>
+                                            <option value="272" >揭阳</option>
+                                            <option value="273" >云浮</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span id="jz-info-tips_job_address"></span>
+                                <div calss="jz-info-tips"></div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>职位名称</dt>
+                            <dd>
+                                <input type="text" class="jz-txt w400 title" name="title"  value="请输入职位名称，例：超市促销员，15字以内" style="color: #D1D1D1;"  >
+                                <span id="jz-info-tips_title"></span>
+                                <div class="jz-info-tips"></div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>工作类型</dt>
+                            <dd>
+                                <div class="clearfix">
+                                    <div class="fl jz-position">
+                                        <div class="form-select-wrap fl">
+                                            <select name="job_type" id="job_type_id" autocomplete="off">
+                                                <option value="1"  >传单派发</option>
+                                                <option value="2"  >促销导购</option>
+                                                <option value="3"  >话务客服</option>
+                                                <option value="4"  >礼仪模特</option>
+                                                <option value="5"  >家教助教</option>
+                                                <option value="6"  >服务员</option>
+                                                <option value="7"  >问卷调查</option>
+                                                <option value="8"  >审核录入</option>
+                                                <option value="9"  >地推拉访</option>
+                                                <option value="11"  >打包分拣</option>
+                                                <option value="12"  >展会协助</option>
+                                                <option value="13"  >充场</option>
+                                                <option value="14"  >实习生</option>
+                                                <option value="15"  >安保</option>
+                                                <option value="16"  >送餐员</option>
+                                                <option value="17"  >演出</option>
+                                                <option value="18"  >翻译</option>
+                                                <option value="19"  >校园代理</option>
+                                                <option value="10"  >其他</option>
+                                            </select>
+                                        </div>
+                                        <span id="jz-info-tips_job_type"></span>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>招聘人数</dt>
+                            <dd>
+                                <div class="fl clearfix">
+                                    <input type="text" id="hire_number"  value="人数" style="color: #D1D1D1;"  name="hire_number" class="fl jz-txt w80">
+                                    <span class="fl jz-words pl-10">人</span>
+                                    <span id="jz-info-tips_hire_number"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>人员要求</dt>
+                            <dd>
+                                <div class="clearfix">
+                                    <div class="fl jz-position">
+                                        <div class="form-select-wrap fl pad-rt">
+                                            <select name="identity" id="identity" autocomplete="off">
+                                                <option value="0" selected >身份不限</option>
+                                                <option value="1"  >仅限学生</option>
+                                                <option value="2"  >学生优先</option>
+                                                <option value="3"  >仅限社会人员</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-select-wrap fl pad-rt">
+                                            <select name="height" id="height" autocomplete="off">
+                                                <option value="0" selected >身高不限</option>
+                                                <option value="1"  >155cm以上</option>
+                                                <option value="2"  >160cm以上</option>
+                                                <option value="3"  >165cm以上</option>
+                                                <option value="4"  >170cm以上</option>
+                                                <option value="5"  >175cm以上</option>
+                                                <option value="6"  >180cm以上</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-select-wrap fl pad-rt">
+                                            <select name="sex" id="sex" autocomplete="off">
+                                                <option value="0" selected >男女不限</option>
+                                                <option value="1"  >男</option>
+                                                <option value="2"  >女</option>
+                                                <option value="3"  >男士优先</option>
+                                                <option value="4"  >女士优先</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>年&emsp;&emsp;龄</dt>
+                            <dd>
+                                <div class="fl">
+                                    <div class="form-select-wrap fl">
+                                        <select class="w100 age_select age_start" autocomplete="off" name="age_start">
+                                            <option selected="" value="0">不限</option>
+                                            <option  value="16">16</option>
+                                            <option  value="17">17</option>
+                                            <option  value="18">18</option>
+                                            <option  value="19">19</option>
+                                            <option  value="20">20</option>
+                                            <option  value="21">21</option>
+                                            <option  value="22">22</option>
+                                            <option  value="23">23</option>
+                                            <option  value="24">24</option>
+                                            <option  value="25">25</option>
+                                            <option  value="26">26</option>
+                                            <option  value="27">27</option>
+                                            <option  value="28">28</option>
+                                            <option  value="29">29</option>
+                                            <option  value="30">30</option>
+                                            <option  value="31">31</option>
+                                            <option  value="32">32</option>
+                                            <option  value="33">33</option>
+                                            <option  value="34">34</option>
+                                            <option  value="35">35</option>
+                                            <option  value="36">36</option>
+                                            <option  value="37">37</option>
+                                            <option  value="38">38</option>
+                                            <option  value="39">39</option>
+                                            <option  value="40">40</option>
+                                            <option  value="41">41</option>
+                                            <option  value="42">42</option>
+                                            <option  value="43">43</option>
+                                            <option  value="44">44</option>
+                                            <option  value="45">45</option>
+                                            <option  value="46">46</option>
+                                            <option  value="47">47</option>
+                                            <option  value="48">48</option>
+                                            <option  value="49">49</option>
+                                            <option  value="50">50</option>
+                                            <option  value="51">51</option>
+                                            <option  value="52">52</option>
+                                            <option  value="53">53</option>
+                                            <option  value="54">54</option>
+                                            <option  value="55">55</option>
+                                        </select>
+                                    </div>
+                                    <span class="fl jz-words plr10">至</span>
+                                    <div class="form-select-wrap fl">
+                                        <select class="w100 age_select age_end" autocomplete="off" name="age_end">
+                                            <option selected="" value="0">不限</option>
+                                            <option  value="16">16</option>
+                                            <option  value="17">17</option>
+                                            <option  value="18">18</option>
+                                            <option  value="19">19</option>
+                                            <option  value="20">20</option>
+                                            <option  value="21">21</option>
+                                            <option  value="22">22</option>
+                                            <option  value="23">23</option>
+                                            <option  value="24">24</option>
+                                            <option  value="25">25</option>
+                                            <option  value="26">26</option>
+                                            <option  value="27">27</option>
+                                            <option  value="28">28</option>
+                                            <option  value="29">29</option>
+                                            <option  value="30">30</option>
+                                            <option  value="31">31</option>
+                                            <option  value="32">32</option>
+                                            <option  value="33">33</option>
+                                            <option  value="34">34</option>
+                                            <option  value="35">35</option>
+                                            <option  value="36">36</option>
+                                            <option  value="37">37</option>
+                                            <option  value="38">38</option>
+                                            <option  value="39">39</option>
+                                            <option  value="40">40</option>
+                                            <option  value="41">41</option>
+                                            <option  value="42">42</option>
+                                            <option  value="43">43</option>
+                                            <option  value="44">44</option>
+                                            <option  value="45">45</option>
+                                            <option  value="46">46</option>
+                                            <option  value="47">47</option>
+                                            <option  value="48">48</option>
+                                            <option  value="49">49</option>
+                                            <option  value="50">50</option>
+                                            <option  value="51">51</option>
+                                            <option  value="52">52</option>
+                                            <option  value="53">53</option>
+                                            <option  value="54">54</option>
+                                            <option  value="55">55</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>薪资待遇</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>薪资</dt>
+                            <dd>
+                                <div class="fl jz-sel mr10">
+                                    <input class="fl jz-txt w100" type="text"  name="salary" id="salary"  style="color: #D1D1D1;" value="薪资" >
+                                    <span class="fl jz-words pl-10 pr-10">元 /</span>
+                                    <div class="form-select-wrap fl pad-rt">
+                                        <select name="salary_type" autocomplete="off">
+                                            <option value="0" selected >天</option>
+                                            <option value="1"  >周</option>
+                                            <option value="2"  >月</option>
+                                            <option value="3"  >小时</option>
+                                            <option value="4"  >次</option>
+                                            <option value="5"  >个</option>
+                                            <option value="6"  >件</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-select-wrap fl">
+                                        <select name="payment_type"  class="w100" autocomplete="off">
+                                            <option value="0" selected >日结</option>
+                                            <option value="5"  >次日结</option>
+                                            <option value="1"  >周结</option>
+                                            <option value="4"  >半月结</option>
+                                            <option value="2"  >月结</option>
+                                            <option value="3"  >完工结</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span id="jz-info-tips_salary"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>备注</dt>
+                            <dd>
+                                <input type="text" class="jz-txt w400" id="payment_remark"  value="请输入薪资备注，例：晚班150元/天，30字以内" style="color: #D1D1D1;"  name="payment_remark" >
+                                <span id="jz-info-tips_payment_remark"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>提成</dt>
+                            <dd>
+                                <div class="fl jz-sel mr10" style="display:none;">
+                                    <select autocomplete="off" name="unit_type">
+                                        <option selected="" value="0">个</option>
+                                        <option value="1">件</option>
+                                    </select>
+                                </div>
+                                <div class="fl" style="display:none;">
+                                    <input class="jz-txt w80" type="text" name="salary_unit" value="">
+                                </div>
+                                <input class="jz-txt w400" type="text"  value="请输入提成信息，例：10元/单，30字以内" style="color: #D1D1D1;"   name="commission_info" id="commission_info" >
+                                <span id="jz-info-tips_commission_info"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>福利</dt>
+                            <dd>
+                                <ul class="choose-list clearfix">
+                                    <li class="list-item tab_treatment" value="1">包工作餐</li>
+                                    <li class="list-item tab_treatment" value="2">包住宿</li>
+                                    <li class="list-item tab_treatment" value="3">交通补助</li>
+                                    <input type="hidden" id="tab_treatment" name="tab_treatment" value="">
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>工作时间</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>工作日期</dt>
+                            <dd>
+                                <div class="fl jz-date pad-rt">
+                                    <input type="radio" class="job_date_type" name="job_date_type" value="0"  checked="checked">
+                                    短期兼职
+                                </div>
+                                <div class="fl jz-date">
+                                    <input type="radio" class="job_date_type" name="job_date_type" value="1" >
+                                    长期兼职
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix" id="jz_short" >
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <div class="fl jz-date">
+                                    <input id="job_date_from_id" name="date_start" type="text" class="fff jz-txt w90"  value="" placeholder="请选择日期">
+                                    <i class="jz-date-ico"></i>
+                                </div>
+                                <span class="fl jz-words plr10">到</span>
+                                <div class="fl jz-date">
+                                    <input id="job_date_to_id" name="date_end" type="text" class="jz-txt w90"  value="" placeholder="请选择日期">
+                                    <i class="jz-date-ico"></i>
+                                </div>
+                                <span id="jz-info-tips_workdate"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix" id="jz_long"  style="display: none;">
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <input type="text"   value="请输入工作日期，例：每周五六日三天，20字以内" style="color: #D1D1D1;"  name="date_longterm" id="date_longterm" class="jz-txt w400 date_longterm">
+                                <span id="jz-info-tips_workdate_long"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>工作时间</dt>
+                            <dd>
+
+                                <div id="work_time_add_id" class="fl"><a href="javascript:;" class="jz-add-btn work_time_add_class"><i></i>添加</a></div>
+                                <span id="jz-info-tips_working_time"></span>
+                                <input type="hidden" name="work_time_count_name" id="work_time_count_id" value="" >
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>备&emsp;&emsp;注</dt>
+                            <dd>
+                                <input type="text"   value="请输入时间备注，例：工作8小时、中午休息2小时，30字以内" style="color: #D1D1D1;"  name="work_time_remark" id="work_time_remark" class="jz-txt w400" >
+                                <span id="jz-info-tips_work_time_remark"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>工作地点</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>工作地点</dt>
+                            <dd>
+                                <div id="work_addr_add_id" class="fl"><a href="javascript:;" class="jz-add-btn work_addr_add_class"><i></i>添加</a></div>
+                                <span class="add-tips">可以添加多个工作地点，方便兼职人员自主选择</span>
+                                <span id="jz-info-tips_working"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>工作要求</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>职位描述</dt>
+                            <dd>
+                                <textarea class="jz-textarea w400 job_description h75" name="job_description" rows="3" value="" ></textarea>
+                                <span id="jz-info-tips_description"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>特殊要求</dt>
+                            <dd>
+                                <ul class="choose-list clearfix">
+                                    <li class="list-item tab_special_demand" value="1">普通话熟练</li>
+                                    <li class="list-item tab_special_demand" value="2">有健康证</li>
+                                    <li class="list-item tab_special_demand" value="3">自备正装</li>
+                                    <li class="list-item tab_special_demand" value="4">携带学生证</li>
+                                    <li class="list-item tab_special_demand" value="5">沟通能力强</li>
+                                    <input type="hidden" id="tab_special_demand" name="tab_special_demand" value="">
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>能力要求</dt>
+                            <dd>
+                                <ul class="choose-list clearfix">
+                                    <li class="list-item tab_capacity_demand" value="1">形象好</li>
+                                    <li class="list-item tab_capacity_demand" value="2">服从安排</li>
+                                    <li class="list-item tab_capacity_demand" value="3">积极主动</li>
+                                    <li class="list-item tab_capacity_demand" value="4">认真负责</li>
+                                    <li class="list-item tab_capacity_demand" value="5">活泼开朗</li>
+                                    <li class="list-item tab_capacity_demand" value="6">吃苦耐劳</li>
+                                    <input type="hidden" id="tab_capacity_demand" name="tab_capacity_demand" value="">
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>线下面试</dt>
+                            <dd>
+                                <label    class="margin-rt15">
+                                    <input type="radio" class="jz-radio is_interview" name="is_interview"  value="0"  checked="checked">
+                                    不需要
+                                </label>
+                                <label >
+                                    <input type="radio" class="jz-radio is_interview" name="is_interview" value="1" >
+                                    需要
+                                </label>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix interview_info"  style="display: none;">
+                            <dt><b>*</b>面试信息</dt>
+                            <dd>
+                                <div class="fl"><a href="javascript:;" class="jz-add-btn interview_addr_add_class"><i></i>添加</a></div>
+                                <span id="jz-info-tips_interview"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>联系方式</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt>联&nbsp;&nbsp;系&nbsp;&nbsp;人</dt>
+                            <dd>
+                                <input class="jz-txt w180" type="text" name="contact_person" id="contact_person"  value="请输入联系人姓名" style="color: #D1D1D1;"  >
+                                <span id="jz-info-tips_contact_person"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>联系方式</dt>
+                            <dd>
+                                <input class="jz-txt w180" type="text" name="contact_phone" id="contact_phone"  value="请输入手机号或固定电话" style="color: #D1D1D1;" >
+                                <span id="jz-info-tips_contact_phone"></span>
+                                <div class="jz-info-tips"></div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix" style="display: none;">
+                            <dt><b>*</b>咨询方式</dt>
+                            <dd>
+                                <label class="margin-rt15">
+                                    <input class="jz-radio consult" type="radio" value="0" name="consulting_display"  checked="checked">
+                                    电话咨询
+                                </label>
+                                <label class="margin-rt15">
+                                    <input class="jz-radio consult" type="radio" value="1" name="consulting_display" >
+                                    微信咨询
+                                </label>
+                                <label>
+                                    <input class="jz-radio consult" type="radio" value="2" name="consulting_display" >
+                                    QQ咨询
+                                </label>
+                                <span class="add-tips">（默认咨询方式）</span>
+                            </dd>
+                        </dl>
+                        <div id="weixin"  style="display: none;" style="display: none;">
+                            <dl class="clearfix">
+                                <dt><b>*</b>微&nbsp;&nbsp;信&nbsp;&nbsp;号</dt>
+                                <dd>
+                                    <input class="jz-txt w180 contact_weixin" type="text" placeholder="请输入微信号" name="contact_weixin" value="">
+                                    <span id="jz-info-tips_weixin"></span>
+                                    <div class="jz-info-tips"></div>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><b>*</b>留言格式</dt>
+                                <dd>
+                                    <input class="jz-txt w400 remark_weixin" type="text" placeholder="示例：添加时请留言姓名＋手机号＋性别，30字以内" name="remark_weixin" value="">
+                                    <span id="jz-info-tips_remark_weixin"></span>
+                                    <div class="jz-info-tips"></div>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div id="qq"  style="display: none;" style="display: none;">
+                            <dl class="clearfix">
+                                <dt><b>*</b>QQ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</dt>
+                                <dd>
+                                    <input class="jz-txt w180 contact_qq" type="text" placeholder="请输入QQ号" name="contact_qq" value="">
+                                    <span id="jz-info-tips_qq"></span>
+                                    <div class="jz-info-tips"></div>
+                                </dd>
+                            </dl>
+                            <dl class="clearfix">
+                                <dt><b>*</b>留言格式</dt>
+                                <dd>
+                                    <input class="jz-txt w400 remark_qq" type="text" placeholder="示例：添加时请留言姓名＋手机号＋性别，30字以内" name="remark_qq" value="">
+                                    <span id="jz-info-tips_remark_qq"></span>
+                                    <div class="jz-info-tips"></div>
+                                </dd>
+                            </dl>
+                        </div>
+                        <dl class="clearfix">
+                            <dt><b>*</b>报名截止</dt>
+                            <dd>
+                                <div class="fl jz-date">
+                                    <input type="text" class="jz-txt w170" id="dead_line_date_id" value="" name="deadline" placeholder="请选择报名截止日期">
+                                    <i class="jz-date-ico"></i>
+                                </div>
+                                <span id="jz-info-tips_deadline"></span>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>职位图片</dt>
+                            <dd>
+                                <p>
+                                    <style>textarea.ui-uploader-description{display: none;}</style>
+                                <div class="uparea clearfix" style="margin-left: 12px">
+                                    <div class="upbtn">
+                                        <div id="ui-uploader-1" class="ui-uploader">
+                                            <div class="ui-uploader-action">
+                                                <div class="ui-uploader-iframe-container"></div>
+                                                <span class="add-tips t">为保证图片质量，请尽量选择120x120大小的照片</span>
+                                                <span class="ui-uploader-message"></span>
+                                            </div>
+
+                                            <div class="ui-uploader-thumbImages ui-uploader-sortable" >
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="avatar" id="input_upload_image1" autocomplete="off">
+                                    </div>
+                                </div>
+                                </p>
+                                <div class="clearfix">
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="bascInfo-submit">
+                    <input type="hidden" id="post_id" name="post_id" value="0">
+                    <input type="hidden" id="work_addr_count_id" name="work_addr_count"  value=""  >
+                    <input type="hidden" id="interview_addr_count_id" name="interview_addr_count"  value="" >
+                    <input type="hidden" name="pubToken" value="5566259b8e71eefcb23e0f3d9372c227">
+                    <input type="button" id="submit_id" class="jz-submit-btn-big" value="立即提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrap">
+        <!--div class="friendLink"> <span>友情链接：</span> <a href="#" target="_blank">北京兼职</a> <a href="#" target="_blank">上海兼职</
+    a> <a href="#" target="_blank">广州兼职</a> <a href="#" target="_blank">深圳兼职</a> <a href="#" target="_blank">天津兼职</a> <a hre
+    f="#" target="_blank">武汉兼职</a> <a href="#" target="_blank">重庆兼职</a> <a href="#" target="_blank">南京兼职</a> <a href="#" tar
+    get="_blank">成都兼职</a>   <a href="#" target="_blank">西安兼职</a> <a href="#" target="_blank">郑州兼职</a> </div-->
+        <div class="footer-con clearfix">
+            <div class="footer-logo"> <a href="#" title="斗米兼职--自由工作 乐享生活">斗米兼职--自由工作 乐享生活</a> <span class="footer-logo-slogan"></span> </div>
+            <div class="footer-qrcode">
+                <div class="footer-qrcode-pic"></div>
+                <p class="footer-qrcode-txt">扫描关注公众号</p>
+            </div>
+            <div class="footer-tel">
+                <h4><i></i>客服热线</h4>
+                <div class="footer-tel-code">4007-3333-00</div>
+                <div class="copyRight">©2015-2016 斗米™ 世诚优聘 京ICP备11045189-2号 有偿服务</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

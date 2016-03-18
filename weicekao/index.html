@@ -1,0 +1,738 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8" />
+    <title>水滴微信平台</title>
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/base.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/global.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/layout.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/member/common/info.css?t=1455750855">
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/dpl.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/css/member/exam/create.css?t=1455750855" />
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/js/public/ui/calendar/datepicker.css?t=1455750855"/>
+    <link rel="stylesheet" type="text/css" href="http://wx-static.drip.im/js/public/ui/time/time.css?t=1455750855"/>
+    <script src="http://wx-static.drip.im/js/core/sea.js?t=1455750855"></script>
+    <script>var _hook ={"root":"http:\/\/weixin.drip.im","image":"http:\/\/wx-static.drip.im\/img","resource":"http:\/\/7oxjp8.com2.z0.glb.clouddn.com","group":"member","page":"create","menu":"create","action":"exam","weixinId":"gh_51428c71bee0","_token_":"0f33affe6371e840382a40c724951e7e","examType":"exam"}</script>
+    <script>var _helpid = "";</script>
+  </head>
+  <body>
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+    document.location.replace('/not-supported')
+    </script><![endif]-->
+        <!--[if lte IE 8]><script>document.createElement('header');</script><![endif]-->
+    <header id="header" class="member">
+      <div class="header-wrap fn-clear">
+        <a id="back-list" href="/member/exam/list"><img src="http://wx-static.drip.im/img/member/single/exam/back-list.png">返回列表</a>
+        <a id="dashboard" href="/member/dashboard"></a>
+        <div class="account-box fn-right" data-weixin-verified="-1">
+          <span class="email">791859814@qq.com            <div class="user-menu">
+              <ul>
+                <li><a href="http://weixin.drip.im/member/user/password-update">密码修改</a></li>
+                <li class="exit"><a href="http://weixin.drip.im/member/user/logout">退出登录</a></li>
+              </ul>
+              <span class="arrow"></span>
+            </div>
+          </span>
+          <!--<a class="setting" href="http://weixin.drip.im/member/info/base">
+            hoodps          </a>-->
+          <a href="http://weixin.drip.im/member/info/base" class="setting">
+            hoodps          </a>
+
+          
+          <a href="javascript:void(0);" data-label="notify" class="notify-trigger info-trigger" data-url="http://weixin.drip.im/member/dashboard/notify"></a>
+          <div class="notify-unread-tips hidden">
+            <p>您有<em class="count"></em>条重要通知，请及时查看并处理！</p>
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <div id="content" ng-app="exam" client-width-change class="ng-cloak" ng-controller="examController">
+  <div class="step-box no-user-select">
+    <ol class="step-list">
+      <li ng-click="selectMode(mode)"
+          ng-repeat="mode in config.modes" 
+          ng-class="{selected:config.mode.key == mode.key,afterThis:config.mode.seq > mode.seq}"
+          class="{{mode.key}}">
+        <i>{{mode.seq}}.</i>{{mode.name}}
+      </li>
+    </ol>
+    <a href="http://weixin.drip.im/terms/content" target="_blank" class="fn-right form-rule"><em></em>内容管理协议</a>
+  </div>
+  <div class="setting-box">
+    <div class="setting-profile" ng-controller="profileController" ng-show="config.mode.key == 'profile'">
+  <div class="cover-preview">
+    <div class="cover-box-wrap">
+      <div class="cover-box">
+        <div ng-if="exam.cover.style=='poster'" class="cover-bg" 
+             style="background-image:url({{exam.cover.image}}?imageMogr/v2/thumbnail/!300x505r/gravity/Center/crop/300x505);-webkit-filter: blur({{exam.cover.blur * 10}}px);filter: blur({{exam.cover.blur * 10}}px);-moz-filter: blur({{exam.cover.blur * 10}}px);-o-filter: blur({{exam.cover.blur * 10}}px);"></div>
+        <div ng-if="exam.cover.style=='diy'" class="cover-bg" 
+             style="background-image:url({{exam.cover.diyImg}}?imageMogr/v2/thumbnail/!300x505r/gravity/Center/crop/300x505);"></div>
+        <div ng-if="exam.cover.style=='poster'" class="table-cell">
+          <div class="cover-content">
+            <div class="wrap">
+              <div class="exam-title">
+                {{exam.title || "未命名标题"}}
+              </div>
+              <div class="exam-desc">
+                {{exam.desc || "简介内容区域"}}
+              </div>
+              <div class="mp">
+                <img src="http://wx.qlogo.cn/mmopen/RRl6MNslZ81h6CWLhK4kSboW8C3KFPYablkjGNOZXhibkhymia9FtGYanRHBbHPWrtSSe580jUFwDTQgN54sl2HrxW3HokqtNJ/0">
+                <p>hoodps</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swipe-tip" ng-hide="exam.cover.style=='diy'&&exam.cover.enter=='click'">
+          <p>向上滑动开启测试</p>
+          <img src="http://wx-static.drip.im/img/member/single/exam/swipe-tip.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-form no-user-select">
+    <div setting-group label="风格">
+      <input type="radio" ng-model="exam.cover.style" value="poster">画报
+      <input type="radio" ng-model="exam.cover.style" value="diy">自定义
+    </div>
+    <div ng-if="exam.cover.style == 'poster'" setting-group label="背景图" tip="建议尺寸 800px*1300px">
+      <p><a pic-uploader name="cover" ng-model="exam.cover.image"></a></p>
+      <div class="choose-blur">
+        背景模糊
+        <div class="progress-bar" progress-drag>
+          <div class="progress-bar-bg">
+           <div class="progress-bar-bgcolor" style="width:{{exam.cover.blur * 100}}%"></div>
+          </div>
+          <div class="progress-button" style="left:{{exam.cover.blur * 100}}px"></div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="exam.cover.style == 'diy'" setting-group label="封面" tip="建议尺寸 800px*1300px">
+      <p><a pic-uploader name="cover" ng-model="exam.cover.diyImg"></a></p>
+    </div>
+    <div ng-if="exam.cover.style == 'diy'" setting-group label="进入方式">
+      <input type="radio" ng-model="exam.cover.enter" value="slide">向上滑动开启
+      <input type="radio" ng-model="exam.cover.enter" value="click">点击开启
+    </div>
+    <div setting-group label="标题">
+      <input type="text" ng-model="exam.title" maxlength="12" placeholder="请输入标题">
+    </div>
+    <div ng-if="exam.cover.style == 'poster'" setting-group label="简介">
+      <textarea ng-model="exam.desc" maxlength="120" placeholder="最多120个字符"></textarea>
+    </div>
+    <div class="setting-group">
+      <input type="checkbox" ng-model="exam.userInfo.need">
+      <label>需用户填写信息</label>
+      <div ng-if="exam.userInfo.need" class="padding-wrap">
+        <p class="tip">请勿恶意收集用户隐私信息，创建时需严格遵守<a href="http://weixin.drip.im/terms/content" target="_blank">《水滴内容管理协议》</a>。</p>
+        <div class="userinfo">
+          <ul>
+            <li ng-repeat="u in exam.userInfo.fields"><input ng-model="u.need" type="checkbox" value="u.name">{{u.name}}
+              <span ng-if="!u.default" ng-click="deleteUserInfoFiled($index)"><em></em>删除</span>
+            </li>
+            <a href="javascript:void(0);" ng-show="!addUserInfo.token && (exam.userInfo.fields.length < 6)" ng-click="(addUserInfo.token = true)">+ 新增字段</a>
+          </ul>
+          <div class="add-userinfo-field" ng-show="addUserInfo.token">
+            <input type="text" ng-model="addUserInfo.name" maxlength="8" placeholder="最多8个字符">
+            <a href="javascript:void(0);" class="ui-button-gold-small" ng-click="addUserInfoField()">确认</a>
+            <a href="javascript:void(0);" class="ui-button-gray-small" ng-click="(addUserInfo.token = false)">取消</a>
+          </div>
+          <div class="desc">
+            <p>要求用户填写以上信息的原因说明，会显示在前台页面。</p>
+            <textarea ng-model="exam.userInfo.desc" maxlength="32" placeholder="最多32个字符"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="setting-question no-user-select {{config.clientType}}" ng-controller="questionController" ng-show="config.mode.key == 'question'">
+  <div class="display">
+    <div class="questions-box">
+      <ul class="questions-list">
+        <li field type="radio" name="单选题" class="radio"></li>
+        <li field type="checkbox" name="多选题" class="checkbox"></li>
+        <li field ng-if="config.clientType == 'normal' " type="img" name="图片单选题" class="img"></li>
+        <li field ng-if="config.clientType == 'normal' " type="imgList" name="图片多选题" class="imgList"></li>
+        <li field ng-if="config.clientType == 'small' " type="img" name="图片选择题" class="img"></li>
+        <li field type="blank" ng-if="exam.type == 'exam' " name="填空题" class="blank"></li>
+      </ul>
+    </div>
+    <div class="exam-content">
+      <div class="exam-body">
+        <div class="fields" sortable ng-model="exam.questions">
+          <div class="field-occupy" data-field-id="0" ng-show="config | showOccupy: -1"></div>
+          <div ng-repeat='question in exam.questions' sortable-item ng-class="{'last-field': $last}">
+            <div class="field-wrapper"
+                 ng-click="selectQuestion(question)"
+                 id="question_{{question.id}}"
+                 ng-class="{'hover': config.editQuestion == question && config.mode.seq == 2 }">
+              <field-item type="{{question.type}}"></field-item>
+              <div class="field-sort" >
+                <em sortable-item-handle></em>
+              </div>
+              <div class="field-control">
+                <a class="copy" ng-click='copyQuestion(question,$index + 1);$event.stopPropagation();'>复制</a>
+                <a class="delete" ng-click="deleteQuestion(question,$index);$event.stopPropagation();">删除</a>
+              </div>
+              <em class="indiciator"></em>
+            </div>
+            <div data-field-id="{{ $index + 1}}"
+                 class="field-occupy"
+                 ng-show="config | showOccupy : $index"></div>
+          </div>
+        </div>
+        <div class="field-occupy" ng-show="config | showInitOccupy"></div>
+      </div>
+    </div>
+    <div class="move-tips" ng-hide="exam.questions.length">
+      <img src="http://wx-static.drip.im/img/member/single/exam/move-tip.png">
+    </div>
+  </div>
+  <div class="setting">
+    <div class="field-setting-box">
+      <div field-editor class="field-editor" ng-transclude question="config.editQuestion">
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="setting-answer" ng-controller="answerController" ng-show="config.mode.key == 'answer'">
+  <div class="answer-table table {{exam.type}}">
+    <div class="thead">
+      <div class="tr">
+        <div class="th question">题目</div>
+        <div class="th answer" ng-if="exam.type == 'exam'">
+          设置正确答案
+        </div>
+        <div class="th score {{exam.score.status}}">总得分范围
+          <span>{{exam.score.min}}~{{exam.score.max}}</span>
+          <toggle ng-if="exam.type == 'exam'" ng-model="exam.score.status">
+          </toggle>
+        </div>
+        <div class="th analysis {{exam.analysis.status}}" ng-if="exam.type == 'exam'">
+          答案解析
+          <toggle ng-model="exam.analysis.status">
+          </toggle>
+        </div>
+      </div>
+    </div>
+    <div class="tbody no-user-select">
+      <div class="tr" ng-repeat="question in exam.questions">
+        <div class="td question question-{{ $index }}"a-question></div>
+        <div class="td answer" a-answer question="question" ng-if="exam.type == 'exam'"></div>
+        <div class="td score {{exam.score.status}}" a-score question="question" type="exam.type"></div>
+        <div class="td analysis {{exam.analysis.status}}" ng-if="exam.type == 'exam'">
+          <div>
+            <textarea ng-model="question.analysis"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="setting-result" ng-controller="resultController" ng-show="config.mode.key == 'result'">
+  <div class="result-test" ng-if="exam.type=='test'">
+  <div class="setting no-user-select">
+    <div class="scroll">
+      <div setting-group class="results" label="结果设置">
+        <ul>
+          <li ng-click="editResult($index)" ng-class="{'selected':config.editResult == r}" ng-repeat="r in exam.results">分数在
+            <input ng-if="$index == 0" type="number" class="readonly" readonly="readonly" ng-model="exam.score.min">
+            <input ng-if="$index != 0" type="number" 
+                   ng-model="r.min"
+                   readonly="readonly">
+            至
+            <input ng-if="$index == (exam.results.length - 1)" type="number" class="readonly" readonly="readonly" ng-model="exam.score.max">
+            <input ng-if="$index != (exam.results.length - 1)" type="number"
+                   ng-readonly="$index > 0 && exam.results[$index-1].max == null"
+                   ng-model="r.max"
+                   ng-blur="updateResultSub($index)">
+            <em class="result-control" ng-if="exam.results.length <= 2 || $index != exam.results.length-1" ng-click="addResult(r,$index)">+</em>
+            <em class="result-control" ng-if="$index > 0" ng-click="deleteResult($index)">-</em>
+          </li>
+        </ul>
+      </div>
+      <div setting-group class="fill" label="填写设置">
+        <div>
+          <input type="checkbox" ng-model="exam.fill.repeat">可重复答题
+        </div>
+        <div class="deadline">
+          <input type="checkbox" ng-model="exam.fill.deadline.limit">限制有效期
+          <div ng-show="exam.fill.deadline.limit">
+            <p>
+              开始时间：
+              <ng-date-time
+                default-time="true"
+                ng-model='exam.fill.deadline.startTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!exam.fill.deadline.limit">
+              </ng-date-time>
+            </p>
+            <p>
+              结束时间：
+              <ng-date-time
+                ng-model='exam.fill.deadline.endTime'
+                read-only="true"
+                date-format='yyyy-mm-dd'
+                ng-required="!exam.fill.deadline.limit">
+              </ng-date-time>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail">
+    <div setting-group class="title" label="结果标题">
+      <input type="text" ng-model="config.editResult.title">
+      <a href="javascript:void(0);" class="insert-score" ng-click="insertScoreToTitle(config.editResult)">插入得分</a>
+    </div>
+    <div setting-group label="结果说明">
+      <div ueditor ng-model="config.editResult.content" type="result" result="config.editResult" name="result-content"></div>
+      <a href="javascript:void(0);" ng-click="insertScoreToContent(config.editResult)" class="insert-score">插入得分</a>
+    </div>
+  </div>
+</div>
+  <div class="result-exam scroll" ng-if="exam.type=='exam'">
+  <div class="wrap">
+    <div class="preview">
+      <p class="tip">下面为设置预览图，不代表实际显示效果</p>
+      <div class="phone">
+        <div class="screen">
+          <div class="content">
+            <div class="title">
+              <div ng-if="exam.score.status && exam.result.score">
+                <h3>总得分</h3>
+                <span>{{exam.score.max || '100'}}</span><em>分</em>
+              </div>
+              <div ng-if="(!exam.result.score || !exam.score.status) && exam.result.rightCounts">
+                <h3>答对</h3>
+                <span>{{exam.questions.length}}</span><em>题</em>
+              </div>
+              <div ng-if="(!exam.result.score || !exam.score.status) && !exam.result.rightCounts">
+                <div class="success-icon">
+                  <img src="http://wx-static.drip.im/img/member/single/exam/check.png">
+                </div>
+                <h3>提交成功</h3>
+              </div>
+            </div>
+            <div class="detail">
+              <div class="rights" ng-if="exam.result.score && exam.result.rightCounts">
+                <p>答对</p>{{exam.questions.length}}
+              </div>
+              <div class="wrongs" ng-if="exam.result.rightCounts">
+                <p>答错</p>0
+              </div>
+              <div class="time">
+                <p>用时</p>
+                <span ng-if="!exam.fill.time.limit">01:25:20</span>
+                <span ng-if="exam.fill.time.limit">{{exam.fill.time.hour||0}}:{{exam.fill.time.minute?exam.fill.time.minute-1:0}}:59</span>
+              </div>
+            </div>
+            <div ng-if="exam.result.ranking" class="ranking">
+              <img src="http://wx-static.drip.im/img/member/single/exam//trophy.png">
+              <span>查看得分排行榜</span>
+            </div>
+          </div>
+          <div class="footer">
+            <a href="javascript:void(0);" ng-if="exam.analysis.status" class="analysis">错题解析</a>
+            <a href="javascript:void(0);" ng-if="exam.fill.repeat" class="reload">重新答题</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="setting">
+      <div setting-group label="结果显示">
+        <ul>
+          <li ng-show="exam.score.status" ><input type="checkbox" ng-model="exam.result.score" />显示得分</li>
+          <li><input type="checkbox" ng-model="exam.result.rightCounts" />显示答对题数</li>
+          <li ng-if="exam.userInfo.need && exam.userInfo.fields[0].need"><input type="checkbox" ng-model="exam.result.ranking"/>显示答题排行榜</li>
+          <li ng-if="!exam.userInfo.need || !exam.userInfo.fields[0].need"><input type="checkbox" disabled="disabled"/>显示答题排行榜
+            <em class="tip" ng-mousemove="showRankingTip = true" ng-mouseout="showRankingTip = false"><div class="ranking-tip" ng-show="showRankingTip">如需勾选此项，需要在第一步中设置需用户填写“姓名”信息</div></em>
+          </li>
+        </ul>
+      </div>
+      <div ng-show="exam.analysis.status" setting-group label="答案解析">
+        <ul>
+          <li><input type="radio" ng-value="true" ng-model="exam.analysis.every" />每答一题即显示解析(练习模式)</li>
+          <li><input type="radio" ng-value="false" ng-model="exam.analysis.every"/>全部答完后显示解析</li>
+        </ul>
+      </div>
+      <div setting-group label="考卷设置">
+        <ul>
+          <li><input type="checkbox" ng-model="exam.fill.eachScore"/>答题时显示每题分数</li>
+          <li class="fill-time"><input type="checkbox" ng-model="exam.fill.time.limit" />限制答卷时间
+            <div ng-show="exam.fill.time.limit">
+              <select ng-options="h as (h + '小时') for h in [0,1,2,3,4,5,6,7,8,9]" ng-model="exam.fill.time.hour"><option value="">小时</option></select>
+              :
+              <select ng-options="m as (m + '分钟') for m in [0,5,10,15,20,25,30,35,40,45,50,55]" ng-model="exam.fill.time.minute"><option value="">分钟</option></select>
+            </div>
+          </li>
+          <li class="deadline"><input type="checkbox" ng-model="exam.fill.deadline.limit" />限制有效期
+            <div ng-show="exam.fill.deadline.limit">
+              <p>
+                开始时间：
+                <ng-date-time
+                  default-time="true"
+                  ng-model='exam.fill.deadline.startTime'
+                  read-only="true"
+                  date-format='yyyy-mm-dd'
+                  ng-required="!exam.fill.deadline.limit">
+                </ng-date-time>
+              </p>
+              <p>
+                结束时间：
+                <ng-date-time
+                  ng-model='exam.fill.deadline.endTime'
+                  read-only="true"
+                  date-format='yyyy-mm-dd'
+                  ng-required="!exam.fill.deadline.limit">
+                </ng-date-time>
+              </p>
+            </div>
+          </li>
+          <li><input type="checkbox" ng-model="exam.fill.repeat" />可重复答题</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+  <div class="exam-control">
+    <a ng-if="config.mode.seq > 1" href="javascript:void(0);" class="ui-button-gray" ng-click="prevSetting();">上一步</a>
+    <a ng-if="config.mode.seq < 4" href="javascript:void(0);" class="ui-button-gray" ng-click="saveSetting();">保存</a>
+    <a ng-if="config.mode.seq < 4" href="javascript:void(0);" class="ui-button-gold" ng-click="nextSetting();">下一步</a>
+    <a ng-if="config.mode.seq == 4" href="javascript:void(0);" class="ui-button-gold" ng-click="completeSetting();">完成设置</a>
+  </div>
+  <div class="success-popup" ng-show="popupSuccessWind">
+    <div class="modal">
+      <div class="modal-header">
+        <img src="http://wx-static.drip.im/img/member/single/form/form-save-success.png">
+        <div class="success-text">
+          <p class="txt-lg">测考已成功保存</p>
+          <p>您可以继续操作</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-option">
+          <a class="form-action-lg" ng-click="popupSuccessWind = false"><em class="continue"></em>继续编辑</a>
+          <a href="/member/exam/list" class="form-action-lg" ng-click="popupSuccessWind = false"><em class="finish"></em>完成编辑，去测考列表</a>
+          <div class="qrcode-box">
+            <img ng-src="http://weixin.drip.im/exam/qrcode?id={{exam.id}}&special=216949">
+            微信扫一扫可以查看测考
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-cloak class="modal-bg"></div>
+  </div>
+</div>
+<script type="text/template" id="setting-group-tpl">
+  <label>{{label}}
+    <em ng-if="star" class="star"></em>
+  </label>
+  <span ng-if="tip" class="tip">{{tip}}</span>
+  <div ng-transclude></div>
+</script>
+
+<script type="text/template" id="img-tpl">
+  <label>{{ $index+1 }}、{{question.label||'未命名标题'}}</label>
+  <img class="label-img"
+       ng-if="question.labelImg"
+       ng-src="{{question.labelImg}}?imageView2/2/w/400/h/300"/>
+  <ul class="img-list">
+    <li ng-repeat="opt in question.options">
+      <div class="opt-img-wrap">
+        <img ng-src="{{opt.img}}?imageMogr/v2/thumbnail/!100x100r/gravity/center/crop/100x100" width="100px" height="100px"/>
+        <div class="wrap">
+          <input ng-if="question.type == 'img'" type="radio" name="{{question.id}}" />
+          <input ng-if="question.type == 'imgList'" type="checkbox" name="{{question.id}}" />
+          <span class="opt-label">{{opt.label}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</script>
+
+<script type="text/template" id="choice-tpl">
+  <label>{{ $index+1 }}、{{question.label||'未命名标题'}} </label>
+  <img class="label-img"
+       ng-if="question.labelImg"
+       ng-src="{{question.labelImg}}?imageView2/2/w/400/h/300"/>
+  <ul>
+    <li ng-repeat="opt in question.options">
+      <input ng-if="question.type == 'radio'" type="radio" name="{{question.id}}" value="{{opt.value}}"/><input ng-if="question.type == 'checkbox'" type="checkbox" name="{{question.id}}" value="{{opt.value}}"/>{{opt.label}}
+    </li>
+  </ul>
+</script>
+
+
+<script type="text/template" id="blank-tpl">
+  <label>{{ $index+1 }}、{{question.label||'未命名标题'}} </label>
+  <div question-content="question.content" class="blank-content question-content-{{question.id}}">
+  </div>
+</script>
+
+<script type="text/template" id="editor-choice-tpl">
+  <div setting-group label="类型">
+    <input type="radio" ng-click="changeQuestionType()" ng-model="question.type" value="radio">单选
+    <input type="radio" ng-click="changeQuestionType()" ng-model="question.type" value="checkbox">多选
+  </div>
+  <div setting-group label="题目">
+    <textarea ng-model="question.label"></textarea>
+    <div class="question-label-img">
+      <div pic-uploader name="question-label-img" index="{{'-' + question.id}}" class="small" ng-model="question.labelImg"></div>
+      <a ng-if="question.labelImg" ng-click="deleteQuestionLabelImg(question)" href="javascript:void(0);">删除</a>
+    </div>
+  </div>
+  <div setting-group label="选项设置">
+    <ul class="option-list">
+      <li ng-repeat="(idx,opt) in question.options">
+        <input ng-if="examType=='exam'" type="text" ng-model="opt.label" placeholder="{{ $index|character }}">
+        <input ng-if="examType=='test'" type="text" ng-model="opt.label" input-hint="选项">
+        <em class="option-control" ng-if="opt.value != -1" ng-click="addOption(question.options,idx)">+</em>
+        <em class="option-control" ng-if="question.options.length > 2" ng-click="deleteOption(question.options,idx)">-</em>
+      </li>
+    </ul>
+  </div>
+  <!--<div setting-group ng-if="question.type == 'radio'" label="同步成标签" star="true">
+    <p>将用户选择的内容同步成标签，在客户管理可以搜索、精准营销。</p>
+    <p><input type="checkbox">开启</p>
+  </div>-->
+  <!--<div setting-group ng-if="question.type == 'checkbox'" label="验证">
+    <ul range-validator class="range-validator" question="question"></ul>
+  </div>-->
+</script>
+
+<script type="text/template" id="editor-choice-img-tpl">
+  <div setting-group label="类型">
+    <input type="radio" ng-click="changeQuestionType()" ng-model="question.type" value="img">图片单选
+    <input type="radio" ng-click="changeQuestionType()" ng-model="question.type" value="imgList">图片多选
+  </div>
+  <div setting-group label="题目">
+    <textarea ng-model="question.label"></textarea>
+    <div class="question-label-img">
+      <div pic-uploader name="question-label-img" index="{{'-' + question.id}}" class="small" ng-model="question.labelImg"></div>
+      <a ng-if="question.labelImg" ng-click="deleteQuestionLabelImg(question)" href="javascript:void(0);">删除</a>
+    </div>
+  </div>
+  <div setting-group label="选项设置">
+    <ul class="option-list">
+      <li ng-repeat="(idx,opt) in question.options" class="img-option">
+        <a pic-uploader ng-model="opt.img" name="option-img" index="{{'-' + question.id + '-' + opt.value}}"></a>
+        <div>
+          <div>
+            <textarea type="text" ng-if="examType=='test'" ng-model="opt.label" placeholder="请填写"></textarea>
+            <textarea type="text" ng-if="examType=='exam'" ng-model="opt.label" placeholder="{{ $index|character }}"></textarea>
+            <em class="option-control" ng-if="opt.value != -1" ng-click="addOption(question.options,idx)">+</em>
+            <em class="option-control" ng-if="question.options.length > 2" ng-click="deleteOption(question.options,idx)">-</em>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- <div setting-group ng-if="question.type == 'imgList'" label="验证">
+    <ul range-validator class="range-validator" question="question"></ul>
+  </div> -->
+</script>
+
+<script type="text/template" id="range-validator-tpl">
+  <li>
+    <input type="checkbox" ng-model="showMinSelect" ng-change="question.validator.minSelect = undefined">
+    <span ng-show="!showMinSelect">最少选择项数</span>
+    <span ng-show="showMinSelect">最少选择</span>
+    <span ng-show="showMinSelect">
+      <select ng-model="question.validator.minSelect">
+        <option value="">项数</option>
+        <option ng-repeat="(key,opt) in question.options"
+                ng-if="key < (question.validator.maxSelect||question.options.length)"
+                value="{{key + 1 }}">{{key + 1}}项
+        </option>
+      </select>
+    </span>
+  </li>
+  <li>
+    <input type="checkbox" ng-model="showMaxSelect" ng-change="question.validator.maxSelect = undefined">
+    <span ng-show="!showMaxSelect">最多选择项数</span>
+    <span ng-show="showMaxSelect">最多选择</span>
+    <span ng-show="showMaxSelect">
+      <select ng-model="question.validator.maxSelect">
+        <option value="">项数</option>
+        <option ng-repeat="(key,opt) in question.options"
+                ng-if="(key+2) > (question.validator.minSelect||0)"
+                value="{{key + 1 }}">{{key + 1}}项
+        </option>
+      </select>
+    </span>
+  </li>
+</script>
+<script type="text/template" id="editor-blank-tpl">
+  <div setting-group label="题目">
+    <div ueditor class="ueditor-box" question="question" ng-model="question.content" name="question-content-{{question.id}}" placeholder="请填写描述"></div>
+    <div class="blank-insert-box">
+      <select class="blank-length-select hidden" ng-model="blankLength">
+        <option value="0">设置填空字数</option>
+        <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]" value="{{n}}">{{n}}个字</option>
+      </select>
+      <a href="javascript:void(0);" ng-click="insertBlank(question)">插入填空</a>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="a-question-tpl">
+  <span class="question-seq">Q{{ $index+1 }}</span>
+  <div>
+    <label ng-if="question.type != 'blank'">{{question.label}}</label>
+    <a class="optImg" ng-if="question.labelImg"><img ng-src="{{question.labelImg}}"></a>
+    <ul class="options" ng-if="question.type != 'blank'">
+      <li ng-repeat="opt in question.options"><span>
+        <input name="{{question.id}}"
+               type="{{(question.type == 'radio' || question.type == 'img')?'radio':'checkbox'}}">{{opt.label}}
+        <a class="optImg" ng-if="question.type == 'img' || question.type == 'imgList'"><img ng-src="{{opt.img}}"></a>
+      </span></li>
+    </ul>
+    <div ng-if="question.type == 'blank'" question-content="question.content" class="blank-content">
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="a-score-choice-tpl">
+  <div>
+    <p>分值</p>
+    <ul class="options">
+      <li ng-repeat="opt in question.options">
+        <input type="number" ng-model="opt.score" ng-change="updateTotalScore(question)" ng-pattern = "/^([0-9]\d*)$/">
+      </li>
+    </ul>
+  </div>
+</script>
+<script type="text/template" id="a-score-exam-choice-tpl">
+  <div a-score-exam-radio ng-if="question.type=='radio'||question.type=='img'"></div>
+  <div a-score-exam-checkbox ng-if="question.type=='checkbox'||question.type=='imgList'"></div>
+</script>
+<script type="text/template" id="a-score-exam-radio-tpl">
+  <p>分值</p>
+  <ul class="options">
+    <li ng-repeat="opt in question.options">
+      <input ng-if="opt.correct == true" type="number" ng-model="opt.score"  ng-change="updateTotalScore(question)" ng-pattern = "/^([0-9]\d*)$/">
+      <span class="uncorrect" ng-if="opt.correct != true">0</span>
+    </li>
+  </ul>
+</script>
+<script type="text/template" id="a-score-exam-checkbox-tpl">
+  <select ng-model="question.correctMode" ng-change="updateTotalScore(question)">
+    <option value="all">全答对才得分</option>
+    <option value="part">答对几题算几分，答错不得分</option>
+  </select>
+  <ul class="options {{question.correctMode}}">
+    <li ng-repeat="opt in question.options">
+      <input ng-if="opt.correct == true" type="number" ng-model="opt.score"  ng-change="updateTotalScore(question)" ng-pattern = "/^([0-9]\d*)$/">
+      <span class="uncorrect" ng-if="opt.correct != true">0</span>
+    </li>
+    <input type="number" class="all-correct" ng-if="question.correctMode == 'all'" ng-model="question.correctScore"  ng-change="updateTotalScore(question)" ng-pattern = "/^([0-9]\d*)$/">
+  </ul>
+</script>
+
+<script type="text/template" id="a-score-blank-tpl">
+  <div>
+    <ul class="blanks">
+      <li ng-repeat="b in question.blanks">
+        <input type="number" ng-model="b.score" ng-change="updateTotalScore(question)" ng-pattern = "/^([0-9]\d*)$/">
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="toggle-tpl">
+  <span class="trace-trigger ui-switch" ng-class="{true:'on', false: ''}[on]">
+    <span class="plug"></span>
+  </span>
+</script>
+
+<script type="text/template" id="a-answer-blank-tpl">
+  <ul class="blanks">
+    <li ng-repeat="b in question|getBlanks">
+      <input type="text" placeholder="请输入正确答案" ng-model="b.answer" >
+    </li>
+  </ul>
+</script>
+
+<script type="text/template" id="a-answer-radio-tpl">
+  <p>单选</p>
+  <ul class="options">
+    <li ng-repeat="opt in question.options">
+      <span class="radio-button"
+            ng-click="setCorrectOption(question,opt,'radio')"
+            ng-class="{'checked':opt.correct == true}">
+            {{ $index|character }}
+      </span>
+    </li>
+  </ul>
+</script>
+
+<script type="text/template" id="a-answer-checkbox-tpl">
+  <p>多选</p>
+  <ul class="options">
+    <li ng-repeat="opt in question.options">
+      <span class="checkbox-button"
+            ng-click="setCorrectOption(question,opt,'checkbox')"
+            ng-class="{'checked':opt.correct == true}">
+            {{ $index|character }}
+      </span>
+    </li>
+  </ul>
+</script>
+
+<script type="text/template" id="a-answer-choice-tpl">
+  <p ng-if="question.type == 'radio' || question.type == 'img'">单选</p>
+  <p ng-if="question.type == 'checkbox' || question.type == 'imgList'">多选</p>
+  <ul class="options">
+    <li ng-repeat="opt in question.options">
+      <span class="button {{question.type}}-button"
+            ng-click="setCorrectOption(question,opt)"
+            ng-class="{'checked':opt.correct == true}">
+            {{ $index|character }}
+      </span>
+    </li>
+  </ul>
+</script>
+
+    <div id="info-container">
+	<div class="info-loading">
+		<img src="http://wx-static.drip.im/img/member/single/loading-white.gif" /> 加载中
+	</div>
+	<div class="info-wrap"></div>
+</div>
+        <div id="notify" class="hidden"></div>
+        <script src="http://wx-static.drip.im/js/core/jquery-1.9.0.js?t=1455750855"></script>
+    <script src="http://weixin.drip.im/upload/ueditor.config.js?t=1455750855"></script>
+    <script src="http://weixin.drip.im/upload/ueditor.all.min.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/angular/angular.min.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/angular/angular-sanitize.min.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/angular/angular-animate.min.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/angular/ng-datetime.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/angular/ng-sortable.min.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/util/uploader.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/member/exam/create.js?t=1455750855"></script>
+    <script src="http://wx-static.drip.im/js/dist/member/exam/fields.js?t=1455750855"></script>
+    <script>
+      seajs.use("http://wx-static.drip.im/js/app.js?t=1455750855",function(app){
+        app.init('member/global');
+      });
+    </script>
+  </body>
+  <script>
+   var _hmt = _hmt || [];
+   (function() {
+     var hm = document.createElement("script");
+     hm.src = "//hm.baidu.com/hm.js?5438c2334f2a1423dc50b05a2bf2faf0";
+     var s = document.getElementsByTagName("script")[0];
+     s.parentNode.insertBefore(hm, s);
+   })();
+  </script>
+  </html>
