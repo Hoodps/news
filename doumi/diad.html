@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="lpn_panel lpn_panel_panel lpn_panel_text lpn_hd_move" style="width: 380px; z-index: 3000004; top: 1012px; left: 720px;">
+    <div class="lpn_underlay" style="width: 390px; height: 207px;">
+    </div>
+    <div id="guid_39_14583129727850_6014694778290528" class="lpn_wrapper">
+        <div class="hd">
+            添加工作时间
+        </div>
+        <div class="lpn_canvas" style="height: 154px;">
+            <form id="form_id" method="POST">
+                <div class="jz-pop addInfo-pop time-pop">
+                    <dl class="clearfix">
+                        <dt>开始时间</dt>
+                        <dd>
+                            <div class="form-group">
+                                <div class="fl">
+                                    <div class="form-select-wrap">
+                                        <select id="from_hour_id" class="w100"  autocomplete="off">
+                                            <option value="">请选择</option>
+                                            <option value="0" >0</option>
+                                            <option value="1" >1</option>
+                                            <option value="2" >2</option>
+                                            <option value="3" >3</option>
+                                            <option value="4" >4</option>
+                                            <option value="5" >5</option>
+                                            <option value="6" >6</option>
+                                            <option value="7" >7</option>
+                                            <option value="8" >8</option>
+                                            <option value="9" >9</option>
+                                            <option value="10" >10</option>
+                                            <option value="11" >11</option>
+                                            <option value="12" >12</option>
+                                            <option value="13" >13</option>
+                                            <option value="14" >14</option>
+                                            <option value="15" >15</option>
+                                            <option value="16" >16</option>
+                                            <option value="17" >17</option>
+                                            <option value="18" >18</option>
+                                            <option value="19" >19</option>
+                                            <option value="20" >20</option>
+                                            <option value="21" >21</option>
+                                            <option value="22" >22</option>
+                                            <option value="23" >23</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="fl jz-words plr10">时</span>
+                                <div class="fl">
+                                    <div class="form-select-wrap">
+                                        <select id="from_minute_id" class="w100"  autocomplete="off">
+                                            <option value="">请选择</option>
+                                            <option value="0"  selected  >0</option>
+                                            <option value="10"  >10</option>
+                                            <option value="20"  >20</option>
+                                            <option value="30"  >30</option>
+                                            <option value="40"  >40</option>
+                                            <option value="50"  >50</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="fl jz-words plr10">分</span>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <dl class="clearfix">
+                        <dt>结束时间</dt>
+                        <dd>
+                            <div class="form-group">
+                                <div class="fl">
+                                    <div class="form-select-wrap">
+                                        <select id="to_hour_id" class="w100"  autocomplete="off">
+                                            <option value="">请选择</option>
+                                            <option value="0" >0</option>
+                                            <option value="1" >1</option>
+                                            <option value="2" >2</option>
+                                            <option value="3" >3</option>
+                                            <option value="4" >4</option>
+                                            <option value="5" >5</option>
+                                            <option value="6" >6</option>
+                                            <option value="7" >7</option>
+                                            <option value="8" >8</option>
+                                            <option value="9" >9</option>
+                                            <option value="10" >10</option>
+                                            <option value="11" >11</option>
+                                            <option value="12" >12</option>
+                                            <option value="13" >13</option>
+                                            <option value="14" >14</option>
+                                            <option value="15" >15</option>
+                                            <option value="16" >16</option>
+                                            <option value="17" >17</option>
+                                            <option value="18" >18</option>
+                                            <option value="19" >19</option>
+                                            <option value="20" >20</option>
+                                            <option value="21" >21</option>
+                                            <option value="22" >22</option>
+                                            <option value="23" >23</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="fl jz-words plr10">时</span>
+                                <div class="fl">
+                                    <div class="form-select-wrap">
+                                        <select id="to_minute_id" class="w100"  autocomplete="off">
+                                            <option value="">请选择</option>
+                                            <option value="0"  selected >0</option>
+                                            <option value="10" >10</option>
+                                            <option value="20" >20</option>
+                                            <option value="30" >30</option>
+                                            <option value="40" >40</option>
+                                            <option value="50" >50</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="fl jz-words plr10">分</span>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <div class="mt30 txt-c">
+                        <a id="submit_id" class="org-btn btn0 fb">保存</a>
+                    </div>
+                </div>
+
+            </form>
+
+            <script type="text/javascript">
+                var handle = 'handletime_1458312974';
+
+                GJ.use('js/util/iframe/talk_to_parent.js', function () {
+                    $('#submit_id').click(function(){
+                        var obj      = new Object();
+                        obj.handle   = handle;
+
+                        obj.fromHour = $("#from_hour_id").val();
+                        obj.fromMinu = $("#from_minute_id").val();
+                        obj.toHour   = $("#to_hour_id").val();
+                        obj.toMinu   = $("#to_minute_id").val();
+
+                        if('' == obj.fromHour || '' == obj.fromMinu || '' == obj.toHour || '' == obj.toMinu ) {
+                            alert('请将信息填写完整！');
+                            return false;
+                        }
+
+                        /*if( (parseInt(obj.toHour) < parseInt(obj.fromHour)) || (parseInt(obj.fromHour) == parseInt(obj.toHour) && parseInt(obj.toMinu) <= parseInt(obj.fromMinu) )) {
+                         alert('工作结束时间不能小于开始时间');
+                         return false;
+                         }*/
+                        GJ.talkToParent.callParentHandler('setCommentText', obj);
+                        GJ.talkToParent.close();
+                    });
+                });
+
+            </script>
+        </div>
+        <div class="ft">
+            <div class="lpn_resize_br">
+            </div>
+        </div>
+        <div class="lpn_ctrl_group" style="width: 26px;">
+            <a class="lpn_close" href="#" style="margin-left: 3px;">关闭</a>
+        </div>
+        <div class="lpn_load" style="display: none;">
+            &nbsp;
+        </div>
+    </div>
+</div>
+文／BlackSwift（简书作者）
+原文链接：http://www.jianshu.com/p/752f930afd77
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
+
+文／BlackSwift（简书作者）
+原文链接：http://www.jianshu.com/p/752f930afd77
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
+
+Digital Ocean已经被玩坏了，不用买了
+
+
+</body>
+</html>

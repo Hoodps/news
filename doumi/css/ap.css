@@ -1,0 +1,1232 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0
+}
+
+ol,ul,li {
+    list-style: none
+}
+
+blockquote,q {
+    quotes: none
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none
+}
+
+:focus {
+    outline: 0
+}
+
+del {
+    text-decoration: line-through
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+address,cite,code,dfn,em,var,i {
+    font-style: normal
+}
+
+input[type=submit],input[type=reset],input[type=button],button {
+    cursor: pointer;
+    -webkit-appearance: none
+}
+
+.vm {
+    vertical-align: middle
+}
+
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden
+}
+
+* html .clearfix {
+    zoom: 1
+}
+
+*+html .clearfix {
+    zoom: 1
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+body {
+    background: #fff
+}
+
+body,button,input,select,textarea {
+    font: 12px/1.5 arial,helvetica,clean,sans-serif
+}
+
+a {
+    text-decoration: none;
+    color: #06c
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #e30
+}
+
+input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill {
+    box-shadow: 0 0 0 999px #fff inset;
+    -webkit-box-shadow: 0 0 0 999px #fff inset
+}
+
+.placeholder {
+    color: #aaa
+}
+
+::-webkit-input-placeholder {
+    color: #aaa
+}
+
+::-moz-placeholder {
+    color: #626262
+}
+
+input:-moz-placeholder {
+    color: #aaa
+}
+
+input {
+    vertical-align: middle
+}
+
+.w {
+    width: 1000px;
+    margin: 0 auto
+}
+
+.main {
+    float: right;
+    width: 780px
+}
+
+.fc-4b {
+    color: #4b4b4b
+}
+
+.fc-f60 {
+    color: #f60
+}
+
+.fc-70 {
+    color: #707070
+}
+
+.fc-99 {
+    color: #999
+}
+
+.fc-fa {
+    color: #ffaa2c
+}
+
+.fc-06c {
+    color: #06c
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+.mr20 {
+    margin-right: 20px
+}
+
+.f12 {
+    font-size: 12px
+}
+
+.ml-10 {
+    margin-left: 10px
+}
+
+.mt15 {
+    margin-top: 15px
+}
+
+.mt20 {
+    margin-top: 20px
+}
+
+.ml-20 {
+    margin-left: 20px
+}
+
+.w100 {
+    width: 100px
+}
+
+.w160 {
+    width: 160px
+}
+
+.w260 {
+    width: 260px
+}
+
+.w280 {
+    width: 280px
+}
+
+.bgf {
+    background-color: #fff
+}
+
+.header {
+    height: 79px;
+    border-bottom: solid 1px #ffaa2c;
+    background-color: #fff
+}
+
+.jz-logo {
+    float: left;
+    margin-top: 15px;
+    background: url('../../../../css/jianzhi/web/b/../../../../image/v5/dm/dm_logo.png') no-repeat;
+    width: 190px;
+    height: 50px
+}
+
+.jz-logo a {
+    display: block;
+    height: 50px
+}
+
+.b-version {
+    float: left;
+    font-size: 18px;
+    margin-top: 28px;
+    padding-left: 10px;
+    line-height: 24px;
+    color: #ffaa2c;
+    font-family: 'Microsoft YaHei'
+}
+
+.header-r {
+    float: right
+}
+
+.header-r a {
+    color: #4b4b4b;
+    text-decoration: none
+}
+
+.header-r a:hover {
+    color: #e30;
+    text-decoration: underline
+}
+
+.header-r span {
+    display: inline-block;
+    line-height: 79px
+}
+
+.login-reg-link a {
+    margin-right: 20px
+}
+
+.l {
+    width: 1px;
+    height: 10px;
+    background-color: #ddd;
+    font-size: 0;
+    display: inline-block
+}
+
+.cpy-enter {
+    margin-left: 20px
+}
+
+.header-r .l {
+    margin-top: 34px
+}
+
+.header-r span {
+    font-size: 14px
+}
+
+.header-r .ar,.myPhone {
+    background: url('../../../../css/jianzhi/web/b/../../../../image/v5/job/jz/jz_head_ico.png') no-repeat
+}
+
+.header-r .ar {
+    display: inline-block;
+    width: 12px;
+    height: 6px;
+    background-position: 0 -25px;
+    vertical-align: middle
+}
+
+.myPhone {
+    padding-left: 15px;
+    background-position: 0 1px
+}
+
+.phone-qrcode {
+    margin: 0 20px;
+    position: relative;
+    z-index: 1
+}
+
+.phone-qrcode a {
+    color: #4b4b4b
+}
+
+.show-phone-qrcode {
+    display: block;
+    border: solid 1px #ddd;
+    position: absolute;
+    background-color: #f6f9f2;
+    width: 260px;
+    padding: 20px 0 20px 20px;
+    left: 50%;
+    margin-left: -140px;
+    top: 79px
+}
+
+.show-phone-qrcode dl dd {
+    float: left;
+    line-height: 18px;
+    font-size: 12px;
+    color: #707070;
+    margin-top: 32px;
+    padding-left: 20px;
+    *width: 125px
+}
+
+.show-phone-qrcode .arrow {
+    background-image: url('../../../../css/jianzhi/web/b/../../../../image/v5/want_manage/jz/jz_d_icon.png');
+    background-repeat: no-repeat
+}
+
+.show-phone-qrcode .arrow {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    margin-left: -7px;
+    background-position: -16px -127px;
+    width: 14px;
+    height: 7px
+}
+
+.jz-d-qrcode-pic {
+    background: url('../../../../css/jianzhi/web/b/../../../../image/v5/dm/dm_qrcode_1123.png?v=1215') no-repeat;
+    background-position: 0 0;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto
+}
+
+.aside {
+    float: left;
+    width: 170px;
+    background-color: #fff;
+    padding: 20px
+}
+
+.pub-area {
+    padding-bottom: 20px
+}
+
+.pub-btn {
+    display: block;
+    height: 50px;
+    font: normal 18px/50px 'hiragino sans gb','Microsoft YaHei';
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: #ffaa2c
+}
+
+.pub-btn:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #f49c19
+}
+
+.b-menu {
+    border-top: dashed 1px #e6e6e6
+}
+
+.b-menu a {
+    color: #4b4b4b;
+    text-decoration: none
+}
+
+.b-menu a.cur,.b-menu a.cur:hover {
+    color: #ffaa2c
+}
+
+.b-menu dt {
+    font: normal 16px/40px 'hiragino sans gb','Microsoft YaHei';
+    padding: 5px 0 5px 0
+}
+
+.b-menu dt a {
+    display: block;
+    padding-left: 10px
+}
+
+.b-menu dt a.cur {
+    background-color: #fafafa
+}
+
+.b-menu dt i {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-top: 12px;
+    margin-right: 10px;
+    background-image: url('../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/b_ico.png?v=1207');
+    background-repeat: no-repeat
+}
+
+.menu-ico1 {
+    background-position: 0 0
+}
+
+.b-menu .cur .menu-ico1 {
+    background-position: -103px -195px
+}
+
+.menu-ico2 {
+    background-position: -103px -223px
+}
+
+.b-menu .cur .menu-ico2 {
+    background-position: 0 -21px
+}
+
+.menu-ico3 {
+    background-position: 2px -44px
+}
+
+.b-menu .cur .menu-ico3 {
+    background-position: -103px -130px
+}
+
+.menu-ico4 {
+    background-position: 0 -67px
+}
+
+.b-menu .cur .menu-ico4 {
+    background-position: -103px -162px
+}
+
+.b-menu dd ul {
+    padding-left: 40px
+}
+
+.b-menu dd li {
+    font-size: 14px;
+    line-height: 2em
+}
+
+.pageBox {
+    margin-top: 50px;
+    clear: both;
+    text-align: center;
+    line-height: 34px
+}
+
+.pageBox li {
+    display: inline;
+    margin: 0 5px;
+    font: normal 16px/34px 'hiragino sans gb','Microsoft YaHei'
+}
+
+.pageBox li a,.pageBox li span {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    color: #707070;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 0 15px
+}
+
+.pageBox .active span,.pageBox li a:hover {
+    background-color: #fed738;
+    color: #fff
+}
+
+.pageBox .active {
+    cursor: default
+}
+
+.b-tips {
+    background-color: #fafafa;
+    font-size: 12px;
+    line-height: 24px;
+    padding: 15px 20px;
+    color: #707070
+}
+
+.b-tips h3 {
+    font-weight: 500;
+    font: normal 16px/24px 'hiragino sans gb','Microsoft YaHei'
+}
+
+.b-tips p {
+    text-indent: -22px;
+    padding-left: 22px;
+    line-height: 20px;
+    margin-top: 10px
+}
+
+.b-doubt,.b-doubt-arrow {
+    background-image: url('../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/b_ico.png')
+}
+
+.b-doubt {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    background-position: -106px -44px
+}
+
+.b-doubt-box {
+    position: absolute;
+    top: 25px;
+    right: -20px;
+    border: solid 2px #ffaa2c;
+    width: 230px;
+    background-color: #fff;
+    color: #4b4b4b;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+}
+
+.b-doubt-arrow {
+    position: absolute;
+    right: 15px;
+    top: -9px;
+    width: 19px;
+    height: 9px;
+    background-position: -40px -253px
+}
+
+.b-doubt-box-con {
+    line-height: 18px;
+    padding: 10px
+}
+
+.footer {
+    margin-top: 50px;
+    border-top: solid 1px #fc0;
+    background-color: #fff;
+    color: #4b4b4b
+}
+
+.footer .wrap {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 10px
+}
+
+.friendLink {
+    line-height: 24px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #f2f2f2
+}
+
+.friendLink span {
+    display: inline-block;
+    font: normal 14px/22px 'hiragino sans gb','Microsoft YaHei';
+    color: #4b4b4b
+}
+
+.friendLink a {
+    color: #4b4b4b;
+    margin: 0 6px
+}
+
+.footer-con {
+    padding-bottom: 25px;
+    overflow: hidden
+}
+
+.footer-logo {
+    float: left;
+    margin-top: 30px;
+    width: 330px;
+    height: 50px
+}
+
+.footer-logo a,.footer-logo-slogan,.footer-qrcode-pic,.footer-tel h4 i {
+    background: url('../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/c/footer_bg.png?v=1215') no-repeat
+}
+
+.footer-logo a {
+    float: left;
+    margin: 0;
+    display: block;
+    width: 160px;
+    text-indent: -9999em;
+    background-position: 0 0;
+    height: 50px
+}
+
+.footer-logo-slogan {
+    display: block;
+    float: left;
+    width: 170px;
+    height: 50px;
+    background-position: -160px 0
+}
+
+.footer-qrcode {
+    float: right;
+    width: 120px;
+    margin-top: 10px
+}
+
+.footer-qrcode-pic {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    background-position: 0 -61px
+}
+
+.footer-qrcode-txt {
+    line-height: 26px;
+    font-size: 12px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-align: center
+}
+
+.footer-tel {
+    float: right;
+    padding-right: 30px;
+    text-align: right;
+    margin-top: 30px
+}
+
+.footer-tel h4 {
+    height: 20px;
+    font: normal 18px/20px 'hiragino sans gb','Microsoft YaHei'
+}
+
+.footer-tel h4 i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-position: 0 -149px;
+    height: 20px;
+    width: 20px
+}
+
+.footer-tel-code {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+    color: #171018;
+    line-height: 1em;
+    margin-top: 10px;
+    letter-spacing: 1px
+}
+
+.copyRight {
+    line-height: 24px;
+    margin-top: 18px
+}
+
+.aside-container {
+    float: left;
+    width: 210px
+}
+
+.certification {
+    float: left;
+    width: 210px;
+    height: 100px;
+    background: url("../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/certification.png") no-repeat
+}
+
+.certification a {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+@media(min-width:1280px) {
+    .w {
+        width: 1200px
+    }
+
+    .main {
+        width: 980px
+    }
+
+    .footer .wrap {
+        width: 1200px
+    }
+}
+
+@media(min-width:1420px) {
+    .main {
+        min-height: 550px
+    }
+}
+
+@charset "utf-8";
+
+.b-recharge {
+    background-color: #f1f3f8
+}
+
+.bgf {
+    background-color: #fff
+}
+
+.crumbs {
+    font: 14px/24px 'helvetica neue',simsun;
+    padding: 15px 10px
+}
+
+.crumbs a,.crumbs a:hover {
+    display: inline-block;
+    color: #ffaa2c;
+    text-decoration: none
+}
+
+.form-widget {
+    padding: 10px 10px 50px
+}
+
+.form-item {
+    overflow: hidden
+}
+
+.form-label {
+    float: left;
+    min-width: 72px;
+    text-align: right;
+    vertical-align: top;
+    color: #999;
+    font-size: 14px;
+    line-height: 30px;
+    overflow: hidden
+}
+
+.form-control {
+    overflow: hidden
+}
+
+.text-group {
+    float: left;
+    font-size: 14px;
+    line-height: 30px
+}
+
+.input-text {
+    display: block;
+    width: 132px;
+    height: 24px;
+    border: 1px solid #ddd;
+    color: #4b4b4b;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 5px 8px;
+    margin: 4px 0
+}
+
+.mutli-group {
+    overflow: hidden;
+    width: 138px;
+    padding-left: 10px;
+    border: solid 1px #dcdcdc
+}
+
+.mutli-group .text-group {
+    float: left;
+    margin-left: 10px;
+    line-height: 28px
+}
+
+.mutli-group .input-text {
+    float: left;
+    line-height: 24px;
+    width: 103px;
+    margin: 2px 0 0;
+    padding: 0;
+    border: none 0;
+    height: 24px
+}
+
+.logo-alipay {
+    display: block;
+    width: 148px;
+    height: 43px;
+    background: url(../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/logo_alipay.png) no-repeat;
+    line-height: 43px;
+    overflow: hidden;
+    border: solid 1px #ffdaa4;
+    background-size: 85%;
+    background-position: 10px;
+    cursor: pointer
+}
+
+.recharge-way {
+    margin-top: 20px
+}
+
+.recharge-way .form-label {
+    margin-top: 7px
+}
+
+.form-opt {
+    margin-top: 16px;
+    margin-left: 72px
+}
+
+.form-deliver {
+    color: #ffaa2c;
+    font-size: 20px;
+    line-height: 62px;
+    text-align: center;
+    padding: 20px 10px 0
+}
+
+.form-deliver .icon-succeed {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/b_ico.png') no-repeat;
+    background-position: -97px 0;
+    width: 40px;
+    height: 40px
+}
+
+.form-deliver-inner {
+    position: relative;
+    padding-left: 50px;
+    text-align: left;
+    display: inline-block
+}
+
+.form-deliver-sucTxt {
+    font: 18px/1.3em 'hiragino sans gb','Microsoft YaHei';
+    color: #01c665
+}
+
+.form-deliver-slogan {
+    color: #707070;
+    line-height: 1.5em;
+    font-size: 12px
+}
+
+.form-text {
+    color: #4b4b4b;
+    font-size: 14px;
+    line-height: 24px
+}
+
+.form-text p {
+    padding: 3px 10px 3px 35%
+}
+
+.form-text b {
+    font-size: 16px;
+    font-weight: 500
+}
+
+.form-widget .goBack {
+    float: right;
+    text-align: right;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-family: 'simsun'
+}
+
+.form-deliver+.form-text {
+    min-height: 244px;
+    margin-top: 35px
+}
+
+.btn {
+    display: inline-block;
+    height: 36px;
+    border: 0 none;
+    font: normal 16px/36px 'hiragino sans gb','Microsoft YaHei';
+    text-align: center;
+    text-decoration: none
+}
+
+.btn-primary {
+    background-color: #ffaa2c;
+    color: #fff
+}
+
+.btn-primary:hover {
+    background-color: #f49c19
+}
+
+.btn-default {
+    background-color: #f5f5f5;
+    color: #999
+}
+
+.btn-default:hover {
+    background-color: #f9f9f9
+}
+
+.btn-large {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding: 0 30px
+}
+
+.btn-small {
+    min-width: 98px
+}
+
+.tips {
+    background-color: #fef7e5;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 5px 10px
+}
+
+.tips h3 {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.tips p {
+    text-indent: -22px;
+    padding-left: 22px
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .4
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 101;
+    width: 438px;
+    background-color: #fff;
+    margin-left: -220px
+}
+
+.popup.active,.mask.active {
+    display: block
+}
+
+.popup-head {
+    color: #4b4b4b;
+    font-size: 18px;
+    line-height: 28px;
+    padding: 15px;
+    overflow: hidden;
+    background: #f1f1f1
+}
+
+.popup .icon-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    background: url(../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/icon_close.png) no-repeat center;
+    line-height: 999em;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease
+}
+
+.popup .icon-close:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg)
+}
+
+.popup-bar {
+    padding: 10px 15px 20px;
+    overflow: hidden;
+    text-align: center
+}
+
+.popup-bar .btn {
+    margin-left: 5px;
+    margin-right: 5px;
+    line-height: 44px
+}
+
+.popup-bar button.btn-primary {
+    border: solid 1px #ffaa2c;
+    line-height: 44px;
+    height: 44px
+}
+
+.popup-bar button.btn-primary:hover {
+    border-color: #f49c19
+}
+
+.popup-bar button.btn-default {
+    border: solid 1px #dcdcdc;
+    line-height: 44px;
+    height: 44px
+}
+
+.popup-confirm {
+    margin-top: -104px
+}
+
+.popup-confirm p {
+    color: #4b4b4b;
+    font: normal 16px/36px 'hiragino sans gb','Microsoft YaHei';
+    text-align: center;
+    padding: 10px;
+    overflow: hidden
+}
+
+.payWay {
+    border: solid 1px #ddd;
+    width: 148px
+}
+
+.payWay-slide {
+    width: 598px;
+    border-color: #ffaa2c
+}
+
+.payWay-slide .payWay-label {
+    cursor: auto
+}
+
+.payWay-label {
+    display: block;
+    height: 43px;
+    line-height: 43px;
+    *line-height: 48px;
+    font-size: 14px;
+    color: #4b4b4b;
+    cursor: pointer
+}
+
+.logo-alipay .form-radio,.payWay-label .form-radio {
+    float: left;
+    margin: 15px 10px 0 10px;
+    width: 13px;
+    height: 13px;
+    overflow: hidden
+}
+
+.wx-pay-icon,.wx-pay-tip-icon,.bank-list i,.bank-list li span {
+    background-image: url('../../../../css/jianzhi/web/b/../../../../image/jianzhi/web/b/pay_way_icon.png');
+    background-repeat: no-repeat
+}
+
+.wx-pay-icon {
+    display: inline-block;
+    float: left;
+    margin: 11px 5px 0 0;
+    background-position: 0 0;
+    width: 26px;
+    height: 22px
+}
+
+.wx-pay-area {
+    display: none;
+    margin: 25px auto;
+    width: 260px
+}
+
+.wx-pay-area img {
+    width: 260px;
+    height: 260px;
+    vertical-align: top
+}
+
+.wx-qrcode {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+    background-color: #cfcfcf;
+    text-align: center;
+    line-height: 260px
+}
+
+.wx-pay-tip {
+    margin-top: 20px;
+    background-color: #445f85;
+    padding: 20px 25px;
+    color: #fff;
+    font: normal 16px/24px 'hiragino sans gb','Microsoft YaHei'
+}
+
+.wx-pay-tip-icon {
+    display: inline;
+    float: left;
+    margin-right: 15px;
+    background-position: 0 -30px;
+    width: 49px;
+    height: 49px
+}
+
+.bank-list {
+    padding: 5px 0 25px 1px;
+    display: none
+}
+
+.payWay-slide .wx-pay-area,.payWay-slide .bank-list {
+    display: block
+}
+
+.bank-list li {
+    position: relative;
+    display: inline;
+    float: left;
+    margin: 20px 0 0 20px;
+    width: 170px;
+    height: 43px;
+    line-height: 43px;
+    border: solid 1px #cdcdcd;
+    cursor: pointer
+}
+
+.bank-list li:hover,.bank-list li.selected {
+    border-color: #ffaa2c;
+    transition: all .2s ease
+}
+
+.bank-list li:hover i,.bank-list li.selected i {
+    display: block;
+    transition: all .2s ease
+}
+
+.bank-list i {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 33px;
+    height: 31px;
+    background-position: 0 -96px
+}
+
+.bank-list li span {
+    display: block;
+    height: 43px;
+    width: 100%
+}
+
+.bank-icon1 {
+    background-position: -76px -11px
+}
+
+.bank-icon2 {
+    background-position: -249px -11px
+}
+
+.bank-icon3 {
+    background-position: -421px -11px
+}
+
+.bank-icon4 {
+    background-position: -76px -70px
+}
+
+.bank-icon5 {
+    background-position: -249px -70px
+}
+
+.bank-icon6 {
+    background-position: -421px -70px
+}
+
+.bank-icon7 {
+    background-position: -76px -129px
+}
+
+.bank-icon8 {
+    background-position: -249px -129px
+}
+
+.bank-icon9 {
+    background-position: -421px -129px
+}
+
+.bank-icon10 {
+    background-position: -76px -188px
+}
+
+.bank-icon11 {
+    background-position: -249px -188px
+}
+
+.bank-icon12 {
+    background-position: -421px -188px
+}
+
+.bank-icon13 {
+    background-position: -76px -246px
+}
+
+.bank-icon14 {
+    background-position: -249px -246px
+}
+
+.bank-icon15 {
+    background-position: -421px -246px
+}
+
+.popup-body .pop-p {
+    color: #4b4b4b;
+    font: normal 16px/36px 'hiragino sans gb','Microsoft YaHei';
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px
+}
+
+.b-tips span {
+    float: left;
+    color: #ffaa2c;
+    margin-top: -24px;
+    margin-left: 65px
+}

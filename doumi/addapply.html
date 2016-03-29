@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+    <title>无标题文档</title>
+    <link rel="stylesheet" href="css/addapply.css">
+
+</head>
+
+<body>
+<div  class="appraise-pop">
+    <form method="POST" id="add_apply_form_id">
+
+        <dl class="appraise-pop-item clearfix mt20">
+            <dt>手机号</dt>
+            <dd>
+                <div class="fl">
+                    <input name="post_phone" type="text" value="" class="jz-txt w140" />
+                </div>
+            </dd>
+        </dl>
+        <div class="appraise-pop-btns mt30"><a id="confirm_id" class="org-btn btn0 mr20">确定</a><a id="cancel_id" class="gray-btn btn0">取消</a></div>
+
+    </form>
+
+</div>
+
+<script type="text/javascript">
+    GJ.use('panel', function(){
+        $("#confirm_id").click( function() {
+            $("#add_apply_form_id").submit();
+        });
+
+        $("#cancel_id").bind("click", function(){
+            GJ.talkToParent.close();
+        });
+
+        GJ.use('talk_to_parent',function() {
+            var ok =0;
+            if(ok == 1) {
+                var code = '';
+                var mes  = '';
+                if(code > 0) {
+                    alert('添加报名成功');
+                    GJ.talkToParent.close();
+                    window.parent.location.reload();
+                } else {
+                    alert(mes);
+                    GJ.talkToParent.close();
+                }
+            }
+
+        });
+
+    });
+</script>
+<div style="display:none;"><script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5ce0ad453d8e97ccbaafe0027ce9e106";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</div>
+</body>
+</html>
+
+
+

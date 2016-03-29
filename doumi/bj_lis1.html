@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>职位列表页-
+    </title>
+
+    <link rel="stylesheet" href="css/pub.css">
+</head>
+<body class="b-index"
+>
+<div class="header">
+    <div class="w">
+        <div class="jz-logo"><a href="http://vip.doumi.com" title=""></a></div>
+        <div class="b-version">商家版</div>
+        <div class="header-r clearfix">
+                <span class="fl phone-qrcode" id="h_phone-qrcode">
+                    <span><a href="#" class="myPhone">手机斗米</a> <i class="ar"></i></span>
+                    <div id="h_qrcode" class="show-phone-qrcode" style="display: none;">
+                        <i class="arrow"></i>
+                        <dl>
+                            <dt class="fl jz-d-qrcode-pic"></dt>
+                            <dd>关注斗米兼职微信号<br>招聘 管理 结算更方便</dd>
+                        </dl>
+                    </div>
+                </span>
+            <i class="fl l mr20"></i>
+            <span class="fl fc-4b mr20">广州麦尔丹市场信息咨询有限公司</span>
+            <i class="fl l"></i>
+            <span class="fl cpy-enter"><a href="/employer/user/logout">退出</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    GJ.use('jquery', function(Modal){
+        $("#h_phone-qrcode").mouseover(function(){
+            $("#h_qrcode").show();
+            return true;
+        }).mouseout(function(){
+            $("#h_qrcode").hide();
+            return true;
+        });
+    });
+</script>
+
+<div class="ads w mt10">
+    <img src="http://sta.ganjistatic1.com/src/image/jianzhi/web/b/1200x96_1.png" width="100%">
+</div>
+<div class="w mt10 clearfix">
+    <div class="aside">
+        <div class="pub-area">
+            <a href="http://vip.doumi.com/employer/post/pub" class="pub-btn">发布职位</a>
+        </div>
+        <div class="b-menu">
+            <dl>
+                <dt><a href="http://vip.doumi.com" ><i class="menu-ico1"></i>首页</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/post/bj_list?pageType=all"  class="cur" >
+                    <i class="menu-ico2"></i>职位管理(3)</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=noAudit" >待审核(3)</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=ing" >进行中</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=end" >已结束</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/company/edit" ><i class="menu-ico3"></i>公司信息</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/wallet/index" ><i class="menu-ico4"></i>我的钱包</a></dt>
+            </dl>
+        </div>
+    </div>
+    <script type="text/javascript">
+        GJ.use('jquery', function(){
+            /*$(".pub-btn").mouseover(function(){
+             $(".b-menu").show();
+             return true;
+             }).mouseout(function(){
+             $(".b-menu").hide();
+             return true;
+             });*/
+            $(".pub-btn").click(function(){
+                var isLimit=false;
+                $.ajax({
+                    url: 'http://vip.doumi.com/employer/post/ajaxCheckPubLimit',
+                    type: "GET",
+                    dataType: "json",
+                    async:false,
+                    success: function (result) {
+                        if(result.error < 0) {
+                            isLimit = true;
+                            alert(result.message);
+                        }else{
+                            return true;
+                        }
+                    }
+                });
+                if(isLimit){
+                    return false;
+                }
+            });
+        });
+    </script>
+    <div class="main">
+        <div class="bList">
+            <div class="bList-t clearfix">
+                <h3>全部职位</h3>
+                <div class="bSearch">
+                    <form action="http://vip.doumi.com/employer/post/bj_list?pageType=all"  method="POST">
+                        <input type="hidden" name="type" value="test"/>
+                        <input type="text" name="title" value="" class="s-text" placeholder="请输入职位名称或者ID">
+                        <input type="submit" class="s-submit" value="搜索">
+                    </form>
+                </div>
+            </div>
+            <div class="bList-item">
+                <div class="bList-item-top">
+                    <div class="bList-item-t">
+                        金龙鱼活动兼职
+                    </div>
+                    <div class="bList-item-num">
+                        <div class="bList-item-num-bar">待面谈：<em class="fc-70">0人</em></div>
+                        <div class="bList-item-num-load">
+                            <span>已招人数：</span>
+                            <span class="loading"><i style="width:0%"></i></span>
+                            <span class="remain"><em>0</em>/5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bList-item-mid">
+                    <ul class="clearfix">
+                        <li><em class="salary">120</em>元/天</li>
+                        <li><span>职位ID：</span>887414</li>
+                        <li><span>发布时间：</span><em class="fc-70">2016-03-03</em></li>
+                        <li><span>招聘状态：</span>
+                            <em class="fc-f60" id="em-887414">审核拒绝</em>
+                            (<em>职位内容有误</em>)
+                        </li>
+                    </ul>
+                </div>
+                <div class="bList-item-bot">
+                    <div class="bList-item-opBtn">
+                        <a href="http://vip.doumi.com/employer/manage/apply?post_id=887414&status=0">报名管理</a>
+                        <a href="http://vip.doumi.com/employer/checkout/index?pid=887414">工资结算</a>
+                    </div>
+                    <div class="bList-item-opLink">
+                        <!--<span><a id="delPost" data-pid="887414" href="javascript:;">删除</a></span>-->
+                        <span><a href="http://vip.doumi.com/employer/post/pub/887414">修改职位</a></span>
+                            <span class="optbtn" data-lstatus="-1"  data-pid="887414">
+                                                                    <a href="javascript:;">开启报名</a>
+                                                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="bList-item">
+                <div class="bList-item-top">
+                    <div class="bList-item-t">
+                        金龙鱼终端活动督导
+                    </div>
+                    <div class="bList-item-num">
+                        <div class="bList-item-num-bar">待面谈：<em class="fc-70">0人</em></div>
+                        <div class="bList-item-num-load">
+                            <span>已招人数：</span>
+                            <span class="loading"><i style="width:100%"></i></span>
+                            <span class="remain"><em>2</em>/1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bList-item-mid">
+                    <ul class="clearfix">
+                        <li><em class="salary">120</em>元/天</li>
+                        <li><span>职位ID：</span>830100</li>
+                        <li><span>发布时间：</span><em class="fc-70">2016-03-03</em></li>
+                        <li><span>招聘状态：</span>
+                            <em class="fc-f60" id="em-830100">审核拒绝</em>
+                            (<em>职位信息有误</em>)
+                        </li>
+                    </ul>
+                </div>
+                <div class="bList-item-bot">
+                    <div class="bList-item-opBtn">
+                        <a href="http://vip.doumi.com/employer/manage/apply?post_id=830100&status=0">报名管理</a>
+                        <a href="http://vip.doumi.com/employer/checkout/index?pid=830100">工资结算</a>
+                    </div>
+                    <div class="bList-item-opLink">
+                        <!--<span><a id="delPost" data-pid="830100" href="javascript:;">删除</a></span>-->
+                        <span><a href="http://vip.doumi.com/employer/post/pub/830100">修改职位</a></span>
+                            <span class="optbtn" data-lstatus="-1"  data-pid="830100">
+                                                                    <a href="javascript:;">开启报名</a>
+                                                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="bList-item">
+                <div class="bList-item-top">
+                    <div class="bList-item-t">
+                        php开发
+                    </div>
+                    <div class="bList-item-num">
+                        <div class="bList-item-num-bar">待面谈：<em class="fc-70">0人</em></div>
+                        <div class="bList-item-num-load">
+                            <span>已招人数：</span>
+                            <span class="loading"><i style="width:0%"></i></span>
+                            <span class="remain"><em>0</em>/1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bList-item-mid">
+                    <ul class="clearfix">
+                        <li><em class="salary">10</em>元/小时</li>
+                        <li><span>职位ID：</span>809532</li>
+                        <li><span>发布时间：</span><em class="fc-70">2016-03-03</em></li>
+                        <li><span>招聘状态：</span>
+                            <em class="fc-f60" id="em-809532">审核拒绝</em>
+                            (<em>职位信息有误</em>)
+                        </li>
+                    </ul>
+                </div>
+                <div class="bList-item-bot">
+                    <div class="bList-item-opBtn">
+                        <a href="http://vip.doumi.com/employer/manage/apply?post_id=809532&status=0">报名管理</a>
+                        <a href="http://vip.doumi.com/employer/checkout/index?pid=809532">工资结算</a>
+                    </div>
+                    <div class="bList-item-opLink">
+                        <!--<span><a id="delPost" data-pid="809532" href="javascript:;">删除</a></span>-->
+                        <span><a href="http://vip.doumi.com/employer/post/pub/809532">修改职位</a></span>
+                            <span class="optbtn" data-lstatus="-1"  data-pid="809532">
+                                                                    <a href="javascript:;">开启报名</a>
+                                                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pageBox">
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrap">
+        <!--div class="friendLink"> <span>友情链接：</span> <a href="#" target="_blank">北京兼职</a> <a href="#" target="_blank">上海兼职</
+    a> <a href="#" target="_blank">广州兼职</a> <a href="#" target="_blank">深圳兼职</a> <a href="#" target="_blank">天津兼职</a> <a hre
+    f="#" target="_blank">武汉兼职</a> <a href="#" target="_blank">重庆兼职</a> <a href="#" target="_blank">南京兼职</a> <a href="#" tar
+    get="_blank">成都兼职</a>   <a href="#" target="_blank">西安兼职</a> <a href="#" target="_blank">郑州兼职</a> </div-->
+        <div class="footer-con clearfix">
+            <div class="footer-logo"> <a href="#" title="--自由工作 乐享生活">--自由工作 乐享生活</a> <span class="footer-logo-slogan"></span> </div>
+            <div class="footer-qrcode">
+                <div class="footer-qrcode-pic"></div>
+                <p class="footer-qrcode-txt">扫描关注公众号</p>
+            </div>
+            <div class="footer-tel">
+                <h4><i></i>客服热线</h4>
+                <div class="footer-tel-code">4007-3333-00</div>
+                <div class="copyRight">©2015-2016 ™ 世诚优聘 京ICP备11045189-2号 有偿服务</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    GJ.use('jquery', function($) {
+        $(".optbtn").live('click', function (e){
+            var $target = $(e.currentTarget);
+            var pid = $target.attr('data-pid');
+            var lstatus = $target.attr('data-lstatus');
+            changePostStatus(pid, lstatus, e);
+        });
+
+        function changePostStatus(pid, lstatus, e){
+            var ajaxUrl = '/ajax/open/';
+            var $target = $(e.currentTarget);
+            var $tag = '';//按钮显示文案
+            var $but = '';//按钮提示文案
+            var $em_txt = '';//招聘状态
+            var $em_css = '';//招聘样式
+            if (parseInt(lstatus, 10) === 5) {
+                ajaxUrl = '/ajax/close/';
+                lstatus = -5;
+                $tag = '暂停报名';
+                $but = '开启报名';
+                $em_txt  = '报名已暂停';
+                $em_css  = 'fc-70';
+            } else {
+                lstatus = 5;
+                $tag = '开启报名';
+                $but = '暂停报名';
+                $em_txt = '招聘中';
+                $em_css = 'fc-fa';
+            }
+            $.ajax({
+                type  : 'POST',
+                url: ajaxUrl,
+                data: {
+                    id: pid,
+                    citydomain : 'bj'
+                },
+                dataType: 'json'
+            }).done(function(json) {
+                if(json.code === 0){
+                    $target.find('a').html($but);
+                    $('#em-'+pid).attr('class',$em_css);
+                    $('#em-'+pid).html($em_txt);
+                    $target.attr('data-lstatus', lstatus);
+                    window.alert($tag +  '成功');
+                }else{
+                    window.alert(json.msg);
+                }
+            }).fail(function() {
+                window.alert('操作失败,请刷新页面重试');
+            });
+        }
+
+        $("#delPost").live('click', function (e){
+            var $target = $(e.currentTarget);
+            var pid = $target.attr('data-pid');
+            $.ajax({
+                type  : 'GET',
+                url: '/employer/post/ajaxdel/?act=judge',
+                data: {
+                    id: pid,
+                    citydomain : 'bj'
+                },
+                dataType: 'json'
+            }).done(function(json) {
+                if(json.code == 0){
+                    ToDelPost(pid);
+                }else if(json.code > 0){
+                    if(window.confirm('请确定该职位所有人员工资已结清')){
+                        ToDelPost(pid);
+                    }
+                }
+            }).fail(function() {
+                window.alert('操作失败,请刷新页面重试');
+            });
+        });
+
+        function ToDelPost(pid){
+            if(window.confirm('确定要删除该职位吗？')){
+                $.ajax({
+                    type  : 'GET',
+                    url: '/employer/post/ajaxdel?act=del',
+                    data: {
+                        id: pid,
+                        citydomain : 'bj'
+                    },
+                    dataType: 'json'
+                }).done(function(data){
+                    if(data.code == 1){
+                        alert('删除成功')
+                        window.location.reload();
+                    }else {
+                        alert('删除失败');
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

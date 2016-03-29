@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html><head><style type="text/css">object {outline:none;}</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>斗米兼职-报名管理
+    </title>
+    <link rel="stylesheet" href="css/apply.css">
+    <link rel="stylesheet" href="css/panel.css">
+</head>
+
+<body class="b-position-manage">
+
+<div class="lpn_panel lpn_panel_panel lpn_panel_text lpn_hd_move" style="width: 400px; z-index: 3000008; top: 158.333px; left: 460px;">
+    <iframe border="0" framespacing="0" frameborder="0" scrolling="no" class="lpn_iframe_bg" style="width: 400px; height: 210px;">
+    </iframe>
+    <div class="lpn_underlay" style="width: 410px; height: 220px;">
+    </div>
+    <div id="guid_3_14588076718470_6970695313553203" class="lpn_wrapper">
+        <div class="hd">
+            添加报名
+        </div>
+        <div class="lpn_canvas" style="height: 168px;">
+            <iframe name="RPC_CHANNEL5_14588076718750_8215094967662127" scrolling="yes" src="addapply.html" frameborder="0" style="border: 0px; padding: 0px; margin: 0px; width: 100%; height: 100%; overflow-x: hidden;">
+            </iframe>
+        </div>
+        <div class="ft">
+            <div class="lpn_resize_br">
+            </div>
+        </div>
+        <div class="lpn_ctrl_group" style="width: 26px;">
+            <a class="lpn_close" href="#" style="margin-left: 3px;">关闭</a>
+        </div>
+        <div class="lpn_load" style="display: none;">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="w">
+        <div class="jz-logo"><a href="http://vip.doumi.com" title="斗米兼职"></a></div>
+        <div class="b-version">商家版</div>
+        <div class="header-r clearfix">
+                <span class="fl phone-qrcode" id="h_phone-qrcode">
+                    <span><a href="#" class="myPhone">手机斗米</a> <i class="ar"></i></span>
+                    <div id="h_qrcode" class="show-phone-qrcode" style="display: none;">
+                        <i class="arrow"></i>
+                        <dl>
+                            <dt class="fl jz-d-qrcode-pic"></dt>
+                            <dd>关注斗米兼职微信号<br>招聘 管理 结算更方便</dd>
+                        </dl>
+                    </div>
+                </span>
+            <i class="fl l mr20"></i>
+            <span class="fl fc-4b mr20">广州麦尔丹市场信息咨询有限公司</span>
+            <i class="fl l"></i>
+            <span class="fl cpy-enter"><a href="/employer/user/logout">退出</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    GJ.use('jquery', function(Modal){
+        $("#h_phone-qrcode").mouseover(function(){
+            $("#h_qrcode").show();
+            return true;
+        }).mouseout(function(){
+            $("#h_qrcode").hide();
+            return true;
+        });
+    });
+</script>
+
+<div class="w mt10 clearfix">
+    <div class="main cross">
+
+        <div class="min-posInfo bgf">
+            <div class="min-posInfo-t">
+                <a href="http://vip.doumi.com/employer/post/bj_list" class="goBack">&lt;返回职位列表</a>
+                <h2>金龙鱼终端活动督导</h2>
+            </div>
+            <ul class="min-posInfo-item clearfix">
+                <li class="fc-f60"><em class="salary">120.00元</em>/天</li>
+                <li><span>招聘状态：</span><em class="fc-fa">审核拒绝</em></li>
+                <li><span>发布时间：</span><em class="fc-4b">2016-02-25</em></li>
+                <li><span>报名人数：</span><em class="fc-4b">2</em></li>
+                <li><span>已招人数：</span><em class="fc-4b"><i class="fc-fa">1</i>/1</em></li>
+            </ul>
+        </div>
+
+        <div class="mt10">
+            <div class="b-tab">
+                <ul>
+                    <li><a class="cur" href="#">报名管理</a></li>
+                    <li><a href="http://vip.doumi.com/employer/checkout/index?pid=830100">工资结算</a></li>
+                </ul>
+            </div>
+
+            <div class="b-tab-content">
+                <div id="checkManage">
+                    <div class="b-filter bgf">
+                        <div class="b-min-tab">
+                            <div class="b-min-tab-link">
+                                <a href="javascript:;" class="addReg" id="add_apply_id"><i></i>添加报名</a>
+                                <a href="http://vip.doumi.com/employer/manage/download?post_id=830100&amp;status=0" id="download_id" class="downLoad"><i></i>下载报名列表</a>
+                            </div>
+                            <ul class="clearfix">
+                                <li><a class="cur" href="http://vip.doumi.com/employer/manage/apply?post_id=830100&amp;status=0">待面谈(0)</a></li>
+                                <li><a href="http://vip.doumi.com/employer/manage/apply?post_id=830100&amp;status=5">已录用(1)</a></li>
+                                <li><a href="http://vip.doumi.com/employer/manage/apply?post_id=830100&amp;status=-1">未录用(1)</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt15 clearfix">
+                            <form id="search_form_id">
+                                <input type="hidden" value="0" name="status">
+                                <div class="form-select-wrap fl">
+                                    <select style="width:180px" name="work_addr" id="work_addr_id">
+                                        <option value="">全部工作地点(2)</option>
+                                        <option value="1456761">天银大厦</option>
+                                        <option value="1456762">卜蜂莲花</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="fr">
+                                    <div class="fl">
+                                        <input type="text" name="keyword" id="gover_search_key" class="form-text w160" placeholder="输入手机号或者姓名查询" value="">
+                                    </div>
+                                    <input type="button" id="search_id" class="btn-yellow m-btn ml-10" value="查找">
+                                </div>
+                                <input name="post_id" value="830100" type="hidden">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="b-opList-bar bgf mt10">
+                        <label class="checkAll">
+                            <input type="checkbox" value="" class="form-checkbox all_selected_id">全选
+                        </label>
+                        <span class="b-opList-btn bulk_edit_class" act="undeal">批量编辑</span>
+                    </div>
+                    <div class="mt10 bgf">
+                        <table class="checkManage-table">
+                            <thead>
+                            <tr>
+                                <th width="110">姓名</th>
+                                <th>基础信息</th>
+                                <th>手机号</th>
+                                <th>报名日期</th>
+                                <th class="th-work-zone">工作地点</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="b-opList-bar bgf">
+                        <label class="checkAll"><input type="checkbox" value="" class="form-checkbox all_selected_id">全选</label>
+                        <span class="b-opList-btn bulk_edit_class" act="undeal">批量编辑</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer">
+    <div class="wrap">
+        <!--div class="friendLink"> <span>友情链接：</span> <a href="#" target="_blank">北京兼职</a> <a href="#" target="_blank">上海兼职</
+    a> <a href="#" target="_blank">广州兼职</a> <a href="#" target="_blank">深圳兼职</a> <a href="#" target="_blank">天津兼职</a> <a hre
+    f="#" target="_blank">武汉兼职</a> <a href="#" target="_blank">重庆兼职</a> <a href="#" target="_blank">南京兼职</a> <a href="#" tar
+    get="_blank">成都兼职</a>   <a href="#" target="_blank">西安兼职</a> <a href="#" target="_blank">郑州兼职</a> </div-->
+        <div class="footer-con clearfix">
+            <div class="footer-logo"> <a href="#" title="斗米兼职--自由工作 乐享生活">斗米兼职--自由工作 乐享生活</a> <span class="footer-logo-slogan"></span> </div>
+            <div class="footer-qrcode">
+                <div class="footer-qrcode-pic"></div>
+                <p class="footer-qrcode-txt">扫描关注公众号</p>
+            </div>
+            <div class="footer-tel">
+                <h4><i></i>客服热线</h4>
+                <div class="footer-tel-code">4007-3333-00</div>
+                <div class="copyRight">©2015-2016 斗米™ 世诚优聘 京ICP备11045189-2号 有偿服务</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    GJ.use('panel', function(){
+        /******************搜索start*******************/
+        var phoneOrUser = function(text) {
+            if(!isNaN(text)) {//数字
+                return 'apply_mobile_id_';
+            } else {
+                return 'apply_username_id_';
+            }
+        }
+        $.oldQuery = '';
+        $("#search_id").click( function() {
+            var input = $("#gover_search_key").val();
+            var locationId = phoneOrUser(input);
+            t = $("#" + locationId + input).offset().top;
+            $(window).scrollTop(t);
+            var newQuery = "#" + locationId + input;
+            $($.oldQuery).removeClass('fc-fa');
+            $.oldQuery = newQuery;
+            $(newQuery).addClass('fc-fa');
+            if(locationId == 'apply_username_id_') {
+                $("#" + locationId + input).removeClass('fc-4b');//////
+            }
+            //$("#search_form_id").submit();
+        });
+
+        /******************搜索end*******************/
+
+        $('.all_selected_id').click(function () {
+            if($(this).is(":checked")) {
+                $(".form-checkbox").each(function(){
+                    $(this).attr("checked",true);
+                });
+            } else {
+                $(".form-checkbox").each(function(){
+                    $(this).attr("checked",false);
+                });
+            }
+        });
+
+        /********地址选择相关begin********/
+        $('.fake-sel').click( function () {
+            if( $(this).hasClass('fake-sel-active') ) {
+                $('.fake-sel').parent().attr('style', '');
+                $('.fake-sel').removeClass("fake-sel-active");
+            } else {
+                $('.fake-sel').parent().attr('style', '');
+                $(this).parent().css({'position':'relative', 'z-index':'10'});
+                $('.fake-sel').removeClass("fake-sel-active");
+                $(this).addClass("fake-sel-active");
+            }
+        });
+
+        //修改地址
+        $(".change_addr_class").live('click', function() {
+            var url  = $(this).attr('url');
+            var text = $(this).attr('text');
+            $.ajax({
+                'url'      :  'http://vip.doumi.com/employer/manage/ajaxaddr?' + url,
+                'dataType' :  'json',
+                'async'    :  false,
+                'success'  :   function(ret) {
+                    if(ret == 1) {
+                        //alert('状态修改成功');
+                    }
+                }
+            });
+            $(this).parent().prev().html(text + '<i></i>');
+        });
+        /********地址选择相关end********/
+
+        /********修改状态相关begin********/
+        $(".change_accept_status_class").live('click', function() {
+            if($(this).hasClass('tag1-active')) return false;
+            var url  = $(this).attr('url');
+            $.ajax({
+                'url'      :  'http://vip.doumi.com/employer/manage/ajaxstatus?' + url,
+                'dataType' :  'json',
+                'async'    :  false,
+                'success'  :  function(ret) {
+                    //alert('状态修改成功');
+                }
+            });
+            //$(this).removeClass('change_status_class');
+            //$(this).next().removeClass('change_status_class');
+            //$(this).prev().removeClass('change_status_class');
+
+            $(this).removeClass('tag1-active');
+            $(this).next().removeClass('tag1-active');
+            $(this).prev().removeClass('tag1-active');
+
+            $(this).addClass('tag1-active');
+            var applyid = $(this).attr('applyid');
+            $("#profile_apply_" + applyid).children().next().remove();
+        });
+
+        $(".change_status_class").live('click', function() {
+            var url  = $(this).attr('url');
+            $.ajax({
+                'url'      :  'http://vip.doumi.com/employer/manage/ajaxstatus?' + url,
+                'dataType' :  'json',
+                'async'    :  false,
+                'success'  :  function(ret) {
+                    location.reload();
+                }
+            });
+        });
+
+        /********修改状态相关end********/
+
+
+        /************批量编辑begin*************/
+        $('.bulk_edit_class').click( function() {
+            var ids = '';
+            $("input[name='checked_id_name']:checked").each(function(){
+                ids += $(this).val() + ',';
+            });
+            if(!ids) {
+                alert('请先勾选要修改的用户');
+                return false;
+            }
+            var act    = $(this).attr('act');
+            var postId = '830100';
+            var url    = 'http://vip.doumi.com/employer/manage/bulkedit' + '?act=' + act +'&post_id=' + postId + '&ids=' + ids;
+            var panel  = GJ.panel({
+                title : '批量编辑'
+                ,url : url
+                ,iframe : true
+                ,style : 'text'
+                ,width : 438
+                ,height : 300
+                ,onClose : function(){
+                }
+            });
+        });
+
+        $(".accept_bulk_edit_class").click( function () {
+            var ids = '';
+            $("input[name='checked_id_name']:checked").each(function(){
+                ids += $(this).val() + ',';
+            });
+            if(!ids) {
+                alert('请先勾选要修改的用户');
+                return false;
+            }
+            var status = $(this).attr('status');
+            $.ajax({
+                'url'      : 'http://vip.doumi.com/employer/manage/ajaxbulkstatus',
+                'type'     : 'POST',
+                'async'    : false,
+                'data'     : {ids:ids, post_luyong_status:status},
+                'success'  : function(ret) {
+                    location.reload();
+                }
+            });
+        });
+
+
+        /***********批量编辑end****************/
+
+        /*************添加报名**************/
+        $("#add_apply_id").click( function() {
+            var postId = '830100';
+            var url    = 'http://vip.doumi.com/employer/manage/addapply' + '?post_id=' + postId
+            var panel = GJ.panel({
+                title    : '添加报名'
+                ,url     : url
+                ,iframe  : true
+                ,style   : 'text'
+                ,width   : 400
+                ,height  : 210
+                ,onClose : function(){
+
+                }
+            });
+        });
+        /*************添加报名**************/
+
+        /*************用户信息start**************/
+            //$(".fc-4b").hover(function(){//////
+        $(".apply_user_info").live('mouseover', function () {//////
+            $(this).parent().parent().css({'position':'relative', 'z-index':'11'});
+            var dom = $(this);
+            if($(this).next().length == 0) {
+                var uid  = $(this).attr('uid');
+                $.ajax({
+                    type    : "POST",
+                    url     : 'http://vip.doumi.com/employer/manage/ajaxuserinfo',
+                    async   : false,
+                    data    : {ids:uid},
+                    success : function(ret){
+                        dom.after(ret);
+                    }
+                });
+            } else {
+                $(this).next().show();
+            }
+        });
+
+        $(".apply_user_info").live('mouseleave', function () {//////
+            $(this).parent().parent().attr('style', '');
+            $(this).next().hide();
+        });
+
+        /*************用户信息end**************/
+
+        GJ.use('panel', function(){
+            $(".thumbup_class").live('click', function() {
+                var tclass  = $(this).attr('tclass');
+                if($(this).hasClass(tclass + '-active')) return false;
+                var otclass = 'tag2';
+                if(tclass == 'tag2') { otclass = 'tag3';}
+                var uid     = $(this).attr('uid');
+                var applyid = $(this).attr('applyid');
+                var act     = $(this).attr('act');
+                var postid  = '830100';
+                var paramsUrl = '?uid=' + uid + '&applyid=' + applyid + '&act=' + act + '&pid=' + postid;
+
+                $.ajax({
+                    'url'      :  'http://vip.doumi.com/employer/manage/ajaxthumbup' + paramsUrl,
+                    'async'    :  false,
+                    'dataType' :  'json',
+                    'success'  :  function(ret) {
+                        if(ret['code'] == 2) {
+                            var onum = $("#" + otclass + '_id_' + uid).attr('num');
+                            onum = parseInt(onum);
+                            if(onum > 0) {
+                                onum = onum - 1;
+                                $("#" + otclass + '_id_' + uid).attr('num', onum);
+                                $("#" + otclass + '_id_' + uid).html('<i></i>' + onum);
+                            }
+                        }
+                    }
+                });
+
+                //$(this).prev().removeClass('thumbup_class');
+                //$(this).next().removeClass('thumbup_class');
+                //$(this).removeClass('thumbup_class');
+
+                $(this).prev().removeClass(otclass + '-active');
+                $(this).next().removeClass(otclass + '-active');
+
+                $(this).addClass(tclass + '-active');
+                var num = $(this).attr('num');
+                num = parseInt(num);
+                num = num + 1;
+                $(this).html('<i></i>' + num);
+                $(this).attr('num', num);
+
+                $("#profile_apply_" + applyid).children().next().remove();
+
+            });
+        });
+
+
+    });
+</script>
+
+
+</body></html>

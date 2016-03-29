@@ -1,0 +1,726 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>斗米兼职-公司信息
+    </title>
+    <link rel="stylesheet" href="css/companyinfo.css">
+</head>
+<body class="b-companyInfo"
+>
+<div class="header">
+    <div class="w">
+        <div class="jz-logo"><a href="http://vip.doumi.com" title="斗米兼职"></a></div>
+        <div class="b-version">商家版</div>
+        <div class="header-r clearfix">
+                <span class="fl phone-qrcode" id="h_phone-qrcode">
+                    <span><a href="#" class="myPhone">手机斗米</a> <i class="ar"></i></span>
+                    <div id="h_qrcode" class="show-phone-qrcode" style="display: none;">
+                        <i class="arrow"></i>
+                        <dl>
+                            <dt class="fl jz-d-qrcode-pic"></dt>
+                            <dd>关注斗米兼职微信号<br>招聘 管理 结算更方便</dd>
+                        </dl>
+                    </div>
+                </span>
+            <i class="fl l mr20"></i>
+            <span class="fl fc-4b mr20">广州麦尔丹市场信息咨询有限公司</span>
+            <i class="fl l"></i>
+            <span class="fl cpy-enter"><a href="/employer/user/logout">退出</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    GJ.use('jquery', function(Modal){
+        $("#h_phone-qrcode").mouseover(function(){
+            $("#h_qrcode").show();
+            return true;
+        }).mouseout(function(){
+            $("#h_qrcode").hide();
+            return true;
+        });
+    });
+</script>
+
+<div class="ads w mt10">
+    <img src="http://sta.ganjistatic1.com/src/image/jianzhi/web/b/1200x96_1.png" width="100%">
+</div>
+<div class="w mt10 clearfix">
+    <div class="aside">
+        <div class="pub-area">
+            <a href="http://vip.doumi.com/employer/post/pub" class="pub-btn">发布职位</a>
+        </div>
+        <div class="b-menu">
+            <dl>
+                <dt><a href="http://vip.doumi.com" ><i class="menu-ico1"></i>首页</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/post/bj_list?pageType=all" >
+                    <i class="menu-ico2"></i>职位管理(3)</a></dt>
+                <dd>
+                    <ul>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=noAudit" >待审核(3)</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=ing" >进行中</a></li>
+                        <li><a href="http://vip.doumi.com/employer/post/bj_list?pageType=end" >已结束</a></li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/company/edit"  class="cur" ><i class="menu-ico3"></i>公司信息</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="http://vip.doumi.com/employer/wallet/index" ><i class="menu-ico4"></i>我的钱包</a></dt>
+            </dl>
+        </div>
+    </div>
+    <script type="text/javascript">
+        GJ.use('jquery', function(){
+            /*$(".pub-btn").mouseover(function(){
+             $(".b-menu").show();
+             return true;
+             }).mouseout(function(){
+             $(".b-menu").hide();
+             return true;
+             });*/
+            $(".pub-btn").click(function(){
+                var isLimit=false;
+                $.ajax({
+                    url: 'http://vip.doumi.com/employer/post/ajaxCheckPubLimit',
+                    type: "GET",
+                    dataType: "json",
+                    async:false,
+                    success: function (result) {
+                        if(result.error < 0) {
+                            isLimit = true;
+                            alert(result.message);
+                        }else{
+                            return true;
+                        }
+                    }
+                });
+                if(isLimit){
+                    return false;
+                }
+            });
+        });
+    </script>
+    <div class="main">
+        <div class="bgf" style="padding:10px 20px 80px">
+            <div class="jz-tips">
+                信息已经完善，快去<a href="http://vip.doumi.com/employer/post/pub">发布职位</a>吧！
+            </div>
+
+            <form id="form_id" action="/employer/company/edit" method="post" name="" class="mt10">
+                <div class="jz-info">
+                    <div class="jz-t">
+                        <h2>基本信息</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+
+                        <dl class="clearfix"  >
+                            <dt><b>*</b>公司简称</dt>
+                            <dd>
+                                <input name="company_name" type="text" class="jz-txt w400" value="广州麦尔丹市场信息咨询有限公司">
+                                <div class="jz-info-tips"></div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b> 公司地址 </dt>
+                            <dd>
+                                <div class="clearfix">
+                                    <div class="fl">
+                                        <div class="form-select-wrap fl">
+                                            <select name="province" id="province_id" class="w120" autocomplete="off">
+                                                <option value="-1">省份</option>
+                                                <option value="1" >北京</option>
+                                                <option value="2" >上海</option>
+                                                <option value="3" >天津</option>
+                                                <option value="4" >重庆</option>
+                                                <option value="5"  selected >广东</option>
+                                                <option value="6" >四川</option>
+                                                <option value="7" >浙江</option>
+                                                <option value="8" >贵州</option>
+                                                <option value="9" >辽宁</option>
+                                                <option value="10" >江苏</option>
+                                                <option value="11" >福建</option>
+                                                <option value="12" >河北</option>
+                                                <option value="13" >河南</option>
+                                                <option value="14" >吉林</option>
+                                                <option value="15" >黑龙江</option>
+                                                <option value="16" >山东</option>
+                                                <option value="17" >安徽</option>
+                                                <option value="18" >广西</option>
+                                                <option value="19" >海南</option>
+                                                <option value="20" >内蒙古</option>
+                                                <option value="21" >山西</option>
+                                                <option value="22" >宁夏</option>
+                                                <option value="23" >甘肃</option>
+                                                <option value="24" >陕西</option>
+                                                <option value="25" >青海</option>
+                                                <option value="26" >湖北</option>
+                                                <option value="27" >湖南</option>
+                                                <option value="28" >江西</option>
+                                                <option value="29" >云南</option>
+                                                <option value="30" >新疆</option>
+                                                <option value="31" >西藏</option>
+                                                <option value="33" >香港</option>
+                                                <option value="35" >澳门</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="fl ml-10">
+                                        <div class="form-select-wrap fl">
+                                            <select name="city" id="city_id"  class="w120" autocomplete="off">
+                                                <option value="-1">城市</option>
+                                                <option value="16"  selected >广州</option>
+                                                <option value="17" >深圳</option>
+                                                <option value="24" >东莞</option>
+                                                <option value="18" >珠海</option>
+                                                <option value="19" >汕头</option>
+                                                <option value="20" >佛山</option>
+                                                <option value="21" >江门</option>
+                                                <option value="25" >中山</option>
+                                                <option value="23" >惠州</option>
+                                                <option value="22" >茂名</option>
+                                                <option value="263" >韶关</option>
+                                                <option value="264" >湛江</option>
+                                                <option value="265" >肇庆</option>
+                                                <option value="266" >梅州</option>
+                                                <option value="267" >汕尾</option>
+                                                <option value="268" >河源</option>
+                                                <option value="269" >阳江</option>
+                                                <option value="270" >清远</option>
+                                                <option value="271" >潮州</option>
+                                                <option value="272" >揭阳</option>
+                                                <option value="273" >云浮</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fl ml-10">
+                                        <div class="form-select-wrap fl">
+                                            <select name="district" id="district_id"  class="w120" autocomplete="off">
+                                                <option value="99">区域</option>
+                                                <option value="1156" selected >天河</option>
+                                                <option value="1155"  >海珠</option>
+                                                <option value="1153"  >越秀</option>
+                                                <option value="1157"  >白云</option>
+                                                <option value="1154"  >荔湾</option>
+                                                <option value="1159"  >番禺</option>
+                                                <option value="1158"  >黄埔</option>
+                                                <option value="1160"  >花都</option>
+                                                <option value="1162"  >萝岗</option>
+                                                <option value="1161"  >南沙</option>
+                                                <option value="1165"  >经济开发区</option>
+                                                <option value="1163"  >增城</option>
+                                                <option value="1164"  >从化</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="fl ml-10">
+                                        <div class="form-select-wrap fl">
+                                            <select name="street" id="street_id"  class="w140"  autocomplete="off">
+                                                <option value="-1">商圈</option>
+                                                <option value="2656"  >员村</option>
+                                                <option value="2677"  >东圃</option>
+                                                <option value="2657"  >车陂</option>
+                                                <option value="2668"  >黄村</option>
+                                                <option value="2664"  >棠下</option>
+                                                <option value="7766"  >上社</option>
+                                                <option value="7761"  >华景新城</option>
+                                                <option value="2678"  >天河公园</option>
+                                                <option value="2658"  >石牌</option>
+                                                <option value="2679"  >岗顶</option>
+                                                <option value="7764"  >龙口西</option>
+                                                <option value="7763"  >龙口东</option>
+                                                <option value="2655"  >五山</option>
+                                                <option value="2682" selected >天河北</option>
+                                                <option value="2661"  >林和</option>
+                                                <option value="2680"  >体育中心</option>
+                                                <option value="7767"  >体育西路</option>
+                                                <option value="2660"  >天河南</option>
+                                                <option value="7768"  >天河东路</option>
+                                                <option value="7762"  >黄埔大道西</option>
+                                                <option value="2666"  >猎德</option>
+                                                <option value="2665"  >冼村</option>
+                                                <option value="2681"  >珠江新城</option>
+                                                <option value="7760"  >广州大道中</option>
+                                                <option value="2654"  >沙河</option>
+                                                <option value="7770"  >天平架</option>
+                                                <option value="2683"  >粤垦</option>
+                                                <option value="7765"  >沙太南</option>
+                                                <option value="7769"  >天河客运站</option>
+                                                <option value="2669"  >元岗</option>
+                                                <option value="2672"  >长兴</option>
+                                                <option value="7759"  >长湴</option>
+                                                <option value="7772"  >植物园</option>
+                                                <option value="2670"  >龙洞</option>
+                                                <option value="2675"  >新塘</option>
+                                                <option value="2674"  >珠吉</option>
+                                                <option value="7773"  >中山大道</option>
+                                                <option value="2673"  >前进</option>
+                                                <option value="7771"  >员村二横路</option>
+                                                <option value="2663"  >兴华</option>
+                                                <option value="2662"  >沙东</option>
+                                                <option value="2667"  >天园</option>
+                                                <option value="2659"  >登峰</option>
+                                                <option value="2671"  >凤凰</option>
+                                                <option value="94454"  >棠东</option>
+                                                <option value="2676"  >其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <span id="jz-info-tips_city"></span>
+
+                                    <input autofocus="" type="hidden" id="province_name_id"  name="province_name"  value="广东" class="form-control"   required="">
+                                    <input autofocus="" type="hidden" id="city_name_id"  name="city_name"  value="广州" class="form-control"   required="">
+                                    <input autofocus="" type="hidden" id="district_name_id"  name="district_name" value="天河"   class="form-control"   required="">
+                                    <input autofocus="" type="hidden" id="street_name_id"   name="street_name" value="天河北"  class="form-control"   required="">
+                                </div>
+
+                                <div class="clearfix mt20">
+                                    <input type="text" name="address" class="jz-txt fl w400" value="电脑城" >
+                                    <div class="jz-info-tips"></div>
+                                </div>
+                            </dd>
+                        </dl>
+
+                        <dl class="clearfix">
+                            <dt> 公司简介 </dt>
+                            <dd>
+                                <textarea name="brief" class="jz-textarea w400 h145">广州麦尔丹市场信息咨询有限公司，是国内专业的线下营销整合服务机构，可以为客户在华南、华中地区范围内提供活动策划与执行、店内促销、公关路演、校内营销和促销人员管理服务。</textarea>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>联系方式</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl class="clearfix">
+                            <dt><b>*</b>联&ensp;系&ensp;人</dt>
+                            <dd>
+                                <input type="text" value="Jackay" name="person" class="jz-txt w140">
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt><b>*</b>手&ensp;机&ensp;号</dt>
+                            <dd>
+                                <input value="15820201770" type="text" name="mobile" class="jz-txt w140">
+                                <div class="jz-info-tips"></div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>座&ensp;机&ensp;号</dt>
+                            <dd>
+                                <div class="fl mr10">
+                                    <input value="区号" name="area_digit" type="text" class="jz-txt w40">
+                                </div>
+                                <div class="fl">
+                                    <input value="座机号" name="telephone" type="text" class="jz-txt w140">
+                                    <span id="jz-info-tips_telephone"></span>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt> 公司邮箱 </dt>
+                            <dd>
+                                <input value="输入您的邮箱" type="text" name="mail" class="jz-txt w210">
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="jz-info mt30">
+                    <div class="jz-t">
+                        <h2>企业标志（Logo）</h2>
+                    </div>
+                    <div class="jz-info-con pt10">
+                        <dl>
+                            <dt>企业LOGO</dt>
+                            <dd>
+                                <p>
+                                    <style>textarea.ui-uploader-description{display: none;}</style>
+                                <div class="uparea clearfix" style="margin-left: 12px">
+                                    <div class="upbtn">
+                                        <div id="ui-uploader-1" class="ui-uploader">
+                                            <div class="ui-uploader-action">
+                                                <div class="ui-uploader-iframe-container"></div>
+                                                <span class="ui-uploader-message"></span>
+                                            </div>
+
+                                            <div class="ui-uploader-thumbImages ui-uploader-sortable" ></div>
+                                        </div>
+                                        <input type="hidden" name="avatar" id="input_upload_image1" autocomplete="off">
+                                        <script type="text/javascript">
+                                            GJ.use(["tool/uploader2/imageUploader/imageUploader2.js", "tool/uploader2/createUploader.js"], function () {
+                                                var width  = 580;
+                                                var height = 240;
+                                                var name   = "my_img_upload";
+                                                var width1 ;
+                                                var height1;
+                                                width1  = width;
+                                                height1 = height;
+                                                window.ganji_uploader1 = GJ.createUploader(GJ.mix({
+                                                    $input: "#input_upload_image1"
+                                                    ,$thumbImagesContainer : "#ui-uploader-1 .ui-uploader-thumbImages"
+                                                    ,$messageContainer: "#ui-uploader-1 .ui-uploader-message"
+                                                    ,$btnContainer    : "#ui-uploader-1 .ui-uploader-iframe-container"
+                                                    ,maxNum           : 1
+                                                    ,type             : "gif,jpg,jpeg,png,bmp"
+                                                    ,setCover: false
+                                                    ,enableCloudPhoto : false
+                                                    ,postParams : {
+                                                        thumbWidth    : width1
+                                                        ,thumbHeight  : height1
+                                                        ,resizeWidth  : 0
+                                                        ,resizeHeight : 0
+                                                        ,resizeImage: false
+                                                        ,uploadDir    : "nomask"
+                                                    }
+                                                    ,showMessage       : false
+                                                    ,uploadedFiles : null || []
+                                                }, GJ.ImageUploader2));
+                                                $('#input_upload_image1').change(function() {
+                                                    var url = $('#ui-uploader-1 .ui-uploader-thumbImages img').attr('src');
+                                                    if (url) {
+                                                        url = getImgUrl(url, 0, 0);
+                                                        $('input[name="'+name+'"]').val(url);
+                                                        $('#ui-uploader-1 .ui-uploader-thumbImages img, #ui-uploader-1 .ui-uploader-thumbImages .ui-uploader-content').css({'width':width1, 'height':height1});
+                                                        $('#ui-uploader-1 .ui-uploader-thumbImages img').attr('src', url);
+                                                    }else{
+                                                        $('input[name="'+name+'"]').val('');
+                                                    }
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                                </p>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </div>
+
+                <div class="bascInfo-submit">
+                    <input type="submit" id="submit_button_id" class="jz-submit-btn-big" value="更改信息">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrap">
+        <!--div class="friendLink"> <span>友情链接：</span> <a href="#" target="_blank">北京兼职</a> <a href="#" target="_blank">上海兼职</
+    a> <a href="#" target="_blank">广州兼职</a> <a href="#" target="_blank">深圳兼职</a> <a href="#" target="_blank">天津兼职</a> <a hre
+    f="#" target="_blank">武汉兼职</a> <a href="#" target="_blank">重庆兼职</a> <a href="#" target="_blank">南京兼职</a> <a href="#" tar
+    get="_blank">成都兼职</a>   <a href="#" target="_blank">西安兼职</a> <a href="#" target="_blank">郑州兼职</a> </div-->
+        <div class="footer-con clearfix">
+            <div class="footer-logo"> <a href="#" title="斗米兼职--自由工作 乐享生活">斗米兼职--自由工作 乐享生活</a> <span class="footer-logo-slogan"></span> </div>
+            <div class="footer-qrcode">
+                <div class="footer-qrcode-pic"></div>
+                <p class="footer-qrcode-txt">扫描关注公众号</p>
+            </div>
+            <div class="footer-tel">
+                <h4><i></i>客服热线</h4>
+                <div class="footer-tel-code">4007-3333-00</div>
+                <div class="copyRight">©2015-2016 斗米™ 世诚优聘 京ICP备11045189-2号 有偿服务</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/JavaScript">
+    GJ.use('jquery,js/util/validator/validator-2.js', function() {
+        GJ.validator("mobile")
+                .setTipSpanId("jz-info-tips")
+                .setEmptyValue("输入您的手机号码")
+                .setRequired("请填写")
+                .setRegexp(/^1[34578]\d{9}$/, "格式错误", false);
+
+        GJ.validator("person")
+                .setTipSpanId("jz-info-tips_person")
+                .setEmptyValue("请输入联系人")
+                .setRequired("请填写")
+                .setAjax("/ajax/spamtext", "您输入的内容包含敏感词，请检查")
+                .setCallback(function(str){ return /^[\w|\u4E00-\u9FA5]*$/.test(str); }, "仅可用汉字、字母、数字或下划线");
+
+        GJ.validator("mail")
+                .setTipSpanId("jz-info-tips_mail")
+                .setEmptyValue("输入您的邮箱")
+                .setRegexp(/^\w+((-|\.)\w+)*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/, "邮件格式错误", false);
+
+        GJ.validator("city")
+                .setTipSpanId("jz-info-tips_city")
+                .setEmptyValue("")
+                .setRequired("请选择城市");
+
+        GJ.validator("address")
+                .setTipSpanId("jz-info-tips_address")
+                .setEmptyValue("请填写详细地址")
+                .setRequired("请填写详细地址");
+
+        GJ.validator("company_name")
+                .setTipSpanId("jz-info-tips_corp_name")
+                .setEmptyValue("请输入公司简称")
+                .setRequired("请填写")
+                .setAjax("/ajax/spamtext", "您输入的内容包含敏感词，请检查")
+                .setCallback(function(str){ return /^[\w|\u4E00-\u9FA5|\(\)]*$/.test(str); }, "仅可用汉字、字母、数字或下划线");
+
+        GJ.validator("area_digit")
+                .setTipSpanId("jz-info-tips_telephone")
+                .setEmptyValue("区号")
+                .setRegexp(/^[0-9]\d*$/, "格式错误", false);
+
+        GJ.validator("telephone")
+                .setTipSpanId("jz-info-tips_telephone")
+                .setEmptyValue("座机号")
+                .setRegexp(/^[0-9]\d*$/, "格式错误", false);
+
+        GJ.validator("brief")
+                .setTipSpanId("jz-info-tips_brief")
+                .setEmptyValue("请输入内容")
+                .setStrlenType("symbol")
+                .setMaxLength(500, "内容最多500个字")
+                .setAjax("/ajax/spamtext", "您输入的内容包含敏感词，请检查");
+
+
+
+    });
+
+    GJ.use('jquery, panel',function(){
+
+        $("input[name=company_type]").change(function(){
+            var company_type = $("input[name=company_type]:checked").val();
+            location.href = "http://vip.doumi.com/employer/company/edit?company_type=" + company_type;
+        });
+
+        var switchButton = function disableForm(formId,isDisabled) {
+            var attr="disable";
+            if(!isDisabled){
+                attr="enable";
+            }
+            $("form[id='"+formId+"'] :text").attr("disabled",isDisabled);
+            $("form[id='"+formId+"'] textarea").attr("disabled",isDisabled);
+            $("form[id='"+formId+"'] select").attr("disabled",isDisabled);
+            $("form[id='"+formId+"'] :radio").attr("disabled",isDisabled);
+            $("form[id='"+formId+"'] :checkbox").attr("disabled",isDisabled);
+
+        }
+
+        //switchButton('form_id', 'disable');
+
+        $("#change_id").click( function()  {
+            //switchButton('form_id', false);
+            //$(this).hide();
+            //$("#submit_button_id").show();
+        });
+
+
+
+    });
+
+    GJ.use('js/app/common/global/geo.js', function() {
+        var cityDomain = '';
+        //出发地
+        var c = {provinceEl:"#province_id", cityEl:"#city_id", districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getProvince = '';
+            if(getProvince){
+                setTimeout(function(){
+                    $('#id_city').val(getProvince).change();
+                }, 0);
+            }
+        }};
+        var d = {cityEl:"#city_id", districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getCity = '';
+            if(getCity){
+                setTimeout(function(){
+                    $('#id_city').val(getCity).change();
+                }, 0);
+            }
+        }};
+        var o = {districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getStreet = '';
+            if(getStreet){
+                setTimeout(function(){
+                    $('#id_street').val(getStreet).change();
+                }, 0);
+            }
+        }};
+
+        GJ.common.geo.initCity(c);
+        GJ.common.geo.initDistrict(d);
+        GJ.common.geo.initStreet(o);
+
+        $('#province_id').change(function() {
+            $(this).css('color', '');
+            var province_id = $('#province_id').val();
+            var province_text = $('#province_id').find("option:selected").text();
+            $('#province_name_id').val(province_text);
+            $('#city_name_id').val('');
+            $('#district_name_id').val('');
+            $('#street_name_id').val('');
+        });
+
+        $('#city_id').change(function() {
+            $(this).css('color', '');
+            var city_id = $('#city_id').val();
+            var city_text = $('#city_id').find("option:selected").text();
+            $('#city_name_id').val(city_text);
+            $('#district_name_id').val('');
+            $('#street_name_id').val('');
+        });
+
+        $('#district_id').change(function() {
+            $(this).css('color', '');
+            var district_id = $('#district_id').val();
+            var district_text = $('#district_id').find("option:selected").text();
+            $('#district_name_id').val(district_text);
+            $('#street_name_id').val('');
+        });
+
+        $('#street_id').change(function() {
+            $(this).css('color', '');
+            var street_id = $('#street_id').val();
+            var street_text = $('#street_id').find('option:selected').text();
+            $('#street_name_id').val(street_text);
+        });
+    });
+
+
+    GJ.add('js/app/common/global/geo.js',['jquery', 'js/app/pub/ajax_helper.js', 'js/app/pub/jquery.select.js'],function() {
+        GJ.common = GJ.common || {};
+        GJ.common.geo = GJ.common.geo || {};
+
+        GJ.common.geo.initCity = function(c){
+            c =  $.extend({
+                provinceEl: '#id_province_id',
+                cityEl : '#id_city_id',
+                districtEl : '#id_district_id',
+                streetEl : '#id_street_id',
+                domain: '',
+                callback : null
+            }, c);
+
+            var $province = $(c.provinceEl)
+            $city = $(c.cityEl),
+                    $district = $(c.districtEl),
+                    $street = $(c.streetEl),
+                    cityId = -1;
+            $province.bind('change', function() {
+                provinceId = parseInt($(this).val()); //解析当前省份id
+
+                if (provinceId > 0) {
+                    GJ.ajaxHelper.post('/ajax/streetOptions', {domain:c.domain, district_id:provinceId, with_all_option:5}, function(data) {
+                        $city.removeOption(/.*/);
+                        $city.removeAttr('disabled');
+                        for(var i=0; i<data.length; i++){
+                            value = (c.withText && parseInt(data[i][0])>=0) ? data[i][0] + ',' + data[i][1] : data[i][0];
+                            text  = value == -1 ? '城市' :  data[i][1];
+                            selected = (data[i][2]) ? 'selected' : '';
+                            opt = "<option value='" + value + "' script_index='" + data[i][3] + "' "+selected+">" + text + "</option>";
+                            $city.append(opt);
+                        }
+                        c.callback();
+                    }, 'json');
+                } else {
+                    $city.removeOption(/.*/);
+                    $city.addOption(-1,'城市');
+                    $city.attr('disabled', 'disabled');
+                }
+
+                $district.removeOption(/.*/);
+                $district.addOption(-1,'区域');
+                $district.attr('disabled', 'disabled');
+
+                $street.removeOption(/.*/);
+                $street.addOption(-1,'商圈');
+                $street.attr('disabled', 'disabled');
+            });
+        };
+
+        GJ.common.geo.initDistrict = function(d){
+            d =  $.extend({
+                cityEl : '#id_city_id',
+                districtEl : '#id_district_id',
+                streetEl : '#id_street_id',
+                domain: '',
+                callback : null
+            }, d);
+            var $city = $(d.cityEl),
+                    $district = $(d.districtEl),
+                    $street = $(d.streetEl),
+                    cityId = -1;
+            $city.bind('change', function() {
+                cityId = parseInt($(this).val());
+                if (cityId > 0) {
+                    GJ.ajaxHelper.post('/ajax/streetOptions', {domain:d.domain, district_id:cityId, with_all_option:3}, function(data) {
+                        $district.removeOption(/.*/);
+                        $district.removeAttr('disabled');
+                        for(var i=0; i<data.length; i++){
+                            value = (d.withText && parseInt(data[i][0])>=0) ? data[i][0] + ',' + data[i][1] : data[i][0];
+                            text  = value == -1 ? '区域' :  data[i][1];
+                            selected = (data[i][2]) ? 'selected' : '';
+                            opt = "<option value='" + value + "' script_index='" + data[i][3] + "' "+selected+">" + text + "</option>";
+                            $district.append(opt);
+                        }
+                        d.callback();
+                    }, 'json');
+                } else {
+                    $district.removeOption(/.*/);
+                    $district.addOption(-1,'区域');
+                    $district.attr('disabled', 'disabled');
+                }
+                $street.removeOption(/.*/);
+                $street.addOption(-1,'商圈');
+                $street.attr('disabled', 'disabled');
+            });
+        };
+
+        GJ.common.geo.initStreet = function(o) {
+            o =  $.extend({
+                districtEl : '#id_district_id',
+                streetEl : '#id_street_id',
+                domain: '',
+                callback : null
+            }, o);
+            var $district = $(o.districtEl),
+                    $street = $(o.streetEl),
+                    districtId = -1;
+
+            $district.bind('change', function() {
+                districtId = parseInt($(this).val());
+                if (districtId > 0 && districtId != 99) {
+                    GJ.ajaxHelper.post('/ajax/streetOptions', {domain:o.domain, district_id:districtId, with_all_option:1}, function(data) {
+                        if (data.length > 1) {
+                            $street.removeOption(/.*/);
+                            $street.removeAttr('disabled');
+                        }
+                        for(var i=0; i<data.length; i++){
+                            value = (o.withText && parseInt(data[i][0])>=0) ? data[i][0] + ',' + data[i][1] : data[i][0];
+                            text  = value == -1 ? '商圈' :  data[i][1];
+                            selected = (data[i][2]) ? 'selected' : '';
+                            opt = "<option value='" + value + "' script_index='" + data[i][3] + "' "+selected+">" + text + "</option>";
+                            $street.append(opt);
+                        }
+                        o.callback();
+                    }, 'json');
+                } else {
+                    $street.removeOption(/.*/);
+                    $street.addOption(-1,'商圈');
+                    $street.attr('disabled', 'disabled');
+                }
+            });
+        };
+    });
+</script>
+</body>
+</html>
