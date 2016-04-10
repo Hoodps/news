@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form_id" method="POST">
+    <div class="jz-pop addInfo-pop">
+
+        <dl class="clearfix">
+            <dt>面试时间</dt>
+            <dd>
+                <input value="请输入面试时间，例：12月26日，上午8点-12点，30字以内" style="color: #D1D1D1;" type="text" id="interview_time_id" name="interview_time" class="jz-txt w400">
+            </dd>
+        </dl>
+
+        <dl class="clearfix">
+            <dt> 面试位置</dt>
+            <dd>
+                <div class="form-group">
+                    <div class="fl">
+                        <div class="form-select-wrap">
+                            <select name="province" id="province_id" class="w100" autocomplete="off">
+                                <option value="">省份</option>
+                                <option value="1">北京</option>
+                                <option value="2">上海</option>
+                                <option value="3">天津</option>
+                                <option value="4">重庆</option>
+                                <option value="5" selected="">广东</option>
+                                <option value="6">四川</option>
+                                <option value="7">浙江</option>
+                                <option value="8">贵州</option>
+                                <option value="9">辽宁</option>
+                                <option value="10">江苏</option>
+                                <option value="11">福建</option>
+                                <option value="12">河北</option>
+                                <option value="13">河南</option>
+                                <option value="14">吉林</option>
+                                <option value="15">黑龙江</option>
+                                <option value="16">山东</option>
+                                <option value="17">安徽</option>
+                                <option value="18">广西</option>
+                                <option value="19">海南</option>
+                                <option value="20">内蒙古</option>
+                                <option value="21">山西</option>
+                                <option value="22">宁夏</option>
+                                <option value="23">甘肃</option>
+                                <option value="24">陕西</option>
+                                <option value="25">青海</option>
+                                <option value="26">湖北</option>
+                                <option value="27">湖南</option>
+                                <option value="28">江西</option>
+                                <option value="29">云南</option>
+                                <option value="30">新疆</option>
+                                <option value="31">西藏</option>
+                                <option value="33">香港</option>
+                                <option value="35">澳门</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="fl ml-10">
+                    <div class="form-select-wrap">
+                        <select name="city" id="city_id" autocomplete="off">
+                            <option value="">城市</option>
+                            <option value="16" selected="">广州</option>
+                            <option value="17">深圳</option>
+                            <option value="24">东莞</option>
+                            <option value="18">珠海</option>
+                            <option value="19">汕头</option>
+                            <option value="20">佛山</option>
+                            <option value="21">江门</option>
+                            <option value="25">中山</option>
+                            <option value="23">惠州</option>
+                            <option value="22">茂名</option>
+                            <option value="263">韶关</option>
+                            <option value="264">湛江</option>
+                            <option value="265">肇庆</option>
+                            <option value="266">梅州</option>
+                            <option value="267">汕尾</option>
+                            <option value="268">河源</option>
+                            <option value="269">阳江</option>
+                            <option value="270">清远</option>
+                            <option value="271">潮州</option>
+                            <option value="272">揭阳</option>
+                            <option value="273">云浮</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fl ml-10">
+                    <div class="form-select-wrap">
+                        <select name="district" id="district_id" autocomplete="off">
+                            <option value="">区域</option>
+                            <option value="1156">天河</option>
+                            <option value="1155">海珠</option>
+                            <option value="1153">越秀</option>
+                            <option value="1157">白云</option>
+                            <option value="1154">荔湾</option>
+                            <option value="1159">番禺</option>
+                            <option value="1158">黄埔</option>
+                            <option value="1160">花都</option>
+                            <option value="1162">萝岗</option>
+                            <option value="1161">南沙</option>
+                            <option value="1165">经济开发区</option>
+                            <option value="1163">增城</option>
+                            <option value="1164">从化</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fl ml-10">
+                    <div class="form-select-wrap">
+                        <select name="street" id="street_id" autocomplete="off" disabled="">
+                            <option value="">商圈</option>
+                        </select>
+                    </div>
+                </div>
+                <input autofocus="" type="hidden" id="province_name_id" name="province_name" value="广东" class="form-control" required="">
+                <input autofocus="" type="hidden" id="city_name_id" name="city_name" value="广州" class="form-control" required="">
+                <input autofocus="" type="hidden" id="district_name_id" name="district_name" value="" class="form-control" required="">
+                <input autofocus="" type="hidden" id="street_name_id" name="street_name" value="" class="form-control" required="">
+            </dd>
+        </dl>
+        <dl class="clearfix">
+            <dt> 面试地址</dt>
+            <dd>
+                <input value="请输入详细地址，30字以内" style="color: #D1D1D1;" type="text" id="work_address" name="work_address" class="jz-txt w400" autocomplete="off">
+                <div id="searchResultPanel" style="display:none;"></div>
+            </dd>
+        </dl>
+
+        <dl class="clearfix">
+            <dd>
+                <div class="map-area">
+                    <div id="l-map" class="BMap_mask" style="left: 0px; top: 0px; z-index: 0; overflow: hidden; width: 628px; height: 300px; position: relative; color: rgb(0, 0, 0); text-align: left; background-color: rgb(243, 241, 236);"><div style="overflow: visible; position: absolute; z-index: 0; left: 0px; top: 0px; cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default;"><div class="BMap_mask" style="position: absolute; left: 0px; top: 0px; z-index: 9; overflow: hidden; -webkit-user-select: none; width: 628px; height: 300px;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 800;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 700;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 600;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 500;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 400;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 300;"></div><div style="position: absolute; height: 0px; width: 0px; left: 0px; top: 0px; z-index: 200;"></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 1;"><div style="position: absolute; z-index: -100; left: 314px; top: 150px;"><img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: -124px; opacity: 1;"><img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: -124px; opacity: 1;"><img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: -124px; opacity: 1;"><img src="http://online3.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: 132px; opacity: 1;"><img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=790&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -248px; top: -380px; opacity: 1;"><img src="http://online1.map.bdimg.com/tile/?qt=tile&amp;x=792&amp;y=294&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 264px; top: -124px; opacity: 1;"><img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: 132px; opacity: 1;"><img src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: 132px; opacity: 1;"><img src="http://online1.map.bdimg.com/tile/?qt=tile&amp;x=791&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 8px; top: -380px; opacity: 1;"><img src="http://online4.map.bdimg.com/tile/?qt=tile&amp;x=789&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: -504px; top: -380px; opacity: 1;"><img src="http://online0.map.bdimg.com/tile/?qt=tile&amp;x=792&amp;y=293&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 264px; top: 132px; opacity: 1;"><img src="http://online2.map.bdimg.com/tile/?qt=tile&amp;x=792&amp;y=295&amp;z=12&amp;styles=pl&amp;udt=20150518" style="position: absolute; border: none; width: 256px; height: 256px; left: 264px; top: -380px; opacity: 1;"></div></div><div style="position: absolute; top: 0px; left: 0px; z-index: 2;"></div></div><div id="zoomer" style="position:absolute;z-index:0;top:0px;left:0px;overflow:hidden;visibility:hidden;cursor:url(http://api.map.baidu.com/images/openhand.cur) 8 8,default"><div class="BMap_zoomer" style="top:0;left:0;"></div><div class="BMap_zoomer" style="top:0;right:0;"></div><div class="BMap_zoomer" style="bottom:0;left:0;"></div><div class="BMap_zoomer" style="bottom:0;right:0;"></div></div><div unselectable="on" class=" BMap_stdMpCtrl BMap_stdMpType0 BMap_noprint anchorTL" style="width: 52px; height: 233px; bottom: auto; right: auto; top: 10px; left: 10px; position: absolute; z-index: 1100;"><div class="BMap_stdMpPan"><div class="BMap_button BMap_panN" title="向上平移"></div><div class="BMap_button BMap_panW" title="向左平移"></div><div class="BMap_button BMap_panE" title="向右平移"></div><div class="BMap_button BMap_panS" title="向下平移"></div><div class="BMap_stdMpPanBg BMap_smcbg"></div></div><div class="BMap_stdMpZoom" style="height: 174px; width: 52px;"><div style="height: 174px; width: 37px;"><div class="BMap_button BMap_stdMpZoomIn" title="放大一级"><div class="BMap_smcbg"></div></div><div class="BMap_button BMap_stdMpZoomOut" title="缩小一级"><div class="BMap_smcbg"></div></div></div><div class="BMap_stdMpSlider" style="height: 140px;"><div class="BMap_stdMpSliderBgTop" style="height: 131px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSliderBgBot" style="top: 131px;"><div class="BMap_smcbg"></div></div><div class="BMap_stdMpSliderMask" title="放置到此级别"></div><div class="BMap_stdMpSliderBar" title="拖动缩放" style="cursor: url(&quot;http://api.map.baidu.com/images/openhand.cur&quot;) 8 8, default; top: 50px;"><div class="BMap_smcbg"></div></div></div><div class="BMap_zlHolder"><div class="BMap_zlSt"><div class="BMap_smcbg"></div></div><div class="BMap_zlCity"><div class="BMap_smcbg"></div></div><div class="BMap_zlProv"><div class="BMap_smcbg"></div></div><div class="BMap_zlCountry"><div class="BMap_smcbg"></div></div></div></div></div><div unselectable="on" class=" BMap_cpyCtrl anchorBL" style="cursor: default; white-space: nowrap; color: black; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 11px; line-height: 15px; font-family: arial, sans-serif; bottom: 2px; right: auto; top: auto; left: 81px; position: absolute; z-index: 10; background: none;"><span _cid="1" style="display: inline;"><span style="font-size:11px">© 2015 Baidu</span></span></div><div class=" anchorBL" style="height: 32px; position: absolute; z-index: 10; bottom: 0px; right: auto; top: auto; left: 1px;"><a title="到百度地图查看此区域" target="_blank" href="http://map.baidu.com/?sr=1" style="outline: none;"><img style="border:none;width:77px;height:32px" src="http://api.map.baidu.com/images/copyright_logo.png"></a></div></div>
+                    <input type="hidden" value="" name="latlng" id="latlng">
+                    <input type="hidden" value="" name="id">
+                    <input type="hidden" value="" name="act">
+                </div>
+            </dd>
+        </dl>
+        <div class="mt30 txt-c">
+            <a id="submit_id" class="org-btn btn0 fb" style="cursor:pointer;">保存</a>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    var handle = 'handle_1459932363';
+
+
+    /**
+     * 设置标签的placeholder
+     */
+    function setPlaceHolder(objStr, placeHolder){
+        $(objStr).val(placeHolder);
+        $(objStr).css('color', '#D1D1D1');
+        //$(objStr).css('color', '#AAAAAA');
+    }
+
+    /**
+     * 清除标签的placeholder
+     */
+    function clearPlaceHolder(objStr){
+        $(objStr).val('');
+        $(objStr).css('color', '#000000');
+    }
+
+    //面试时间
+    GJ.use('jquery', function() {
+        $("#interview_time_id").blur(function () {
+            if($('#interview_time_id').val() == ''){
+                setPlaceHolder('#interview_time_id', '请输入面试时间，例：12月26日，上午8点-12点，30字以内');
+            }
+        });
+        $("#interview_time_id").focus(function () {
+            //alert($('#interview_time_id').val());
+            if($('#interview_time_id').val() == '请输入面试时间，例：12月26日，上午8点-12点，30字以内'){
+                clearPlaceHolder('#interview_time_id');
+            }
+        });
+    });
+
+    //面试地址
+    GJ.use('jquery', function() {
+        $("#work_address").blur(function () {
+            if($('#work_address').val() == ''){
+                setPlaceHolder('#work_address', '请输入详细地址，30字以内');
+            }
+        });
+        $("#work_address").focus(function () {
+            if($('#work_address').val() == '请输入详细地址，30字以内'){
+                clearPlaceHolder('#work_address');
+            }
+        });
+    });
+
+    GJ.use('js/util/iframe/talk_to_parent.js', function () {
+        $('#submit_id').click(function(){
+            var obj      = new Object();
+            obj.action   = 'add';
+            obj.handle   = handle;
+            obj.addrText = $("#work_address").val()/*real_work_address*/;
+            obj.addrMore = $("#work_address_detail").val();
+            obj.province = $("#province_id").val();
+            obj.city     = $("#city_id").val();
+            obj.district = $("#district_id").val();
+            obj.street   = $("#street_id").val();
+            obj.provinceName = $("#province_name_id").val();
+            obj.cityName     = $("#city_name_id").val();
+            obj.districtName = $("#district_name_id").val();
+            obj.streetName   = $("#street_name_id").val();
+            obj.showText = obj.provinceName + '-' + obj.cityName;
+            obj.showText += obj.districtName ? '-' + obj.districtName : '';
+            obj.showText += obj.streetName ? '-' + obj.streetName : '';
+            obj.showText += obj.addrText ? '    ' + obj.addrText : '';
+
+            if(obj.addrMore) {
+                obj.showText += '-' + obj.addrMore;
+            }
+            //console.log(obj);
+            obj.latlng       = $("#latlng").val();
+            var act = 'interview';
+            if(act == 'interview') {
+                /*obj.interviewDate = $("#interview_date_id").val();*/
+                if($("#interview_time_id").val() == '请输入面试时间，例：12月26日，上午8点-12点，30字以内'){
+                    alert('请填写面试时间！');
+                    return false;
+                }else{
+                    if($("#interview_time_id").val().length > 30){
+                        alert('面试时间字数超出限制！');
+                        return false;
+                    }
+                }
+                obj.interviewTime = $("#interview_time_id").val();
+            }
+            if(!obj.province || !obj.city/* || !obj.latlng*/) {
+                alert('信息请选择完整！');
+                return false;
+            }
+            if(!obj.addrText || obj.addrText == '请输入详细地址，30字以内') {
+                alert('请输入详细地址！');
+                return false;
+            }else{
+                if(obj.addrText.length > 30){
+                    alert('面试地点字数超出限制！');
+                    return false;
+                }
+            }
+            GJ.talkToParent.callParentHandler('setCommentText', obj);
+            GJ.talkToParent.close();
+        });
+    });
+
+    GJ.use('jquery,tool/bmap/create_set2.js, js/app/common/global/geo.js,js/app/pub/ajax_helper.js,js/app/pub/jquery.select.js', function() {
+        var mapNew = new BMap.Map("l-map");
+        mapNew.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+        mapNew.enableScrollWheelZoom();
+        mapNew.enableContinuousZoom();
+
+        var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+        mapNew.addControl(top_left_navigation);
+
+        var ac = new BMap.Autocomplete({//建立一个自动完成的对象
+            "input": "work_address",
+            "location": mapNew
+        });
+
+        ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
+            var str = "";
+            var _value = e.fromitem.value;
+            var value = "";
+            if (e.fromitem.index > -1) {
+                value = _value.province + _value.city + _value.district + _value.street + _value.business;
+            }
+            str = 'FromItem<br />index = ' + e.fromitem.index + '<br />value = ' + value;
+
+            value = "";
+            if (e.toitem.index > -1) {
+                _value = e.toitem.value;
+                value = _value.province + _value.city + _value.district + _value.street + _value.business;
+            }
+            str += '<br />ToItem<br />index = ' + e.toitem.index + '<br />value = ' + value;
+            $("#searchResultPanel").innerHTML = str;
+        });
+
+        var myValue;
+        ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+            var _value = e.item.value;
+            myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+            $("#searchResultPanel").innerHTML = 'onconfirm<br />index = ' + e.item.index + '<br />myValue = ' + myValue;
+            $('#real_work_address').val(myValue);
+
+            setPlace();
+        });
+        function setPlace() {
+            mapNew.clearOverlays();    //清除地图上所有覆盖物
+            function myFun() {
+                var pp = localNew.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                $('#latlng').val('b'+pp.lat+','+pp.lng);
+                mapNew.centerAndZoom(pp, 16);
+                mapNew.addOverlay(new BMap.Marker(pp));    //添加标注
+            };
+            var localNew = new BMap.LocalSearch(mapNew, { //智能搜索
+                onSearchComplete: myFun
+            });
+            localNew.search(myValue);
+        }
+
+        function theLocation(address, level, mark){
+            if(typeof(level)=='undefined' || level==''){
+                level = 14;
+            }
+            if(typeof(address)=='undefined' || address==''){
+                address = '北京市';
+            }
+            mapNew.clearOverlays();    //清除地图上所有覆盖物
+            function myFun() {
+                var pp = localNew.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                //alert(JSON.stringify(pp));
+                mapNew.centerAndZoom(pp, level);
+                if(mark == 1){
+                    mapNew.addOverlay(new BMap.Marker(pp));    //添加标注
+                }
+            };
+            var localNew = new BMap.LocalSearch(mapNew, { //智能搜索
+                onSearchComplete: myFun
+            });
+            localNew.search(address);
+        }
+
+        if($('#work_address').val()==''){
+            var tempLevel = 10;
+            var tempAddrs = '';
+            if($('#province_name_id').val()!=''){
+                tempAddrs = $('#province_name_id').val();
+                tempLevel = 11;
+            }
+            if($('#city_name_id').val()!=''){
+                if(tempAddrs != $('#city_name_id').val()){
+                    tempAddrs += $('#city_name_id').val();
+                    tempLevel = 12;
+                }
+            }
+            if($('#district_name_id').val()!=''){
+                tempAddrs += $('#district_name_id').val();
+                tempLevel = 13;
+            }
+            if($('#street_name_id').val()!=''){
+                tempAddrs += $('#street_name_id').val();
+                tempLevel = 14;
+            }
+            if(tempAddrs != ''){
+                theLocation(tempAddrs, tempLevel);
+            }else{
+                theLocation('北京市', 11);
+            }
+        }else{
+            theLocation($('#work_address').val(), 16, 1);
+        }
+
+        var cityDomain = 'bj';
+        //出发地
+        var c = {provinceEl:"#province_id", cityEl:"#city_id", districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getProvince = '';
+            if(getProvince){
+                setTimeout(function(){
+                    $('#id_city').val(getProvince).change();
+                }, 0);
+            }
+        }};
+        var d = {cityEl:"#city_id", districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getCity = '';
+            if(getCity){
+                setTimeout(function(){
+                    $('#id_city').val(getCity).change();
+                }, 0);
+            }
+        }};
+        var o = {districtEl:"#district_id", streetEl:"#street_id", domain:cityDomain, callback:function(){
+            var getStreet = '';
+            if(getStreet){
+                setTimeout(function(){
+                    $('#id_street').val(getStreet).change();
+                }, 0);
+            }
+        }};
+
+
+
+        $('#province_id').change(function() {
+            $(this).css('color', '');
+            var province_id = $('#province_id').val();
+            var province_text = $('#province_id').find("option:selected").text();
+            $('#province_name_id').val(province_text);
+            $('#city_name_id').val('');
+            $('#district_name_id').val('');
+            $('#street_name_id').val('');
+
+            //creatMap();
+            theLocation(province_text, 11);
+        });
+
+        $('#city_id').change(function() {
+            $(this).css('color', '');
+            var city_id = $('#city_id').val();
+            var city_text = $('#city_id').find("option:selected").text();
+            $('#city_name_id').val(city_text);
+            $('#district_name_id').val('');
+            $('#street_name_id').val('');
+            //creatMap();
+            if($('#province_name_id').val() == city_text){
+                theLocation(city_text, 12);
+            }else{
+                theLocation($('#province_name_id').val()+city_text, 12);
+            }
+        });
+
+        $('#district_id').change(function() {
+            $(this).css('color', '');
+            var district_id = $('#district_id').val();
+            var district_text = $('#district_id').find("option:selected").text();
+            $('#district_name_id').val(district_text);
+            $('#street_name_id').val('');
+            //creatMap();
+            if($('#province_name_id').val() == $('#city_name_id').val()){
+                theLocation($('#city_name_id').val()+district_text, 13);
+            }else{
+                theLocation($('#province_name_id').val()+$('#city_name_id').val()+district_text, 13);
+            }
+        });
+
+        $('#street_id').change(function(){
+            $(this).css('color', '');
+            var street_id = $('#street_id').val();
+            var street_text = $('#street_id').find("option:selected").text();
+            $('#street_name_id').val(street_text);
+            //creatMap();
+            if($('#province_name_id').val() == $('#city_name_id').val()){
+                theLocation($('#city_name_id').val()+$('#district_name_id').val()+street_text, 14);
+            }else{
+                theLocation($('#province_name_id').val()+$('#city_name_id').val()+$('#district_name_id').val()+street_text, 14);
+            }
+        });
+    });
+
+
+</script>
+
+
+
+<div class="tangram-suggestion-main" id="tangram-suggestion--TANGRAM__s-main" data-guid="TANGRAM__s" style="position: absolute; display: none; left: 77px; top: 120px; width: 422px;"><div id="tangram-suggestion--TANGRAM__s" class="tangram-suggestion" style="position:relative; top:0px; left:0px"></div></div></body>
+</html>

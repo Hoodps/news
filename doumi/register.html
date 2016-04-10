@@ -287,7 +287,7 @@
         }
 
         .icon-clear::after,.radio-group input[type="radio"]:checked+span:after,.checkbox-group input[type="checkbox"]:checked+span:after,.pic-group .btn-file::after,.pic-group li::after {
-            background: url(../../../../../image/mobile/app/parttime_job/dealer/icon_form.png) no-repeat;
+            background: url(images/icon_form.png) no-repeat;
             -webkit-background-size: 100px auto;
             -ms-background-size: 100px auto;
             background-size: 100px auto
@@ -2429,9 +2429,7 @@
 
 
     </style>
-    <style>
 
-    </style>
 <body>
 <div class="pagewrap">
     <!-- header start -->
@@ -2532,9 +2530,9 @@
     </div>
 </aside>
 
-
+<script src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
-    G.use(['$'], function() {
+    $(document).ready(function(){
         tipHide = function (){
             $("#error_tip_id").removeClass('active');
         }
